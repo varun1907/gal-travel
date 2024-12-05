@@ -1,5 +1,3 @@
-import Image from "next/image";
-import PortraitPhoto from "../components/PortraitPhoto";
 
 export default function PrivacyPolicy() {
   return (

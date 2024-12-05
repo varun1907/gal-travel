@@ -2,27 +2,26 @@
 import React from "react";
 // import Image from "next/image";
 // import dynamic from "next/dynamic";
-import dummy_full from "../../public/dummy_full.svg";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-const guides = [
-  {
-    location: "Switzerland",
-    image: "/dummy_full.svg", // Replace with the actual image path
-  },
-  {
-    location: "Paris",
-    image: "/dummy_full.svg",
-  },
-  {
-    location: "New York",
-    image: "/dummy_full.svg",
-  },
-  {
-    location: "Switzerland",
-    image: "/dummy_full.svg",
-  },
-];
+// const guides = [
+//   {
+//     location: "Switzerland",
+//     image: "/dummy_full.svg", // Replace with the actual image path
+//   },
+//   {
+//     location: "Paris",
+//     image: "/dummy_full.svg",
+//   },
+//   {
+//     location: "New York",
+//     image: "/dummy_full.svg",
+//   },
+//   {
+//     location: "Switzerland",
+//     image: "/dummy_full.svg",
+//   },
+// ];
 
 const MasonryImage = () => {
   return (
