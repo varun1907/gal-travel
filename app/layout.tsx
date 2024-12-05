@@ -1,16 +1,40 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const ragilac = localFont({
+  src: [
+    {
+      path: "./fonts/Ragilac.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-ragilac", // CSS variable for ragilac
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const redHat = localFont({
+  src: [
+    {
+      path: "./fonts/RedHatDisplay-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/RedHatDisplay-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/RedHatDisplay-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    { path: "./fonts/RedHatDisplay-Bold.ttf", weight: "700", style: "normal" },
+  ],
+  variable: "--font-redHat", // CSS variable for redHat
 });
 
 export const metadata: Metadata = {
@@ -24,11 +48,123 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${ragilac.variable} ${redHat.variable}`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header
+          className="flex justify-between items-center px-24"
+          style={{ height: 100 }}
+        >
+          <Image
+            aria-hidden
+            src="/logo.svg"
+            alt="Site Logo"
+            width={134}
+            height={50}
+          />
+
+          <div className="flex justify-between items-center">
+            <Link
+              href="/blogs"
+              className="font-redHat text-sm font-regular mr-10"
+            >
+              BLOGS
+            </Link>
+            <Link href="/about" className="font-redHat text-sm font-regular">
+              ABOUT
+            </Link>
+          </div>
+        </header>
         {children}
+        <footer>
+          <div
+            className="hero"
+            style={{
+              height: 600,
+              width: "100%",
+              backgroundImage: "url(./newsletter.svg)",
+              backgroundSize: "stretch",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="hero-content text-neutral-content text-center">
+              <div className="max-w-lg">
+                <Image
+                  aria-hidden
+                  className="mb-3"
+                  src="/footer_line.svg"
+                  alt="Footer line"
+                  width={580}
+                  height={38}
+                />
+                <p className="mb-2 text-3xl font-redHat font-medium">
+                  Subscribe to my Monthly Newsletter
+                </p>
+                <p className="mb-7 font-redHat font-medium text-base">
+                  Don’t Miss Out! Be the First to Know About New Destinations,
+                  Offers, and Luxury Travel Experiences.
+                </p>
+                <button className="btn btn-accent text-white btn-lg">
+                  SUBSCRIBE
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-between items-center h-14">
+            <div className="flex h-14 flex-1">
+              <div
+                className="flex  items-center justify-center px-8"
+                style={{ background: "#C95C5C", flex: 0.1 }}
+              >
+                <Link
+                  href="/privacy-policy"
+                  className="font-redHat text-base font-regular"
+                >
+                  Email
+                </Link>
+              </div>
+              <div
+                className="flex  items-center justify-center px-8"
+                style={{ background: "#E5B791", flex: 0.3 }}
+              >
+                <Link
+                  href="/privacy-policy"
+                  className="font-redHat text-base font-regular"
+                >
+                  Pinterest
+                </Link>
+              </div>
+              <div
+                className="flex  items-center justify-center px-8"
+                style={{ background: "#E7BFBF", flex: 0.6 }}
+              >
+                <Link
+                  href="/privacy-policy"
+                  className="font-redHat text-base font-regular"
+                >
+                  Instagram
+                </Link>
+              </div>
+            </div>
+            <div
+              className="flex flex-1 items-center justify-end h-14"
+              style={{ backgroundColor: "#EAD5C4" }}
+            >
+              <Link
+                href="/privacy-policy"
+                className="font-redHat text-base font-regular underline"
+              >
+                Privacy Policy
+              </Link>
+              <p className="font-redHat text-base font-regular px-2">|</p>
+              <p className="font-redHat text-base font-regular pr-40">
+                GalTravel © 2024
+              </p>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
