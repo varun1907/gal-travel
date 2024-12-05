@@ -49,9 +49,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ragilac.variable} ${redHat.variable}`}>
+    <html
+      lang="en"
+      // className={`${ragilac.variable} ${redHat.variable}`}
+    >
       <body
-      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ragilac.variable} ${redHat.variable}`}
+        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
         {children}
