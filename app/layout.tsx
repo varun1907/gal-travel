@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "./components/Header";
 
 const ragilac = localFont({
   src: [
@@ -52,30 +53,7 @@ export default function RootLayout({
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header
-          className="flex justify-between items-center px-24"
-          style={{ height: 100 }}
-        >
-          <Image
-            aria-hidden
-            src="/logo.svg"
-            alt="Site Logo"
-            width={134}
-            height={50}
-          />
-
-          <div className="flex justify-between items-center">
-            <Link
-              href="/blogs"
-              className="font-redHat text-sm font-regular mr-10"
-            >
-              BLOGS
-            </Link>
-            <Link href="/about" className="font-redHat text-sm font-regular">
-              ABOUT
-            </Link>
-          </div>
-        </header>
+        <Header />
         {children}
         <footer>
           <div
@@ -84,7 +62,7 @@ export default function RootLayout({
               height: 600,
               width: "100%",
               backgroundImage: "url(./newsletter.svg)",
-              backgroundSize: "stretch",
+              backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
@@ -93,7 +71,7 @@ export default function RootLayout({
               <div className="max-w-lg">
                 <Image
                   aria-hidden
-                  className="mb-3"
+                  className="mb-3 mx-auto"
                   src="/footer_line.svg"
                   alt="Footer line"
                   width={580}
@@ -112,56 +90,66 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center h-14">
-            <div className="flex h-14 flex-1">
+
+          <div className="block md:flex">
+            <div className="flex flex-col md:flex-row w-full flex-1">
+              {/* Email */}
               <div
-                className="flex  items-center justify-center px-8"
-                style={{ background: "#C95C5C", flex: 0.1 }}
+                className="flex justify-center items-center h-16 md:h-14"
+                style={{ background: "#C95C5C", flex: "0.1" }}
               >
                 <Link
                   href="/privacy-policy"
-                  className="font-redHat text-base font-regular"
+                  className="font-redHat text-base font-regular text-center w-full"
                 >
                   Email
                 </Link>
               </div>
+              {/* Pinterest */}
               <div
-                className="flex  items-center justify-center px-8"
-                style={{ background: "#E5B791", flex: 0.3 }}
+                className="flex justify-center items-center h-16 md:h-14"
+                style={{ background: "#E5B791", flex: "0.3" }}
               >
                 <Link
                   href="/privacy-policy"
-                  className="font-redHat text-base font-regular"
+                  className="font-redHat text-base font-regular text-center w-full"
                 >
                   Pinterest
                 </Link>
               </div>
+              {/* Instagram */}
               <div
-                className="flex  items-center justify-center px-8"
-                style={{ background: "#E7BFBF", flex: 0.6 }}
+                className="flex justify-center items-center h-16 md:h-14"
+                style={{ background: "#E7BFBF", flex: "0.6" }}
               >
                 <Link
                   href="/privacy-policy"
-                  className="font-redHat text-base font-regular"
+                  className="font-redHat text-base font-regular text-center w-full"
                 >
                   Instagram
                 </Link>
               </div>
             </div>
+
+            {/* Privacy Policy and Footer Text */}
             <div
-              className="flex flex-1 items-center justify-end h-14"
+              className="flex justify-center items-center h-14 w-full md:flex-1"
               style={{ backgroundColor: "#EAD5C4" }}
             >
-              <Link
-                href="/privacy-policy"
-                className="font-redHat text-base font-regular underline"
-              >
-                Privacy Policy
-              </Link>
-              <p className="font-redHat text-base font-regular px-2">|</p>
-              <p className="font-redHat text-base font-regular pr-40">
-                GalTravel © 2024
-              </p>
+              <div className="flex justify-center items-center">
+                <Link
+                  href="/privacy-policy"
+                  className="font-redHat text-base font-regular underline"
+                >
+                  Privacy Policy
+                </Link>
+                <span className="font-redHat text-base font-regular px-2">
+                  |
+                </span>
+                <p className="font-redHat text-base font-regular">
+                  GalTravel © 2024
+                </p>
+              </div>
             </div>
           </div>
         </footer>

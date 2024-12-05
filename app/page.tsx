@@ -23,63 +23,50 @@ const guides = [
 export default function Home() {
   return (
     <div>
-      <div className="carousel w-full" style={{ height: 600 }}>
+      <div className="carousel w-full" style={{ height: "600px" }}>
+        {/* Carousel Item 1 */}
         <div id="item1" className="carousel-item w-full relative">
           <div
-            className="absolute"
+            className="absolute px-4 text-center"
             style={{
               left: "50%",
               top: "25%",
-              transform: `translate(-50%,-50%)`,
+              transform: `translate(-50%, -50%)`,
             }}
           >
-            <p className="text-6xl text-center font-ragilac font-regular text-white">
+            {/* <p className="text-4xl md:text-6xl font-ragilac font-regular text-white">
               Hi, I’m Chandni,
             </p>
-            <p className="text-3xl text-center mt-8 font-redHat font-regular text-white">
+            <p className="text-lg md:text-3xl mt-8 font-redHat font-regular text-white">
               I’m a travel blogger, an entrepreneur, and completely in love with
               exploring the world.
-            </p>
+            </p> */}
           </div>
           <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full"
+            src="/carosel-1.svg"
+            className="w-full object-cover h-full"
+            alt="Slide 1"
           />
         </div>
+
+        {/* Carousel Item 2 */}
         <div id="item2" className="carousel-item w-full">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full"
+            src="/carosel-2.svg"
+            className="w-full object-cover h-full"
+            alt="Slide 2"
           />
         </div>
+
+        {/* Carousel Item 3 */}
         <div id="item3" className="carousel-item w-full">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full"
-          />
-        </div>
-        <div id="item4" className="carousel-item w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full"
+            src="/carosel-2.svg"
+            className="w-full object-cover h-full"
+            alt="Slide 3"
           />
         </div>
       </div>
-      {/* <div className="flex w-full justify-center gap-2 py-2">
-        <a href="#item1" className="btn btn-xs">
-          1
-        </a>
-        <a href="#item2" className="btn btn-xs">
-          2
-        </a>
-        <a href="#item3" className="btn btn-xs">
-          3
-        </a>
-        <a href="#item4" className="btn btn-xs">
-          4
-        </a>
-      </div> */}
-
       <div
         className="bg-brown flex mt-20"
         style={{ marginLeft: 100, marginRight: 100, padding: 30 }}
@@ -114,8 +101,7 @@ export default function Home() {
           <MasonryImage />
         </div>
       </div>
-
-      <div className="my-20" style={{ marginLeft: 100, marginRight: 100 }}>
+      {/* <div className="my-20" style={{ marginLeft: 100, marginRight: 100 }}>
         <div className="flex flex-1 gap-4">
           <div
             className="flex border-dark_brown border-solid items-center justify-between px-20"
@@ -239,30 +225,124 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <div className="my-20 mx-6 lg:mx-24">
+        {/* Row 1 */}
+        <div className="flex flex-col lg:flex-row gap-4">
+          {/* Countries Travelled */}
+          <div className="flex flex-col lg:flex-row items-center border-dark_brown border-solid justify-between px-6 py-4 lg:px-20 border-4 flex-1 lg:flex-[0.5] h-auto lg:h-64">
+            <Image
+              aria-hidden
+              className="mb-3 lg:mb-0"
+              src="/world.svg"
+              alt="World Map"
+              width={287}
+              height={188}
+            />
+            <div className="text-center lg:text-left">
+              <p className="font-redHat font-medium text-3xl">XX</p>
+              <p className="font-redHat font-medium text-base">
+                COUNTRIES TRAVELLED
+              </p>
+            </div>
+          </div>
 
-      <div
-        className="relative my-24"
-        style={
-          {
-            // marginLeft: 100, marginRight: 100
-          }
-        }
-      >
+          {/* Flights Almost Missed */}
+          <div className="flex flex-col items-center border-dark_brown border-solid justify-center py-4 border-4 flex-1 lg:flex-[0.25] h-auto lg:h-64">
+            <Image
+              aria-hidden
+              className="mb-3"
+              src="/airplane.svg"
+              alt="Airplane Icon"
+              width={63}
+              height={56}
+            />
+            <p className="font-redHat font-medium text-3xl">XX</p>
+            <p className="font-redHat font-medium text-base">
+              FLIGHTS ALMOST MISSED
+            </p>
+          </div>
+
+          {/* Times I Got Lost */}
+          <div className="flex flex-col items-center border-dark_brown border-solid justify-center py-4 border-4 flex-1 lg:flex-[0.25] h-auto lg:h-64">
+            <Image
+              aria-hidden
+              className="mb-3"
+              src="/lost.svg"
+              alt="Lost Icon"
+              width={126}
+              height={81}
+            />
+            <p className="font-redHat font-medium text-3xl">XX</p>
+            <p className="font-redHat font-medium text-base">
+              TIMES I GOT LOST
+            </p>
+          </div>
+        </div>
+
+        {/* Row 2 */}
+        <div className="flex flex-col lg:flex-row gap-4 mt-4">
+          {/* Times My Luggage Didn’t Arrive */}
+          <div className="flex flex-col items-center border-dark_brown border-solid justify-center py-4 border-4 flex-1 lg:flex-[0.25] h-auto lg:h-64">
+            <Image
+              aria-hidden
+              className="mb-3"
+              src="/bags.svg"
+              alt="Bags Icon"
+              width={68}
+              height={88}
+            />
+            <p className="font-redHat font-medium text-3xl">XX</p>
+            <p className="font-redHat font-medium text-base">
+              TIMES MY LUGGAGE DIDN’T ARRIVE
+            </p>
+          </div>
+
+          {/* Hotels Stayed In */}
+          <div className="flex flex-col items-center border-dark_brown border-solid justify-center py-4 border-4 flex-1 lg:flex-[0.25] h-auto lg:h-64">
+            <Image
+              aria-hidden
+              className="mb-3"
+              src="/building.svg"
+              alt="Building Icon"
+              width={94}
+              height={102}
+            />
+            <p className="font-redHat font-medium text-3xl">XX</p>
+            <p className="font-redHat font-medium text-base">
+              HOTELS STAYED IN
+            </p>
+          </div>
+
+          {/* Friends Made Along the Way */}
+          <div className="flex flex-col lg:flex-row items-center border-dark_brown border-solid justify-between px-6 py-4 lg:px-20 border-4 flex-1 lg:flex-[0.5] h-auto lg:h-64">
+            <Image
+              aria-hidden
+              className="mb-3 lg:mb-0"
+              src="/friends.svg"
+              alt="Friends Icon"
+              width={213}
+              height={236}
+            />
+            <div className="text-center lg:text-left">
+              <p className="font-redHat font-medium text-3xl">XX</p>
+              <p className="font-redHat font-medium text-base">
+                FRIENDS I MADE ALONG THE WAY
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative my-24">
         {/* Text and Image Block */}
-        <div
-          className="flex justify-between"
-          style={{
-            paddingLeft: 100,
-            paddingRight: 100,
-          }}
-        >
-          <div style={{ flex: 1 }}>
+        <div className="flex flex-col md:flex-row items-center md:justify-between md:px-24 px-4">
+          {/* Text Content */}
+          <div className="flex-1 text-center md:text-left">
             <p className="font-redHat font-medium text-xl">
               What to expect from my Travel blogs
             </p>
-            <p className="font-redHat font-regular text-base mt-6">
-              I’ve been travelling solo for years, building up a mile long list
+            <p className="font-redHat font-regular text-base mt-4">
+              I’ve been travelling solo for years, building up a mile-long list
               of hidden gems, must-see destinations, and off-the-beaten-path
               experiences. My travel guides are like your BFFs—trustworthy, fun,
               and full of insider tips—so you’ll always feel like a local
@@ -270,9 +350,12 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Portrait Image */}
           <div
-            className="flex justify-center"
-            style={{ flex: 1, marginLeft: 200, zIndex: 100 }}
+            className="flex justify-center mt-8 md:mt-0 flex-1"
+            style={{
+              zIndex: 100,
+            }}
           >
             <PortraitPhoto />
           </div>
@@ -282,33 +365,26 @@ export default function Home() {
         <img
           src="/dotted_plane.svg"
           alt="Plane with dotted line"
-          className="absolute"
-          style={{
-            top: "90%", // Adjust based on the position you want
-            left: "0%", // Adjust to align properly
-            transform: "translateY(-50%)", // Center the image if needed
-            width: "100%", // Adjust width as per design
-          }}
+          // className="absolute w-full top-[50%] md:top-[90%] left-0 transform -translate-y-1/2"
+          className="absolute w-full bottom[0%] md:top-[90%] left-0 transform -translate-y-1/2"
         />
       </div>
 
-      <div className="my-24" style={{ marginLeft: 100, marginRight: 100 }}>
-        <p className="font-redHat font-medium text-xl">LATEST GUIDES</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="my-24 px-4 md:px-20">
+        <p className="font-redHat font-medium text-xl mb-8">LATEST GUIDES</p>
+        <div className="flex space-x-6 overflow-x-scroll scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-hidden">
           {guides.map((guide, index) => (
             <div
               key={index}
-              className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="min-w-full lg:min-w-0 border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              {/* Image */}
-              <div className="h-48 overflow-hidden">
+              <div className="h-72 md:h-48 overflow-hidden">
                 <img
                   src={guide.image}
                   alt={guide.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Content */}
               <div className="p-4">
                 <p className="card-title text-xs text-secondary-content">
                   {guide.country}
@@ -324,7 +400,7 @@ export default function Home() {
       </div>
 
       <div
-        className="my-24 flex justify-between"
+        className="my-24 flex justify-between md: hidden lg:flex"
         style={{ marginLeft: 100, marginRight: 100, alignItems: "center" }}
       >
         <div style={{ flex: 1 }}>
