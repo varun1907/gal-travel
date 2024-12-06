@@ -68,7 +68,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-brown px-4 lg:px-20 py-8">
+      <div className="bg-brown px-4 lg:px-20 py-8 mx-6 lg:mx-24 my-20">
         <div className="lg:flex lg:justify-between lg:items-start">
           <div className="lg:w-1/2 md:mr-40 lg mr-0">
             <p className="font-redHat font-medium text-lg lg:text-xl text-center lg:text-left">

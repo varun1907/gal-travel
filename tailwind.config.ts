@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        fontragilac: ["var(--font-ragilac)", "sans-serif"],
-        fontredHat: ["var(--font-redHat)", "sans-serif"],
+        ragilac: ["var(--font-ragilac)", "sans-serif"],
+        redHat: ["var(--font-redHat)", "sans-serif"],
       },
       colors: {
         // Custom color "test" defined here

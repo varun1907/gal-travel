@@ -19,18 +19,29 @@ const MasonryImage = () => {
       {images.map((image, index) => (
         <div
           key={index}
-          className="relative rounded-lg overflow-hidden shadow-md"
+          className="relative shadow-md flex flex-col items-center"
           style={{
             gridRowEnd: `span ${Math.ceil(image.height / 80)}`, // Adjusted for smaller row height
           }}
         >
-          <img
-            src={image.src}
-            alt={`Image ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
+          <div className="rounded-lg overflow-hidden w-full h-full">
+            <img
+              src={image.src}
+              alt={`Image ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
           {/* Text Below Each Image */}
-          <p className="mt-2 text-sm text-center text-gray-600">{image.text}</p>
+          <div
+            style={{ height: 40, backgroundColor: "#FFFFFF", width: "100%" }}
+          >
+            <p
+              className="font-ragilac mt-2  text-center text-gray-600"
+              style={{ color: "#C95C5C", fontSize: 18 }}
+            >
+              {image.text}
+            </p>
+          </div>
         </div>
       ))}
     </div>

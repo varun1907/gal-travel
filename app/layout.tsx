@@ -8,7 +8,7 @@ import Header from "./components/Header";
 const ragilac = localFont({
   src: [
     {
-      path: "./fonts/Ragilac.ttf",
+      path: "/../public/fonts/Ragilac.ttf",
       weight: "400",
       style: "normal",
     },
@@ -19,21 +19,25 @@ const ragilac = localFont({
 const redHat = localFont({
   src: [
     {
-      path: "./fonts/RedHatDisplay-Regular.ttf",
+      path: "/../public/fonts/RedHatDisplay-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/RedHatDisplay-Medium.ttf",
+      path: "/../public/fonts/RedHatDisplay-Medium.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "./fonts/RedHatDisplay-SemiBold.ttf",
+      path: "/../public/fonts/RedHatDisplay-SemiBold.ttf",
       weight: "600",
       style: "normal",
     },
-    { path: "./fonts/RedHatDisplay-Bold.ttf", weight: "700", style: "normal" },
+    {
+      path: "/../public/fonts/RedHatDisplay-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
   ],
   variable: "--font-redHat", // CSS variable for redHat
 });
@@ -49,14 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      // className={`${ragilac.variable} ${redHat.variable}`}
-    >
-      <body
-        className={`${ragilac.variable} ${redHat.variable}`}
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en">
+      <body className={`${ragilac.variable} ${redHat.variable} antialiased`}>
         <Header />
         {children}
         <footer>
