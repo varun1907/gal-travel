@@ -26,42 +26,74 @@ export default function Home() {
       <div className="carousel w-full" style={{ height: "600px" }}>
         {/* Carousel Item 1 */}
         <div id="item1" className="carousel-item w-full relative">
+          {/* Text Overlay */}
           <div
-            className="absolute px-4 text-center"
+            className="absolute px-4 text-center text-white"
             style={{
               left: "50%",
-              top: "25%",
+              top: "30%", // Adjusted top percentage for better placement
               transform: `translate(-50%, -50%)`,
             }}
           >
-            {/* <p className="text-4xl md:text-6xl font-ragilac font-regular text-white">
+            <p className="text-4xl md:text-6xl font-ragilac font-regular leading-tight">
               Hi, I’m Chandni,
             </p>
-            <p className="text-lg md:text-3xl mt-8 font-redHat font-regular text-white">
-              I’m a travel blogger, an entrepreneur, and completely in love with
-              exploring the world.
-            </p> */}
+            <p className="text-lg md:text-3xl mt-8 font-redHat font-regular">
+              I’m a <span className="italic">travel blogger</span>, an{" "}
+              <span className="italic">entrepreneur</span>, and completely in
+              love with exploring the world.
+            </p>
+            <button
+              className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
+              style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
+            >
+              Read More
+            </button>
           </div>
+          {/* Background Image */}
           <img
-            src="/carosel-1.svg"
+            src="/carosel-1.jpeg"
             className="w-full object-cover h-full"
             alt="Slide 1"
           />
         </div>
 
         {/* Carousel Item 2 */}
-        <div id="item2" className="carousel-item w-full">
+        <div id="item1" className="carousel-item w-full relative">
+          {/* Text Overlay */}
+          <div
+            className="absolute px-4 text-center text-white"
+            style={{
+              left: "50%",
+              top: "30%", // Adjusted top percentage for better placement
+              transform: `translate(-50%, -50%)`,
+            }}
+          >
+            <p className="text-4xl md:text-6xl font-ragilac font-regular leading-tight">
+              10 Days of Swiss Bliss:
+            </p>
+            <p className="text-lg md:text-3xl font-redHat font-regular">
+              A First-Timer’s Luxury Trip to Switzerland
+            </p>
+            <button
+              className="mt-20 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
+              style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
+            >
+              Download
+            </button>
+          </div>
+          {/* Background Image */}
           <img
-            src="/carosel-2.svg"
+            src="/carosel-2.jpeg"
             className="w-full object-cover h-full"
-            alt="Slide 2"
+            alt="Slide 1"
           />
         </div>
 
         {/* Carousel Item 3 */}
-        <div id="item3" className="carousel-item w-full">
+        <div id="item3" className="carousel-item w-full relative">
           <img
-            src="/carosel-2.svg"
+            src="/carosel-2.jpeg"
             className="w-full object-cover h-full"
             alt="Slide 3"
           />
