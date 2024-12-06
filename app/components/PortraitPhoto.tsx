@@ -22,35 +22,8 @@ const PortraitPhoto = () => {
   }, [images.length]);
 
   return (
-    // <div
-    //   style={{
-    //     width: 310,
-    //     height: 346,
-    //     border: "0.75px dashed #A78B88",
-    //     padding: 10,
-    //     transform: "rotate(10deg)",
-    //   }}
-    // >
-    //   <div
-    //     style={{
-    //       width: 290,
-    //       height: 326,
-    //       backgroundColor: "#FFFFFF",
-    //       padding: 10,
-    //       boxShadow: `0px 5.84px 9.74px 0px #24242440`,
-    //     }}
-    //   >
-    //     <Image
-    //       aria-hidden
-    //       src="/temp_travel.svg"
-    //       alt="Footer line"
-    //       width={270}
-    //       height={306}
-    //     />
-    //   </div>
-    // </div>
     <div
-      className="relative w-[310px] h-[346px] border-dashed border-[#A78B88] border-[0.75px] p-2 rotate-6 overflow-hidden"
+      className="relative w-[310px] h-[346px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
       style={{ zIndex: 100 }}
     >
       {/* Carousel Wrapper */}
@@ -72,14 +45,14 @@ const PortraitPhoto = () => {
           >
             <div
               className="bg-white p-2 shadow-md mx-auto"
-              style={{ width: "290px", height: "326px" }}
+              style={{ width: "290px", height: "326px", marginTop: 8 }}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={270}
                 height={306}
-                className="rounded-md"
+                // className="rounded-md"
               />
             </div>
           </div>

@@ -24,7 +24,7 @@ const MasonryImage = () => {
             gridRowEnd: `span ${Math.ceil(image.height / 80)}`, // Adjusted for smaller row height
           }}
         >
-          <div className="rounded-lg overflow-hidden w-full h-full">
+          <div className="overflow-hidden w-full h-full">
             <img
               src={image.src}
               alt={`Image ${index + 1}`}
