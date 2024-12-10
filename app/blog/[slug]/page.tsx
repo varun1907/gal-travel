@@ -2,7 +2,7 @@ import BlogDetailActivitySection from "@/app/components/BlogDetailActivitySectio
 import BlogDetailDaySection from "@/app/components/BlogDetailDaySection";
 import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 import Conclusion from "@/app/components/Conclusion";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 
 interface BlogDetailPageProps {
   params: { slug: string }; // Define the dynamic route parameter
@@ -17,7 +17,8 @@ interface BlogDetailPageProps {
 //   };
 // }
 
-export default async function BlogDetail({ params }: BlogDetailPageProps) {
+export default async function BlogDetail() {
+  // { params }: BlogDetailPageProps
   // const { slug } = params;
 
   // Fetch blog data based on the slug (replace this with actual fetching logic)
@@ -56,7 +57,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
                 10 Days of Swiss Bliss:
               </h1>
               <p className="text-xl md:text-2xl font-medium">
-                A First-Timer’s Luxury Trip to Switzerland
+                A First-Timers Luxury Trip to Switzerland
               </p>
             </div>
           </div>

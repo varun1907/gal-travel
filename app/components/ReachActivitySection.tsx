@@ -17,8 +17,8 @@ const ReachActivitySection = () => {
           Air France have great stopover programs that allow you to add a free
           stopover on award tickets on the return segment. If you are a member
           of the Flying Blue program or hold any other frequent flyer miles, do
-          check your eligibility for that airline’s stopover programs and plan
-          accordingly. 
+          check your eligibility for that airlines stopover programs and plan
+          accordingly.
         </p>
       </div>
     </section>

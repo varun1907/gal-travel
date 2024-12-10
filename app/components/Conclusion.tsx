@@ -22,11 +22,11 @@ const Conclusion = () => {
             curatedexperiences and insider tips..
           </p>
           <p className="font-redHat text-base mt-3">
-            ..you can enjoy its luxury without breaking the bank. Whether you’re
+            ..you can enjoy its luxury without breaking the bank. Whether youre
             bungee jumping over Interlaken, paragliding in Lauterbrunnen, or
             sipping hot chocolate while admiring the Matterhorn, Switzerland
             offers adventures rich in beauty and luxury. From scenic train rides
-            and affordable fine dining to action-packed activities, there’s a
+            and affordable fine dining to action-packed activities, theres a
             luxury experience waiting just for you. So pack your woollens and
             get ready to indulge your wanderlust for Switzerland in style.
           </p>

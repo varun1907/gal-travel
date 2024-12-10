@@ -3,7 +3,7 @@ import React from "react";
 const guides = [
   {
     country: "Europe",
-    title: "10 Days of Swiss Bliss: A First-Timer’s Luxury Trip to Switzerland",
+    title: "10 Days of Swiss Bliss: A First-Timers Luxury Trip to Switzerland",
     image: "/latest-1.svg", // Replace with the actual path to your image
   },
   {

@@ -5,7 +5,7 @@ import MasonryImage from "./components/MasontryImage";
 const guides = [
   {
     country: "Europe",
-    title: "10 Days of Swiss Bliss: A First-Timer’s Luxury Trip to Switzerland",
+    title: "10 Days of Swiss Bliss: A First-Timers Luxury Trip to Switzerland",
     image: "/latest-1.svg", // Replace with the actual path to your image
   },
   {
@@ -73,7 +73,7 @@ export default function Home() {
               10 Days of Swiss Bliss:
             </p>
             <p className="text-lg md:text-3xl font-redHat font-regular">
-              A First-Timer’s Luxury Trip to Switzerland
+              A First-Timers Luxury Trip to Switzerland
             </p>
             <button
               className="mt-20 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
@@ -104,23 +104,23 @@ export default function Home() {
         <div className="lg:flex lg:justify-between lg:items-start">
           <div className="lg:w-1/2 md:mr-40 lg mr-0">
             <p className="font-redHat font-medium text-lg lg:text-xl text-center lg:text-left">
-              I’m so happy you came by!
+              Im so happy you came by!
             </p>
             <p className="font-redHat text-sm lg:text-base pt-4 leading-6 text-justify lg:text-left">
-              It’s so nice meeting people who share my obsession for exploring
-              new places. Honestly, I’m a total sucker for discovering hidden
+              Its so nice meeting people who share my obsession for exploring
+              new places. Honestly, Im a total sucker for discovering hidden
               gems, learning the rich histories of cities, and frequently
               raising my eyebrows and dropping my jaws at the wonders of this
               planet.
             </p>
             <p className="font-redHat text-sm lg:text-base pt-4 leading-6 text-justify lg:text-left">
-              I’m just an ordinary girl with an extraordinary love for
+              Im just an ordinary girl with an extraordinary love for
               adventures. Even before my first international flight as an air
               hostess, I had wings on my feet, but travelling through more than{" "}
               <b>110 countries</b> has taken that love to a whole new level. For
-              the past X years, I’ve followed my passion for solo luxury travel,
+              the past X years, Ive followed my passion for solo luxury travel,
               high-fashion, and creating unforgettable memories. Travel is my
-              therapy, my happy place—if it’s yours too, let’s hang out! You can
+              therapy, my happy place—if its yours too, lets hang out! You can
               find me on Instagram at{" "}
               <span className="font-redHat font-bold underline">
                 @GalTravelStory.

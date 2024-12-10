@@ -36,7 +36,7 @@ const BlogDetailDaySection = () => {
         was called Nike-town, in honour of Nikaia, after the Greek goddess of
         victory? Over the past 150 years, Nice has transformed into a vibrant
         artistic hub and a trendy holiday destination rich in history. As one of
-        France’s largest cities, Nice is the second-largest on the Mediterranean
+        France largest cities, Nice is the second-largest on the Mediterranean
         coast and in the Provence-Alpes-Côte d'Azur région, just after
         Marseille.
       </p>

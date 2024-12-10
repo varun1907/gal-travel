@@ -26,11 +26,11 @@ const BlogDetailIntro = () => {
           <p className="font-redHat text-base">
             The largest city in France, Paris is also known as La Ville
             Lumière—The City of Light. It is a major railway, highway, and
-            air-transport hub served by two international airports: Charles de
-            Gaulle Airport, the third-busiest airport in Europe, and Orly
-            Airport. The Paris Métro serves 5.23 million passengers daily and is
-            the 2nd busiest metro system in Europe after the Moscow Metro. You
-            won’t find any skyscrapers in central Paris as they want to preserve
+            air-transport hub served by two international airports Charles de
+            Gaulle Airport, the third-busiest airport in Europe, and Orly
+            Airport. The Paris Métro serves 5.23 million passengers daily and is
+            the 2nd busiest metro system in Europe after the Moscow Metro. You
+            wont find any skyscrapers in central Paris as they want to preserve
             its historic French architecture and keep it timeless and iconic .
           </p>
           <p className="font-redHat text-base">
@@ -40,18 +40,18 @@ const BlogDetailIntro = () => {
             give you the most intimate, authentic introduction to this city.
           </p>
           <p className="font-redHat text-base">
-            If you're planning a solo trip to Paris, don't worry, I’ll show you
+            If you're planning a solo trip to Paris, don't worry, Ill show you
             how to enjoy it all by yourself! So grab your most glamorous
-            ensembles, and let’s raise the temperature of Paris together!
+            ensembles, and lets raise the temperature of Paris together!
           </p>
           <p className="font-redHat text-base">
             Please note: As compared to other parts of the world, Parisians are
             more hesitant to speak in English, but they appreciate it when you
             try speaking in their own language. Learning a few phrases like
-            “Bonjour”(pronounced bo-jur) meaning ‘Hello’, “Merci” (pronounced
-            mair-see) meaning ‘Thank you’, or “Parlez-vous anglais?” (pronounced
-            parley-vooz-onglay) meaning ‘Do you speak English?’ can go a long
-            way in making your trip smoother.
+            “Bonjour”(pronounced bo-jur) meaning Hello, “Merci” (pronounced
+            mair-see) meaning Thank you, or “Parlez-vous anglais?” (pronounced
+            parley-vooz-onglay) meaning Do you speak English? can go a long way
+            in making your trip smoother.
           </p>
         </div>
 

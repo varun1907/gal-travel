@@ -16,7 +16,7 @@ const DoyDaySection = () => {
         <p className="text-base font-redHat mb-3">
           The most iconic feature of the modern city is the renowned Promenade
           des Anglais, originally built in 1822 by the English community as a
-          coastal path. Stretching 2.5 miles (4 km) along the waterfront, it’s
+          coastal path. Stretching 2.5 miles (4 km) along the waterfront, its
           got 2 wide carriageways lined with flower beds and swaying palm trees.
           Spend your first morning strolling along the Promenade des Anglais and
           take in the gorgeous Mediterranean views.
@@ -33,7 +33,7 @@ const DoyDaySection = () => {
         <p className="text-base font-redHat mb-3">
           The most iconic feature of the modern city is the renowned Promenade
           des Anglais, originally built in 1822 by the English community as a
-          coastal path. Stretching 2.5 miles (4 km) along the waterfront, it’s
+          coastal path. Stretching 2.5 miles (4 km) along the waterfront, its
           got 2 wide carriageways lined with flower beds and swaying palm trees.
           Spend your first morning strolling along the Promenade des Anglais and
           take in the gorgeous Mediterranean views.
