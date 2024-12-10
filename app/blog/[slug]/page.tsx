@@ -4,29 +4,27 @@ import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 import Conclusion from "@/app/components/Conclusion";
 import { Metadata } from "next";
 
-// To dynamically set metadata based on the slug
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  return {
-    title: params.slug.replace(/-/g, " "), // Converts slug to a readable title
-  };
+interface BlogDetailPageProps {
+  params: { slug: string }; // Define the dynamic route parameter
 }
 
-export default async function BlogDetail({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = await params;
+// export async function generateMetadata({
+//   params,
+// }: BlogDetailPageProps): Promise<Metadata> {
+//   const slug = decodeURIComponent(params.slug); // Decode slug for special characters
+//   return {
+//     title: slug.replace(/-/g, " "), // Converts slug to a readable title
+//   };
+// }
+
+export default async function BlogDetail({ params }: BlogDetailPageProps) {
+  // const { slug } = params;
 
   // Fetch blog data based on the slug (replace this with actual fetching logic)
-  const blog = {
-    title: slug.replace(/-/g, " "),
-    content: "This is dynamically fetched content for the blog.",
-  };
+  // const blog = {
+  //   title: slug.replace(/-/g, " "),
+  //   content: "This is dynamically fetched content for the blog.",
+  // };
 
   const dynamic_navbar = [
     "Zurich",
