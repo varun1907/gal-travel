@@ -63,7 +63,7 @@ export default function RootLayout({
             style={{
               height: 600,
               width: "100%",
-              backgroundImage: "url(./newsletter.svg)",
+              backgroundImage: "url(../newsletter.svg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
