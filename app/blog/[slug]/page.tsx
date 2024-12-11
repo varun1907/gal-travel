@@ -2,30 +2,23 @@ import BlogDetailActivitySection from "@/app/components/BlogDetailActivitySectio
 import BlogDetailDaySection from "@/app/components/BlogDetailDaySection";
 import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 import Conclusion from "@/app/components/Conclusion";
-// import { Metadata } from "next";
+import { Metadata } from "next";
 
-// interface BlogDetailPageProps {
-//   params: { slug: string }; // Define the dynamic route parameter
-// }
+interface BlogDetailPageProps {
+  params: { slug: string }; // Define the dynamic route parameter
+}
 
-// export async function generateMetadata({
-//   params,
-// }: BlogDetailPageProps): Promise<Metadata> {
-//   const slug = decodeURIComponent(params.slug); // Decode slug for special characters
-//   return {
-//     title: slug.replace(/-/g, " "), // Converts slug to a readable title
-//   };
-// }
+export async function generateMetadata({
+  params,
+}: BlogDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  return {
+    title: slug.replace(/-/g, " "), // Converts slug to a readable title
+  };
+}
 
-export default async function BlogDetail() {
-  // { params }: BlogDetailPageProps
-  // const { slug } = params;
-
-  // Fetch blog data based on the slug (replace this with actual fetching logic)
-  // const blog = {
-  //   title: slug.replace(/-/g, " "),
-  //   content: "This is dynamically fetched content for the blog.",
-  // };
+export default async function BlogDetail({ params }: BlogDetailPageProps) {
+  const { slug } = await params;
 
   const dynamic_navbar = [
     "Zurich",
@@ -38,7 +31,7 @@ export default async function BlogDetail() {
 
   const static_navbar = ["Visit", "Reach", "Stay", "Todo", "Eat"];
 
-  const show_place = !true;
+  const show_place = slug == "1";
 
   const nav_bar_items = show_place ? dynamic_navbar : static_navbar;
 
@@ -63,26 +56,44 @@ export default async function BlogDetail() {
           </div>
 
           <div className="bg-gray-100 border-t border-gray-300">
-            <div className="flex overflow-x-auto md:overflow-visible md:flex-nowrap items-center justify-start md:justify-between scrollbar-hide space-x-0 md:space-x-0">
-              {nav_bar_items.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="font-redHat flex-shrink-0 md:flex-1 text-center py-3 px-4 md:py-4 md:px-6 text-sm md:text-base border-r border-gray-300 md:border-none last:border-r-0"
+            <div className="relative flex items-center">
+              {/* Navigation Container */}
+              <div className="flex items-center overflow-x-auto md:overflow-visible md:flex-nowrap justify-start md:justify-between scrollbar-hide space-x-0 md:space-x-0 w-full">
+                {nav_bar_items.map((item, index) => (
+                  <a
+                    key={index}
+                    href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="font-redHat flex-shrink-0 text-center py-3 px-4 text-sm md:flex-1 md:px-6 border-r border-gray-300 md:border-none last:border-r-0 whitespace-nowrap overflow-hidden text-ellipsis"
+                    style={{
+                      backgroundColor: "#EAD5C4",
+                      borderRight: "1px solid black",
+                      width: "50%", // Two items in mobile view
+                    }}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+              {/* <div className="absolute right-0 top-0 h-full flex items-center md:hidden">
+                <div
+                  className="bg-gray-200 h-6 w-6 flex items-center justify-center rounded-full"
                   style={{
                     backgroundColor: "#EAD5C4",
-                    borderRight: "1px solid black",
                   }}
                 >
-                  {item}
-                </a>
-              ))}
+                  &gt;
+                </div>
+              </div> */}
             </div>
           </div>
         </section>
 
         <BlogDetailIntro />
-        {show_place ? <BlogDetailDaySection /> : <BlogDetailActivitySection />}
+        {show_place ? (
+          <BlogDetailDaySection nav_bar_items={nav_bar_items} />
+        ) : (
+          <BlogDetailActivitySection nav_bar_items={nav_bar_items} />
+        )}
 
         <Conclusion />
       </>

@@ -20,7 +20,7 @@ const guides = [
 
 const StayActivitySection = () => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16">
+    <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16" id="stay">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
         className="flex items-center pl-6"

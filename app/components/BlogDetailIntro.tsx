@@ -62,32 +62,34 @@ const BlogDetailIntro = () => {
           <div>
             <img src={"/map.svg"} className="w-full h-full" />
           </div>
+
           <div className="flex justify-center items-center">
-            <div className="relative w-[310px] h-[346px] rotate-6 ">
+            <div className="relative w-[260px] h-[290px] rotate-6 md:w-[310px] md:h-[276px]">
               <div
-                className="bg-white p-2 shadow-md mx-auto"
+                className="bg-white p-2 shadow-md mx-auto flex flex-col items-center"
                 style={{
-                  width: "290px",
-                  height: "326px",
+                  width: "240px",
+                  height: "100%",
                   marginTop: 8,
                 }}
               >
                 <Image
                   src={"/dummy_full.svg"}
-                  alt={"Summy"}
-                  width={270}
-                  height={306}
+                  alt={"Dummy"}
+                  width={220}
+                  height={250}
+                  className="md:w-[270px] md:h-[306px]" // Adjust image size for mobile and larger screens
                 />
                 <div
+                  className="w-full"
                   style={{
-                    height: 40,
                     backgroundColor: "#FFFFFF",
-                    width: "100%",
+                    marginTop: "-5px", // Ensure it visually "sticks" to the image container
                   }}
                 >
                   <p
-                    className="font-ragilac mt-2  text-center"
-                    style={{ fontSize: 22 }}
+                    className="font-ragilac mt-1 text-center md:mt-2"
+                    style={{ fontSize: 18 }}
                   >
                     ..the sun kisses your skin just right
                   </p>

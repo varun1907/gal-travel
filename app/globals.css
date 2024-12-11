@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 /* .fontragilac {
   
   @apply fontragilac font-normal;
@@ -35,6 +37,10 @@
     --foreground: #ededed;
   }
 } */
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   /* color: var(--foreground); */

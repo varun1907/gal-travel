@@ -3,12 +3,16 @@ import StayDaySection from "./StayDaySection";
 import DoDaySection from "./DoDaySection";
 import EatDaySection from "./EatDaySection";
 
-const BlogDetailDaySection = () => {
-  return [1, 2, 3, 4, 5, 6].map((section, section_index) => (
+type DetailProps = {
+  nav_bar_items: string[];
+};
+
+const BlogDetailDaySection = ({ nav_bar_items }: DetailProps) => {
+  return nav_bar_items.map((section, section_index) => (
     <section
       key={`section_item_${section_index}`}
       className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16"
-      // id={`${section.toLowerCase().replace(/\s+/g, "-")}`}
+      id={`${section.toLowerCase().replace(/\s+/g, "-")}`}
     >
       <div style={{ height: 41 }} className="flex flex-row flex-1">
         <div
@@ -19,7 +23,7 @@ const BlogDetailDaySection = () => {
             className="font-redHat font-medium text-base"
             style={{ color: "#FFFFFF" }}
           >
-            Day 1
+            {`Day ${section_index + 1}`}
           </p>
         </div>
         <div
