@@ -8,14 +8,14 @@ interface BlogDetailPageProps {
   params: { slug: string }; // Define the dynamic route parameter
 }
 
-export async function generateMetadata({
-  params,
-}: BlogDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  return {
-    title: slug.replace(/-/g, " "), // Converts slug to a readable title
-  };
-}
+// export async function generateMetadata({
+//   params,
+// }: BlogDetailPageProps): Promise<Metadata> {
+//   const { slug } = await params;
+//   return {
+//     title: slug.replace(/-/g, " "), // Converts slug to a readable title
+//   };
+// }
 
 export default async function BlogDetail({ params }: BlogDetailPageProps) {
   const { slug } = await params;
