@@ -5,7 +5,7 @@ import Conclusion from "@/app/components/Conclusion";
 // import { Metadata } from "next";
 
 interface BlogDetailPageProps {
-  params: { slug: string }; // Define the dynamic route parameter
+  params: Promise<{ slug: string }>;
 }
 
 // export async function generateMetadata({
