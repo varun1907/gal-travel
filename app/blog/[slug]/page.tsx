@@ -2,20 +2,20 @@ import BlogDetailActivitySection from "@/app/components/BlogDetailActivitySectio
 import BlogDetailDaySection from "@/app/components/BlogDetailDaySection";
 import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 import Conclusion from "@/app/components/Conclusion";
-// import { Metadata } from "next";
+import { Metadata } from "next";
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// export async function generateMetadata({
-//   params,
-// }: BlogDetailPageProps): Promise<Metadata> {
-//   const { slug } = await params;
-//   return {
-//     title: slug.replace(/-/g, " "), // Converts slug to a readable title
-//   };
-// }
+export async function generateMetadata({
+  params,
+}: BlogDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  return {
+    title: slug.replace(/-/g, " "), // Converts slug to a readable title
+  };
+}
 
 export default async function BlogDetail({ params }: BlogDetailPageProps) {
   const { slug } = await params;
