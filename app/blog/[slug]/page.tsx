@@ -2,7 +2,7 @@ import BlogDetailActivitySection from "@/app/components/BlogDetailActivitySectio
 import BlogDetailDaySection from "@/app/components/BlogDetailDaySection";
 import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 import Conclusion from "@/app/components/Conclusion";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 
 interface BlogDetailPageProps {
   params: { slug: string }; // Define the dynamic route parameter
