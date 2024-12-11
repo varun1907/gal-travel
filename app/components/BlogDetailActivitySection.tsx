@@ -5,11 +5,11 @@ import StayActivitySection from "./StayActivitySection";
 import TodoActivitySection from "./TodoActivitySection";
 import EatActivitySection from "./EatActivitySection";
 
-type DetailProps = {
-  nav_bar_items: string[];
-};
+// type DetailProps = {
+//   nav_bar_items: string[];
+// };
 
-const BlogDetailActivitySection = ({ nav_bar_items }: DetailProps) => {
+const BlogDetailActivitySection = () => {
   return (
     <section
       className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16"

@@ -92,7 +92,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
         {show_place ? (
           <BlogDetailDaySection nav_bar_items={nav_bar_items} />
         ) : (
-          <BlogDetailActivitySection nav_bar_items={nav_bar_items} />
+          <BlogDetailActivitySection />
         )}
 
         <Conclusion />
