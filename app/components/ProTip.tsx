@@ -2,7 +2,10 @@ import React from "react";
 
 const ProTip = () => {
   return (
-    <div className="card card-compact md:card-side bg-base-100 shadow-xl my-5">
+    <div
+      className="card card-compact md:card-side bg-base-100 shadow-xl my-5"
+      style={{ borderRadius: 0 }}
+    >
       <figure>
         <img
           src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -21,11 +24,11 @@ const ProTip = () => {
           style={{ height: 2, backgroundColor: "#EAD5C4" }}
         ></div>
         <p className="font-redHat  text-base">
-          I cannot stress this enough - Buy a Swiss Pass—it's like a VIP pass to
+          I cannot stress this enough - Buy a Swiss Pass—its like a VIP pass to
           explore the country in the most cost-effective yet luxurious way. The
           pass works on all kinds of transport - trains, buses, boats, and even
           discounts on mountain rides. You also get free access to museums and
-          discounts on many tourist attractions. 
+          discounts on many tourist attractions.
         </p>
       </div>
     </div>

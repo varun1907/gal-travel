@@ -4,9 +4,9 @@ import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 import Conclusion from "@/app/components/Conclusion";
 // import { Metadata } from "next";
 
-interface BlogDetailPageProps {
-  params: { slug: string }; // Define the dynamic route parameter
-}
+// interface BlogDetailPageProps {
+//   params: { slug: string }; // Define the dynamic route parameter
+// }
 
 // export async function generateMetadata({
 //   params,
@@ -38,7 +38,7 @@ export default async function BlogDetail() {
 
   const static_navbar = ["Visit", "Reach", "Stay", "Todo", "Eat"];
 
-  const show_place = true;
+  const show_place = !true;
 
   const nav_bar_items = show_place ? dynamic_navbar : static_navbar;
 

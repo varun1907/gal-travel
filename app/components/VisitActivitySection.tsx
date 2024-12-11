@@ -26,9 +26,9 @@ const VisitActivitySection = () => {
           and pricey.
         </p>
         <p className="text-base font-redHat font-regular mt-7">
-          Winter (December to February): may be cold, but it's
-          magical—especially during the holiday season, when the city is adorned
-          with festive lights.
+          Winter (December to February): may be cold, but its magical—especially
+          during the holiday season, when the city is adorned with festive
+          lights.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-4">

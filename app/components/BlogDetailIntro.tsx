@@ -3,7 +3,7 @@ import React from "react";
 
 const BlogDetailIntro = () => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-16 flex flex-col md:flex-row gap-8 md:gap-16">
+    <section className="md:py-12 px-4 md:px-16 flex flex-col md:flex-row gap-8 md:gap-16">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-16 py-8 md:py-12">
         <div className="flex-1 h-64 p-5 md:h-auto">
           <p className="font-redHat text-lg font-medium">
@@ -34,15 +34,15 @@ const BlogDetailIntro = () => {
             its historic French architecture and keep it timeless and iconic .
           </p>
           <p className="font-redHat text-base">
-            Whether it's the insanely fashionable general population, or that
+            Whether its the insanely fashionable general population, or that
             first breath-taking view of the Eiffel Tower sparkling at night or
-            the smell of fresh croissants, —Paris is pure magic. And I'm here to
+            the smell of fresh croissants, —Paris is pure magic. And Im here to
             give you the most intimate, authentic introduction to this city.
           </p>
           <p className="font-redHat text-base">
-            If you're planning a solo trip to Paris, don't worry, Ill show you
-            how to enjoy it all by yourself! So grab your most glamorous
-            ensembles, and lets raise the temperature of Paris together!
+            If youre planning a solo trip to Paris, dont worry, Ill show you how
+            to enjoy it all by yourself! So grab your most glamorous ensembles,
+            and lets raise the temperature of Paris together!
           </p>
           <p className="font-redHat text-base">
             Please note: As compared to other parts of the world, Parisians are

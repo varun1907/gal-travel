@@ -37,7 +37,6 @@ const BlogDetailDaySection = () => {
         victory? Over the past 150 years, Nice has transformed into a vibrant
         artistic hub and a trendy holiday destination rich in history. As one of
         France largest cities, Nice is the second-largest on the Mediterranean
-        coast and in the Provence-Alpes-Côte d'Azur région, just after
         Marseille.
       </p>
       <StayDaySection />
