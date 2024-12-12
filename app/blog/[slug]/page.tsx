@@ -93,12 +93,8 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
             </div>
           </div>
 
-          <div
-            className="bg-gray-100 border-t border-gray-300"
-            style={{ position: "sticky" }}
-          >
+          <div className="sticky top-0 z-50 bg-gray-100 border-t border-gray-300">
             <div className="relative flex items-center">
-              {/* Navigation Container */}
               <div className="flex items-center overflow-x-auto md:overflow-visible md:flex-nowrap justify-start md:justify-between scrollbar-hide space-x-0 md:space-x-0 w-full">
                 {nav_bar_items.map((item, index) => (
                   <a
@@ -127,19 +123,18 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
               </div> */}
             </div>
           </div>
+          <BlogDetailIntro blogDetails={blogDetails} />
+          {show_cities ? (
+            <BlogDetailDaySection
+              nav_bar_items={nav_bar_items}
+              blogDetails={blogDetails}
+            />
+          ) : (
+            <BlogDetailActivitySection activity={blogDetails?.activity} />
+          )}
+
+          <Conclusion blogDetails={blogDetails} />
         </section>
-
-        <BlogDetailIntro blogDetails={blogDetails} />
-        {show_cities ? (
-          <BlogDetailDaySection
-            nav_bar_items={nav_bar_items}
-            blogDetails={blogDetails}
-          />
-        ) : (
-          <BlogDetailActivitySection activity={blogDetails?.activity} />
-        )}
-
-        <Conclusion blogDetails={blogDetails} />
       </>
     </div>
   );
