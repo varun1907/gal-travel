@@ -27,7 +27,7 @@ const EatActivitySection = ({ activity }: any) => {
           <div className="flex flex-wrap gap-8 md:flex-col">
             <div className="w-full">
               <img
-                className="w-full h-auto object-cover"
+                className="w-[200px] md:w-[164px] h-[200px] md:h-[154px] object-cover"
                 src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_1?.filename_disk}`}
                 alt="Image 1"
                 style={{ width: 164, height: 154 }}

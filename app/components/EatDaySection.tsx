@@ -30,10 +30,11 @@ const EatDaySection = ({ city_data }: any) => {
           <div className="flex flex-wrap gap-8 md:flex-col">
             <div className="w-full">
               <img
-                className="w-full h-auto object-cover"
+                // className="w-full h-auto object-cover"
+                className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
                 src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.eat_image_1?.filename_disk}`}
                 alt="Image 1"
-                style={{ width: 164, height: 154 }}
+                // style={{ width: 164, height: 154 }}
               />
             </div>
 
