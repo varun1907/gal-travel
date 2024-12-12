@@ -8,7 +8,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center px-4 h-[80px] md:px-24 md:h-[100px]">
+    <header className="flex justify-between items-center px-4 h-[80px] md:px-24 md:h-[100px]" style={{position:'sticky'}}>
       {/* Logo */}
       <Image
         aria-hidden

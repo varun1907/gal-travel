@@ -1,8 +1,7 @@
 import React from "react";
-import ProTip from "./ProTip";
 import _ from "lodash";
 
-const ReachActivitySection = ({ activity }: any) => {
+const AdditionalActivitySection = ({ activity }: any) => {
   return (
     <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16" id="reach">
       <div
@@ -10,7 +9,7 @@ const ReachActivitySection = ({ activity }: any) => {
         className="flex items-center pl-6"
       >
         <p className="font-redHat font-bold text-base">
-          How to reach {activity?.country_name}
+          {activity?.additional_section_header}
         </p>
       </div>
 
@@ -18,20 +17,12 @@ const ReachActivitySection = ({ activity }: any) => {
         <p
           className="font-redHat font-medium text-base mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.reach_para,
+            __html: activity?.additional_section_para,
           }}
         ></p>
-        {!_.isEmpty(activity?.reach_pro_tip_image) &&
-          !_.isEmpty(activity?.reach_pro_tip) && (
-            <ProTip
-              city_name={activity?.city_name}
-              title={activity?.reach_pro_tip}
-              image={activity?.reach_pro_tip_image?.filename_disk}
-            />
-          )}
       </div>
     </section>
   );
 };
 
-export default ReachActivitySection;
+export default AdditionalActivitySection;

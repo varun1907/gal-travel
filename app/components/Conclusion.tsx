@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
+import constant from "../../config/constant";
 
-const Conclusion = () => {
+const Conclusion = ({ blogDetails }: any) => {
   return (
     <div className="mx-5 md:mx-28 flex flex-col">
       <div
@@ -18,17 +19,10 @@ const Conclusion = () => {
             height={35.11}
           />
           <p className="font-redHat font-medium text-base mt-6">
-            Switzerland may be known for its high prices, but with these
-            curatedexperiences and insider tips..
+            {blogDetails?.conclusion_heading}
           </p>
           <p className="font-redHat text-base mt-3">
-            ..you can enjoy its luxury without breaking the bank. Whether youre
-            bungee jumping over Interlaken, paragliding in Lauterbrunnen, or
-            sipping hot chocolate while admiring the Matterhorn, Switzerland
-            offers adventures rich in beauty and luxury. From scenic train rides
-            and affordable fine dining to action-packed activities, theres a
-            luxury experience waiting just for you. So pack your woollens and
-            get ready to indulge your wanderlust for Switzerland in style.
+            {blogDetails?.conclusion_content}
           </p>
         </div>
 
@@ -44,8 +38,8 @@ const Conclusion = () => {
             >
               <Image
                 aria-hidden
-                src="/dummy_full.svg"
-                alt="Footer line"
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.conclusion_image?.filename_disk}`}
+                alt="Conclusion image"
                 layout="responsive"
                 width={100}
                 height={100}
@@ -59,7 +53,6 @@ const Conclusion = () => {
         className="my-10 self-center"
         src="/line_separator.svg"
         alt="Line Separator"
-        // layout="responsive"
         width={600}
         height={20}
       />

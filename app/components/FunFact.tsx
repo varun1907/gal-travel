@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const FunFact = () => {
+const FunFact = ({ title }: any) => {
   return (
     <div
       className="flex my-5 items-center p-4"
@@ -22,19 +22,12 @@ const FunFact = () => {
         >
           FUN FACT
         </p>
-        <p className="font-redHat font-medium text-base mt-1">
-          The summit station on the Gornergrat has Europes highest-altitude
-          hotel: the 3100 Kulmhotel Gornergrat. Have an Insta-worthy stay here
-          for about 360 Swiss Francs a night.The summit station on the
-          Gornergrat has Europes highest-altitude hotel: the 3100 Kulmhotel
-          Gornergrat. Have an Insta-worthy stay here for about 360 Swiss Francs
-          a night. The summit station on the Gornergrat has Europes
-          highest-altitude hotel: the 3100 Kulmhotel Gornergrat. Have an
-          Insta-worthy stay here for about 360 Swiss Francs a night. The summit
-          station on the Gornergrat has Europes highest-altitude hotel: the 3100
-          Kulmhotel Gornergrat. Have an Insta-worthy stay here for about 360
-          Swiss Francs a night.
-        </p>
+        <p
+          className="font-redHat font-medium text-base mt-1"
+          dangerouslySetInnerHTML={{
+            __html: title,
+          }}
+        ></p>
       </div>
     </div>
   );
