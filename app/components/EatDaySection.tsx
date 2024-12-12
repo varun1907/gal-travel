@@ -41,20 +41,22 @@ const EatDaySection = ({ city_data }: any) => {
             {!_.isEmpty(city_data?.eat_image_2?.filename_disk) && (
               <div className="w-full">
                 <img
-                  className="w-full h-auto object-cover"
+                  // className="w-full h-auto object-cover"
+                  className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
                   src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.eat_image_2?.filename_disk}`}
                   alt="Image 2"
-                  style={{ width: 164, height: 154 }}
+                  // style={{ width: 164, height: 154 }}
                 />
               </div>
             )}
             {!_.isEmpty(city_data?.eat_image_3?.filename_disk) && (
               <div className="w-full">
                 <img
-                  className="w-full h-auto object-cover"
+                  // className="w-full h-auto object-cover"
+                  className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
                   src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.eat_image_3?.filename_disk}`}
                   alt="Image 3"
-                  style={{ width: 164, height: 154 }}
+                  // style={{ width: 164, height: 154 }}
                 />
               </div>
             )}
