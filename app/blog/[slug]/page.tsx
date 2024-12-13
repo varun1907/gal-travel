@@ -22,7 +22,6 @@ export async function generateMetadata({
 async function fetchBlogDetails(slug: string) {
   const params = {
     "filter[slug][_eq]": slug,
-    "filter[status][_eq]": "published",
     "fields[]":
       "id,country,blog_title,blog_subtitle,introduction_para,slug,introduction_sub_para,travel_type,conclusion_heading,conclusion_content,blog_listing_preview_text,blog_listing_cta_text,hero_banner_image.*,intro_map_image.*,intro_postcard_image.*,conclusion_image.*,blog_listing_preview_image.*,intro_polaroid_image.*,intro_polaroid_caption,seo.*.*,cities.*.*.*,activity.*.*.*.*",
   };
