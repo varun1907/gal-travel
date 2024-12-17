@@ -22,7 +22,7 @@ const EatDaySection = ({ city_data }: any) => {
             <p
               className="font-redHat text-base"
               dangerouslySetInnerHTML={{
-                __html: city_data?.eat_at_intro_para,
+                __html: city_data?.eat_at_intro_para || '',
               }}
             ></p>
           </div>

@@ -19,7 +19,7 @@ const EatActivitySection = ({ activity }: any) => {
             <p
               className="font-redHat text-base"
               dangerouslySetInnerHTML={{
-                __html: activity?.eat_para,
+                __html: activity?.eat_para || '',
               }}
             ></p>
           </div>

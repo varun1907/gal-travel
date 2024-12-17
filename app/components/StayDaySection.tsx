@@ -38,7 +38,7 @@ const StayDaySection = ({ city_data }: any) => {
         <p
           className="text-base font-redHat mb-3"
           dangerouslySetInnerHTML={{
-            __html: city_data?.stay_at_intro_para,
+            __html: city_data?.stay_at_intro_para || '',
           }}
         ></p>
 

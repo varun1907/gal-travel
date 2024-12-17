@@ -26,7 +26,7 @@ const ProTip = ({ city_name, title, image }: any) => {
         <p
           className="font-redHat  text-base"
           dangerouslySetInnerHTML={{
-            __html: title,
+            __html: title || '',
           }}
         ></p>
       </div>

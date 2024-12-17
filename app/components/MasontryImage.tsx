@@ -1,14 +1,31 @@
 "use client";
 import React from "react";
+import constant from "../../config/constant";
 
-const images = [
-  { src: "/dummy_full.svg", height: 150, text: "Paris" },
-  { src: "/dummy_full.svg", height: 200, text: "London" },
-  { src: "/dummy_full.svg", height: 180, text: "Paris" },
-  { src: "/dummy_full.svg", height: 220, text: "London" },
-];
+const MasonryImage = ({ homeDetails }: any) => {
+  const images = [
+    {
+      src: homeDetails?.intro_image_1_image?.filename_disk,
+      height: 150,
+      text: homeDetails?.intro_image_1_caption,
+    },
+    {
+      src: homeDetails?.intro_image_2_image?.filename_disk,
+      height: 200,
+      text: homeDetails?.intro_image_2_caption,
+    },
+    {
+      src: homeDetails?.intro_image_3_image?.filename_disk,
+      height: 180,
+      text: homeDetails?.intro_image_3_caption,
+    },
+    {
+      src: homeDetails?.intro_image_4_image?.filename_disk,
+      height: 220,
+      text: homeDetails?.intro_image_4_caption,
+    },
+  ];
 
-const MasonryImage = () => {
   return (
     <div
       className="grid grid-cols-2 gap-4 lg:gap-6"
@@ -26,7 +43,7 @@ const MasonryImage = () => {
         >
           <div className="overflow-hidden w-full h-full">
             <img
-              src={image.src}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${image.src}`}
               alt={`Image ${index + 1}`}
               className="w-full h-full object-cover"
             />

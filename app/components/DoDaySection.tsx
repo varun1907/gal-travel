@@ -20,7 +20,7 @@ const DoyDaySection = ({ city_data }: any) => {
         <p
           className="text-base font-redHat mb-3"
           dangerouslySetInnerHTML={{
-            __html: city_data?.do_at_intro_para_copy,
+            __html: city_data?.do_at_intro_para_copy || '',
           }}
         ></p>
 

@@ -28,7 +28,7 @@ const TodoActivitySection = ({ activity }: any) => {
               <p
                 className="font-redHat font-medium text-base mt-5"
                 dangerouslySetInnerHTML={{
-                  __html: todo_item?.activities_to_do_id?.to_do_content,
+                  __html: todo_item?.activities_to_do_id?.to_do_content || '',
                 }}
               ></p>
 

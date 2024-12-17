@@ -45,7 +45,7 @@ const BlogDetailDaySection = ({ nav_bar_items, blogDetails }: DetailProps) => {
         <p
           className="text-base font-redHat font-regular mt-7 mx-2 md:mx-44"
           dangerouslySetInnerHTML={{
-            __html: city_item?.cities_id?.city_intro_para,
+            __html: city_item?.cities_id?.city_intro_para || '',
           }}
         ></p>
         <StayDaySection city_data={city_item?.cities_id} />

@@ -19,7 +19,7 @@ const VisitActivitySection = ({ activity }: any) => {
         <p
           className="text-base font-redHat font-regular mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.visit_para,
+            __html: activity?.visit_para || '',
           }}
         ></p>
 

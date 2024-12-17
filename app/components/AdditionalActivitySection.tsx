@@ -17,7 +17,7 @@ const AdditionalActivitySection = ({ activity }: any) => {
         <p
           className="font-redHat font-medium text-base mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.additional_section_para,
+            __html: activity?.additional_section_para || '',
           }}
         ></p>
       </div>

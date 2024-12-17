@@ -18,7 +18,7 @@ const ReachActivitySection = ({ activity }: any) => {
         <p
           className="font-redHat font-medium text-base mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.reach_para,
+            __html: activity?.reach_para || '',
           }}
         ></p>
         {!_.isEmpty(activity?.reach_pro_tip_image) &&

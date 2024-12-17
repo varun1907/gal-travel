@@ -28,7 +28,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
           <p
             className="font-redHat text-base"
             dangerouslySetInnerHTML={{
-              __html: blogDetails?.introduction_sub_para,
+              __html: blogDetails?.introduction_sub_para || '',
             }}
           ></p>
         </div>

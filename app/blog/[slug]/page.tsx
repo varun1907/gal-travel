@@ -35,7 +35,6 @@ async function fetchBlogDetails(slug: string) {
     }
     throw new Error("Not Found");
   } catch (error) {
-    console.error("Failed to fetch blog details:", error);
     return null;
   }
 }
@@ -133,7 +132,11 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
             <BlogDetailActivitySection activity={blogDetails?.activity} />
           )}
 
-          <Conclusion blogDetails={blogDetails} />
+          <Conclusion
+            heading={blogDetails?.conclusion_heading}
+            content={blogDetails?.conclusion_content}
+            image={blogDetails?.conclusion_image?.filename_disk}
+          />
         </section>
       </>
     </div>

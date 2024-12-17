@@ -1,135 +1,104 @@
 import Image from "next/image";
 import PortraitPhoto from "./components/PortraitPhoto";
 import MasonryImage from "./components/MasontryImage";
+import { API, fireApiAction } from "@/config/api";
+import _ from "lodash";
+import constant from "../config/constant";
 
-const guides = [
-  {
-    country: "Europe",
-    title: "10 Days of Swiss Bliss: A First-Timers Luxury Trip to Switzerland",
-    image: "/latest-1.svg", // Replace with the actual path to your image
-  },
-  {
-    country: "COUNTRY NAME",
-    title: "Another blog title goes over here",
-    image: "/latest-2.svg",
-  },
-  {
-    country: "COUNTRY NAME",
-    title: "Another blog title goes over here",
-    image: "/latest-3.svg",
-  },
-];
+async function fetchHomeDetails() {
+  const params = {
+    "filter[status][_eq]": "published",
+    "fields[]": "*.*.*.*",
+  };
 
-export default function Home() {
+  try {
+    const result = await fireApiAction(API.home_page, "GET", params);
+    if (result?.data) {
+      return result.data;
+    }
+    throw new Error("Not Found");
+  } catch (error) {
+    return null;
+  }
+}
+
+async function fetchLatestGuides() {
+  const params = {
+    "fields[]":
+      "id,slug,country,blog_listing_preview_image.*,blog_listing_cta_text,blog_listing_preview_text",
+    "sort[]": "-date_created",
+  };
+
+  try {
+    const result = await fireApiAction(API.travel_blogs, "GET", params);
+    if (result?.data) {
+      return result.data;
+    }
+    throw new Error("Not Found");
+  } catch (error) {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const homeDetails = await fetchHomeDetails();
+  const latestGuides = await fetchLatestGuides();
+
   return (
     <div>
       <div className="carousel w-full" style={{ height: "600px" }}>
-        {/* Carousel Item 1 */}
-        <div id="item1" className="carousel-item w-full relative">
-          {/* Text Overlay */}
+        {_.map(homeDetails?.hero_banner_assets, (banner_item, banner_index) => (
           <div
-            className="absolute px-4 text-center text-white"
-            style={{
-              left: "50%",
-              top: "30%", // Adjusted top percentage for better placement
-              transform: `translate(-50%, -50%)`,
-            }}
+            id="item1"
+            className="carousel-item w-full relative"
+            key={`home_banner_${banner_index}`}
           >
-            <p className="text-4xl md:text-6xl font-ragilac font-regular leading-tight">
-              Hi, I’m Chandni,
-            </p>
-            <p className="text-lg md:text-3xl mt-8 font-redHat font-regular">
-              I’m a <span className="italic">travel blogger</span>, an{" "}
-              <span className="italic">entrepreneur</span>, and completely in
-              love with exploring the world.
-            </p>
-            <button
-              className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
-              style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
+            <div
+              className="absolute px-4 text-center text-white"
+              style={{
+                left: "50%",
+                top: "30%", // Adjusted top percentage for better placement
+                transform: `translate(-50%, -50%)`,
+              }}
             >
-              Read More
-            </button>
+              <p className="text-4xl md:text-6xl font-ragilac font-regular leading-tight">
+                {banner_item?.hero_banner_assets_id?.hero_banner_title}
+              </p>
+              <p className="text-lg md:text-3xl mt-8 font-redHat font-regular">
+                {banner_item?.hero_banner_assets_id?.hero_banner_subtitle}
+              </p>
+              <button
+                className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
+                style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
+              >
+                {banner_item?.hero_banner_assets_id?.hero_banner_cta_text}
+              </button>
+            </div>
+            <img
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${banner_item?.hero_banner_assets_id?.hero_banner_image?.filename_disk}`}
+              className="w-full object-cover h-full"
+              alt="Slide 1"
+            />
           </div>
-          {/* Background Image */}
-          <img
-            src="/carosel-1.jpeg"
-            className="w-full object-cover h-full"
-            alt="Slide 1"
-          />
-        </div>
-
-        {/* Carousel Item 2 */}
-        <div id="item1" className="carousel-item w-full relative">
-          {/* Text Overlay */}
-          <div
-            className="absolute px-4 text-center text-white"
-            style={{
-              left: "50%",
-              top: "30%", // Adjusted top percentage for better placement
-              transform: `translate(-50%, -50%)`,
-            }}
-          >
-            <p className="text-4xl md:text-6xl font-ragilac font-regular leading-tight">
-              10 Days of Swiss Bliss:
-            </p>
-            <p className="text-lg md:text-3xl font-redHat font-regular">
-              A First-Timers Luxury Trip to Switzerland
-            </p>
-            <button
-              className="mt-20 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
-              style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
-            >
-              Download
-            </button>
-          </div>
-          {/* Background Image */}
-          <img
-            src="/carosel-2.jpeg"
-            className="w-full object-cover h-full"
-            alt="Slide 1"
-          />
-        </div>
-
-        {/* Carousel Item 3 */}
-        <div id="item3" className="carousel-item w-full relative">
-          <img
-            src="/carosel-2.jpeg"
-            className="w-full object-cover h-full"
-            alt="Slide 3"
-          />
-        </div>
+        ))}
       </div>
 
       <div className="bg-brown px-4 lg:px-20 py-8 mx-6 lg:mx-24 my-20">
         <div className="lg:flex lg:justify-between lg:items-start">
           <div className="lg:w-1/2 md:mr-40 lg mr-0">
             <p className="font-redHat font-medium text-lg lg:text-xl text-center lg:text-left">
-              Im so happy you came by!
+              {homeDetails?.intro_title}
             </p>
-            <p className="font-redHat text-sm lg:text-base pt-4 leading-6 text-justify lg:text-left">
-              Its so nice meeting people who share my obsession for exploring
-              new places. Honestly, Im a total sucker for discovering hidden
-              gems, learning the rich histories of cities, and frequently
-              raising my eyebrows and dropping my jaws at the wonders of this
-              planet.
-            </p>
-            <p className="font-redHat text-sm lg:text-base pt-4 leading-6 text-justify lg:text-left">
-              Im just an ordinary girl with an extraordinary love for
-              adventures. Even before my first international flight as an air
-              hostess, I had wings on my feet, but travelling through more than{" "}
-              <b>110 countries</b> has taken that love to a whole new level. For
-              the past X years, Ive followed my passion for solo luxury travel,
-              high-fashion, and creating unforgettable memories. Travel is my
-              therapy, my happy place—if its yours too, lets hang out! You can
-              find me on Instagram at{" "}
-              <span className="font-redHat font-bold underline">
-                @GalTravelStory.
-              </span>
-            </p>
+            <p
+              className="font-redHat text-sm lg:text-base pt-4 leading-6 text-justify lg:text-left"
+              dangerouslySetInnerHTML={{
+                __html: homeDetails?.intro_para || "",
+              }}
+            ></p>
           </div>
 
           <div className="lg:w-1/2 mt-8 lg:mt-0">
-            <MasonryImage />
+            <MasonryImage homeDetails={homeDetails} />
           </div>
         </div>
       </div>
@@ -147,9 +116,11 @@ export default function Home() {
               width={287}
               height={188}
             />
-            <div className="text-center lg:text-left">
-              <p className="font-redHat font-medium text-3xl">XX</p>
-              <p className="font-redHat font-medium text-base">
+            <div className="flex flex-col text-center lg:text-left items-center">
+              <p className="font-redHat font-medium text-3xl">
+                {homeDetails?.countries_travelled}
+              </p>
+              <p className="font-redHat font-medium text-base text-center">
                 COUNTRIES TRAVELLED
               </p>
             </div>
@@ -165,7 +136,9 @@ export default function Home() {
               width={63}
               height={56}
             />
-            <p className="font-redHat font-medium text-3xl">XX</p>
+            <p className="font-redHat font-medium text-3xl">
+              {homeDetails?.flights_almost_missed}
+            </p>
             <p className="font-redHat font-medium text-base">
               FLIGHTS ALMOST MISSED
             </p>
@@ -181,7 +154,9 @@ export default function Home() {
               width={126}
               height={81}
             />
-            <p className="font-redHat font-medium text-3xl">XX</p>
+            <p className="font-redHat font-medium text-3xl">
+              {homeDetails?.times_i_got_lost}
+            </p>
             <p className="font-redHat font-medium text-base">
               TIMES I GOT LOST
             </p>
@@ -200,10 +175,14 @@ export default function Home() {
               width={68}
               height={88}
             />
-            <p className="font-redHat font-medium text-3xl">XX</p>
-            <p className="font-redHat font-medium text-base">
-              TIMES MY LUGGAGE DIDN’T ARRIVE
-            </p>
+            <div className="flex flex-col text-center lg:text-left items-center">
+              <p className="font-redHat font-medium text-3xl">
+                {homeDetails?.times_my_luggage_did_not_arrive}
+              </p>
+              <p className="font-redHat font-medium text-base text-center">
+                TIMES MY LUGGAGE DIDN’T ARRIVE
+              </p>
+            </div>
           </div>
 
           {/* Hotels Stayed In */}
@@ -216,10 +195,14 @@ export default function Home() {
               width={94}
               height={102}
             />
-            <p className="font-redHat font-medium text-3xl">XX</p>
-            <p className="font-redHat font-medium text-base">
-              HOTELS STAYED IN
-            </p>
+            <div className="flex flex-col text-center lg:text-left items-center">
+              <p className="font-redHat font-medium text-3xl">
+                {homeDetails?.hotels_stayed_in}
+              </p>
+              <p className="font-redHat font-medium text-base">
+                HOTELS STAYED IN
+              </p>
+            </div>
           </div>
 
           {/* Friends Made Along the Way */}
@@ -232,8 +215,10 @@ export default function Home() {
               width={213}
               height={236}
             />
-            <div className="text-center lg:text-left">
-              <p className="font-redHat font-medium text-3xl">XX</p>
+            <div className="flex flex-col text-center lg:text-left items-center">
+              <p className="font-redHat font-medium text-3xl">
+                {homeDetails?.friends_i_made_along_the_way}
+              </p>
               <p className="font-redHat font-medium text-base">
                 FRIENDS I MADE ALONG THE WAY
               </p>
@@ -247,15 +232,14 @@ export default function Home() {
           {/* Text Content */}
           <div className="flex-1 text-center md:text-left">
             <p className="font-redHat font-medium text-xl">
-              What to expect from my Travel blogs
+              {homeDetails?.what_to_expect_title}
             </p>
-            <p className="font-redHat font-regular text-base mt-4">
-              I’ve been travelling solo for years, building up a mile-long list
-              of hidden gems, must-see destinations, and off-the-beaten-path
-              experiences. My travel guides are like your BFFs—trustworthy, fun,
-              and full of insider tips—so you’ll always feel like a local
-              wherever you go.
-            </p>
+            <p
+              className="font-redHat font-regular text-base mt-4"
+              dangerouslySetInnerHTML={{
+                __html: homeDetails?.what_to_expect_content || "",
+              }}
+            ></p>
           </div>
 
           {/* Portrait Image */}
@@ -265,7 +249,7 @@ export default function Home() {
               zIndex: 100,
             }}
           >
-            <PortraitPhoto />
+            <PortraitPhoto homeDetails={homeDetails} />
           </div>
         </div>
 
@@ -281,25 +265,26 @@ export default function Home() {
       <div className="my-24 px-4 md:px-20">
         <p className="font-redHat font-medium text-xl mb-8">LATEST GUIDES</p>
         <div className="flex space-x-6 overflow-x-scroll scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-hidden">
-          {guides.map((guide, index) => (
+          {_.map(latestGuides, (latest_item, latest_index) => (
             <div
-              key={index}
+              key={`latest_item_${latest_index}`}
+              // onClick={() => {}}
               className="min-w-full lg:min-w-0 border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <div className="h-72 md:h-48 overflow-hidden">
                 <img
-                  src={guide.image}
-                  alt={guide.title}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${latest_item?.blog_listing_preview_image?.filename_disk}`}
+                  alt={latest_item?.country}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-4">
                 <p className="card-title text-xs text-secondary-content">
-                  {guide.country}
+                  {latest_item?.country}
                 </p>
                 <div className="border-2 border-brown border-solid my-2"></div>
                 <p className="font-redHat font-regular text-base">
-                  {guide.title}
+                  {`${latest_item?.blog_listing_cta_text}: ${latest_item?.blog_listing_preview_text}`}
                 </p>
               </div>
             </div>

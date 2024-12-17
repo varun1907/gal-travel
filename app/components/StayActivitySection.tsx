@@ -17,7 +17,7 @@ const StayActivitySection = ({ activity }: any) => {
         <p
           className="font-redHat font-medium text-base mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.stay_para,
+            __html: activity?.stay_para || '',
           }}
         ></p>
 

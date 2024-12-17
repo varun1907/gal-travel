@@ -1,8 +1,16 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import constant from "../../config/constant";
 
-const Conclusion = ({ blogDetails }: any) => {
+const Conclusion = ({
+  heading,
+  content,
+  image,
+  show_btn = false,
+  btn_text = "",
+  on_btn_click,
+}: any) => {
   return (
     <div className="mx-5 md:mx-28 flex flex-col">
       <div
@@ -18,12 +26,22 @@ const Conclusion = ({ blogDetails }: any) => {
             width={30}
             height={35.11}
           />
-          <p className="font-redHat font-medium text-base mt-6">
-            {blogDetails?.conclusion_heading}
-          </p>
-          <p className="font-redHat text-base mt-3">
-            {blogDetails?.conclusion_content}
-          </p>
+          <p className="font-redHat font-medium text-base mt-6">{heading}</p>
+          <p
+            className="font-redHat text-base mt-3"
+            dangerouslySetInnerHTML={{
+              __html: content || "",
+            }}
+          ></p>
+          {show_btn && (
+            <button
+              // onClick={on_btn_click}
+              className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
+              style={{ borderRadius: 6, backgroundColor: "#BD6D6D" }}
+            >
+              {btn_text}
+            </button>
+          )}
         </div>
 
         <div className="flex-1">
@@ -38,7 +56,7 @@ const Conclusion = ({ blogDetails }: any) => {
             >
               <Image
                 aria-hidden
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.conclusion_image?.filename_disk}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
                 alt="Conclusion image"
                 layout="responsive"
                 width={100}
