@@ -1,5 +1,8 @@
 import { API, fireApiAction } from "@/config/api";
 
+
+
+
 async function fetchPrivacyPolicy() {
   const params = {
     "filter[status][_eq]": "published",
@@ -7,7 +10,9 @@ async function fetchPrivacyPolicy() {
 
   try {
     const result = await fireApiAction(API.privacy_policy, "GET", params);
+    
     if (result?.data) {
+
       return result.data;
     }
     throw new Error("Not Found");
@@ -17,7 +22,10 @@ async function fetchPrivacyPolicy() {
 }
 
 export default async function PrivacyPolicy() {
-  const policy = await fetchPrivacyPolicy();
+  let policy = await fetchPrivacyPolicy();
+  let content = policy?.privacy_policy_content
+  content = content?.replaceAll("\n", "<br/>")
+
 
   return (
     <div className="privacy-policy-page">
@@ -37,7 +45,8 @@ export default async function PrivacyPolicy() {
         <p
           className="font-redHat text-sm md:text-base leading-6 mb-6"
           dangerouslySetInnerHTML={{
-            __html: policy?.privacy_policy_content || "",
+            // __html: policy?.privacy_policy_content || "",
+            __html: content || "",
           }}
         ></p>
       </div>

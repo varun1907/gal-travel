@@ -8,20 +8,25 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center px-4 h-[80px] md:px-24 md:h-[100px]" style={{position:'sticky'}}>
+    <header
+      className="flex justify-between items-center px-4 h-[80px] md:px-24 md:h-[100px] sticky top-0 z-40"
+      style={{ backgroundColor: "#FBF7F4" }}
+    >
       {/* Logo */}
-      <Image
-        aria-hidden
-        src="/logo.svg"
-        alt="Site Logo"
-        width={100}
-        height={40}
-        className="md:w-[134px] md:h-[50px]"
-      />
+      <Link href="/">
+        <Image
+          aria-hidden
+          src="/logo.svg"
+          alt="Site Logo"
+          width={100}
+          height={40}
+          className="md:w-[134px] md:h-[50px] cursor-pointer"
+        />
+      </Link>
 
       {/* Navigation */}
       <nav className="hidden md:flex items-center space-x-10">
-        <Link href="/blogs" className="font-redHat text-sm font-regular">
+        <Link href="/blog" className="font-redHat text-sm font-regular">
           BLOGS
         </Link>
         <Link href="/about" className="font-redHat text-sm font-regular">
@@ -31,7 +36,7 @@ export default function Header() {
 
       {/* Hamburger Menu for Mobile */}
       <button
-        className="md:hidden flex items-center"
+        className="md:hidden flex items-center z-50"
         onClick={() => setMenuOpen(!menuOpen)}
         aria-label="Toggle Menu"
       >

@@ -64,19 +64,20 @@ const PortraitPhoto = ({ homeDetails }: any) => {
           style={{
             width: "310px",
             height: "346px",
-            flex: "0 0 auto",
           }}
         >
           <div
             className="bg-white p-2 shadow-md mx-auto"
             style={{ width: "290px", height: "326px", marginTop: 8 }}
           >
-            <Image
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${homeDetails?.what_to_expect_image?.filename_disk}`}
-              alt={"what to expect"}
-              width={270}
-              height={306}
-            />
+            <div className="relative w-[270px] h-[306px]">
+              <Image
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${homeDetails?.what_to_expect_image?.filename_disk}`}
+                alt={"what to expect"}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Conclusion from "@/app/components/Conclusion";
 import { Metadata } from "next";
 import { API, fireApiAction } from "../../../config/api";
 import _ from "lodash";
+import LatestGuides from "@/app/components/LatestGuides";
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -38,10 +39,32 @@ async function fetchBlogDetails(slug: string) {
   }
 }
 
+async function fetchLatestGuides(slug: string) {
+  const params = {
+    "fields[]":
+      "id,slug,country,blog_listing_preview_image.*,blog_listing_cta_text,blog_listing_preview_text",
+    "sort[]": "-date_created",
+  };
+
+  try {
+    const result = await fireApiAction(API.travel_blogs, "GET", params);
+    if (result?.data && result?.data?.length > 0) {
+      const arr = _.cloneDeep(result.data);
+      const filterd_arr = _.filter(arr, (item) => item?.slug != slug);
+      filterd_arr.splice(3);
+      return filterd_arr;
+    }
+    throw new Error("Not Found");
+  } catch (error) {
+    return null;
+  }
+}
+
 export default async function BlogDetail({ params }: BlogDetailPageProps) {
   const { slug } = await params;
 
   const blogDetails = await fetchBlogDetails(slug);
+  const latestGuides = await fetchLatestGuides(slug);
 
   if (!blogDetails) {
     return (
@@ -59,7 +82,17 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
       (item) => item?.cities_id?.city_name
     );
   } else {
-    nav_bar_items = ["Visit", "Reach", "Stay", "Todo", "Eat"];
+    nav_bar_items = ["Visit", "Reach", "Stay", "To Do", "Eat"];
+
+    if (
+      !_.isEmpty(blogDetails?.activity?.shop_para) &&
+      !_.isEmpty(blogDetails?.activity?.shop_image_1) &&
+      !_.isEmpty(blogDetails?.activity?.shop_image_2) &&
+      !_.isEmpty(blogDetails?.activity?.shop_image_3)
+    ) {
+      nav_bar_items.push("Shop");
+    }
+
     if (
       !_.isEmpty(blogDetails?.activity?.additional_section_header) &&
       !_.isEmpty(blogDetails?.activity?.additional_section_nav_text) &&
@@ -82,16 +115,16 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
             }}
           >
             <div className="flex flex-col justify-center items-center text-center h-full text-white bg-black bg-opacity-50">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="font-ragilac text-4xl md:text-5xl font-bold mb-4">
                 {blogDetails?.blog_title}
               </h1>
-              <p className="text-xl md:text-2xl font-medium">
+              <p className="font-redHat text-xl md:text-2xl font-medium px-20 md:px-0">
                 {blogDetails?.blog_subtitle}
               </p>
             </div>
           </div>
 
-          <div className="sticky top-0 z-50 bg-gray-100 border-t border-gray-300">
+          <div className="sticky top-20 md:top-24 z-30 bg-gray-100 border-t border-gray-300">
             <div className="relative flex items-center">
               <div className="flex items-center overflow-x-auto md:overflow-visible md:flex-nowrap justify-start md:justify-between scrollbar-hide space-x-0 md:space-x-0 w-full">
                 {nav_bar_items.map((item, index) => (
@@ -136,6 +169,20 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
             content={blogDetails?.conclusion_content}
             image={blogDetails?.conclusion_image?.filename_disk}
           />
+
+          <div className="mb-10 md:mb-24 px-4 md:px-32">
+            <p className="font-redHat font-medium text-xl mb-5">
+              Read other blogs
+            </p>
+            <div className="flex space-x-6 overflow-x-scroll scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-hidden">
+              {_.map(latestGuides, (latest_item, latest_index) => (
+                <LatestGuides
+                  key={`latest_item_${latest_index}`}
+                  latest_item={latest_item}
+                />
+              ))}
+            </div>
+          </div>
         </section>
       </>
     </div>

@@ -23,8 +23,11 @@ export default async function About() {
   const aboutDetails = await fetchAbout();
   return (
     <div>
-      <div className="flex flex-col-reverse md:flex-row items-center md:items-start mx-6 md:mx-24">
-        <div className="md:w-1/2 text-center md:text-left mt-10 md:mt-0">
+      <div className="flex flex-col-reverse md:flex-row items-center md:items-start mx-6 md:mx-40 md:mt-10">
+        <div
+          className="md:w-1/2 text-center md:text-left mt-10 md:mt-0"
+          style={{ alignSelf: "center" }}
+        >
           <p className="text-6xl font-ragilac" style={{ color: "#C95C5C" }}>
             {aboutDetails?.title}
           </p>
@@ -40,33 +43,25 @@ export default async function About() {
         {/* Right Image */}
         <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
           <div
-            className="relative w-[340px] h-[366px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
+            className="relative w-[372px] h-[517px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
             style={{ zIndex: 100 }}
           >
-            <div className="flex transition-transform duration-700 ease-in-out">
+            <div className="flex">
               <div
-                className="flex-none"
-                style={{
-                  width: "340px",
-                  height: "366px",
-                  flex: "0 0 auto",
-                }}
+                className="bg-white p-3 shadow-md mx-auto"
+                style={{ width: "352px", height: "497px", marginTop: 8 }}
               >
-                <div
-                  className="bg-white p-2 shadow-md mx-auto"
-                  style={{ width: "290px", height: "346px", marginTop: 8 }}
-                >
+                <div className="relative w-[332px] h-[369px]">
                   <Image
                     src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.intro_image?.filename_disk}`}
-                    alt={"dummy"}
-                    width={270}
-                    height={306}
-                    // className="rounded-md"
+                    alt={"About landing"}
+                    layout="fill"
+                    objectFit="cover"
                   />
-                  <p className="font-ragilac text-2xl text-center	">
-                    {aboutDetails?.intro_caption}
-                  </p>
                 </div>
+                <p className="font-ragilac text-3xl text-center mt-4	">
+                  {aboutDetails?.intro_caption}
+                </p>
               </div>
             </div>
           </div>
@@ -74,10 +69,10 @@ export default async function About() {
       </div>
 
       <div
-        className="relative my-8  mx-6 md:mx-24 overflow-hidden"
+        className="relative my-16 md:my-32 mx-10 md:mx-40 overflow-hidden"
         style={{ border: `4px solid #A78B88`, backgroundColor: "#FBF7F4" }}
       >
-        <div className="flex flex-col-reverse md:flex-row items-center p-4 px-24 gap-20">
+        <div className="flex flex-col-reverse md:flex-row items-center p-4 px-8 md:px-24 pt-12 md:pt-0 gap-20">
           <div
             className="flex transition-transform duration-700 ease-in-out -rotate-6 mb-32 md:mb-0"
             style={{ zIndex: 100 }}
@@ -136,7 +131,7 @@ export default async function About() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row mx-6 md:mx-24 items-center my-16">
+      <div className="flex flex-col md:flex-row mx-6 md:mx-40 items-center my-16">
         <div className="flex flex-1">
           <p
             className="font-redHat font-regular text-base"
@@ -146,7 +141,7 @@ export default async function About() {
           ></p>
         </div>
 
-        <div className="relative flex flex-1 md:flex-wrap items-center justify-center px-6 md:px-12">
+        <div className="relative flex flex-1 md:flex-wrap items-center justify-center px-6 md:px-12 my-10 md:my-0">
           <div className="flex flex-row gap-2" style={{ zIndex: 2 }}>
             <div className=" flex flex-col items-center">
               <div className="overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[161px]">

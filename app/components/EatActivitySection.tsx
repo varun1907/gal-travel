@@ -5,7 +5,7 @@ import _ from "lodash";
 
 const EatActivitySection = ({ activity }: any) => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16" id="eat">
+    <section className="pt-8 md:pt-12 px-4 md:px-16 gap-8 md:gap-16" id="eat">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
         className="flex items-center pl-6"
@@ -19,13 +19,13 @@ const EatActivitySection = ({ activity }: any) => {
             <p
               className="font-redHat text-base"
               dangerouslySetInnerHTML={{
-                __html: activity?.eat_para || '',
+                __html: activity?.eat_para || "",
               }}
             ></p>
           </div>
 
           <div className="flex flex-wrap gap-8 md:flex-col">
-            <div className="w-full">
+            <div className="w-full flex items-center justify-center">
               <img
                 className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
                 src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_1?.filename_disk}`}
@@ -34,7 +34,7 @@ const EatActivitySection = ({ activity }: any) => {
               />
             </div>
 
-            <div className="w-full">
+            <div className="w-full flex items-center justify-center">
               <img
                 // className="w-full h-auto object-cover"
                 className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
@@ -44,7 +44,7 @@ const EatActivitySection = ({ activity }: any) => {
               />
             </div>
 
-            <div className="w-full">
+            <div className="w-full flex items-center justify-center">
               <img
                 // className="w-full h-auto object-cover"
                 className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"

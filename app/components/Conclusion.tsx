@@ -17,7 +17,7 @@ const Conclusion = ({
         className="flex flex-col md:flex-row pl-10 py-8 pr-8 gap-10"
         style={{ backgroundColor: "#EAD5C4" }}
       >
-        <div className="flex-1">
+        <div className="flex-1" style={{alignSelf:'center'}}>
           <Image
             aria-hidden
             className="mr-6"

@@ -15,11 +15,9 @@ const axioInstance = axios.create({
   baseURL: API_ENDPOINT,
 });
 axioInstance.interceptors.request.use((request) => {
-  // request.headers["Content-Type"] = 'multipart/form-data';
-  // let jwtToken = getCookie(process.env.MANAV || process.env.NEXT_PUBLIC_MANAV)
-  // if(jwtToken)
-  request.headers["Authorization"] = `Bearer ${process.env.AUTH_TOKEN}`;
-
+  request.headers[
+    "Authorization"
+  ] = `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`;
   return request;
 });
 

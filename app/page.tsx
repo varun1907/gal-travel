@@ -4,6 +4,7 @@ import MasonryImage from "./components/MasontryImage";
 import { API, fireApiAction } from "@/config/api";
 import _ from "lodash";
 import constant from "../config/constant";
+import LatestGuides from "./components/LatestGuides";
 
 async function fetchHomeDetails() {
   const params = {
@@ -31,8 +32,10 @@ async function fetchLatestGuides() {
 
   try {
     const result = await fireApiAction(API.travel_blogs, "GET", params);
-    if (result?.data) {
-      return result.data;
+    if (result?.data && result?.data?.length > 0) {
+      const arr = _.cloneDeep(result.data);
+      arr.splice(3);
+      return arr;
     }
     throw new Error("Not Found");
   } catch (error) {
@@ -49,7 +52,6 @@ export default async function Home() {
       <div className="carousel w-full" style={{ height: "600px" }}>
         {_.map(homeDetails?.hero_banner_assets, (banner_item, banner_index) => (
           <div
-            id="item1"
             className="carousel-item w-full relative"
             key={`home_banner_${banner_index}`}
           >
@@ -83,9 +85,12 @@ export default async function Home() {
         ))}
       </div>
 
-      <div className="bg-brown px-4 lg:px-20 py-8 mx-6 lg:mx-24 my-20">
+      <div className="bg-brown px-4 lg:px-20 py-8 mx-6 lg:mx-32 my-10 md:my-20">
         <div className="lg:flex lg:justify-between lg:items-start">
-          <div className="lg:w-1/2 md:mr-40 lg mr-0">
+          <div
+            className="lg:w-1/2 md:mr-40 lg mr-0"
+            style={{ alignSelf: "center" }}
+          >
             <p className="font-redHat font-medium text-lg lg:text-xl text-center lg:text-left">
               {homeDetails?.intro_title}
             </p>
@@ -97,13 +102,13 @@ export default async function Home() {
             ></p>
           </div>
 
-          <div className="lg:w-1/2 mt-8 lg:mt-0">
+          <div className="lg:w-1/2 lg:mt-0">
             <MasonryImage homeDetails={homeDetails} />
           </div>
         </div>
       </div>
 
-      <div className="my-20 mx-6 lg:mx-24">
+      <div className="my-10 md:my-20 mx-6 lg:mx-32">
         {/* Row 1 */}
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Countries Travelled */}
@@ -226,9 +231,9 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <div className="relative my-24">
+      <div className="relative my-10 md:my-24">
         {/* Text and Image Block */}
-        <div className="flex flex-col md:flex-row items-center md:justify-between md:px-24 px-4">
+        <div className="flex flex-col md:flex-row items-center md:justify-between md:px-32 px-4">
           {/* Text Content */}
           <div className="flex-1 text-center md:text-left">
             <p className="font-redHat font-medium text-xl">
@@ -262,39 +267,21 @@ export default async function Home() {
         />
       </div>
 
-      <div className="my-24 px-4 md:px-20">
+      <div className="my-24 mb-10 md:mb-24 px-4 md:px-32">
         <p className="font-redHat font-medium text-xl mb-8">LATEST GUIDES</p>
         <div className="flex space-x-6 overflow-x-scroll scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-hidden">
           {_.map(latestGuides, (latest_item, latest_index) => (
-            <div
+            <LatestGuides
               key={`latest_item_${latest_index}`}
-              // onClick={() => {}}
-              className="min-w-full lg:min-w-0 border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="h-72 md:h-48 overflow-hidden">
-                <img
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${latest_item?.blog_listing_preview_image?.filename_disk}`}
-                  alt={latest_item?.country}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <p className="card-title text-xs text-secondary-content">
-                  {latest_item?.country}
-                </p>
-                <div className="border-2 border-brown border-solid my-2"></div>
-                <p className="font-redHat font-regular text-base">
-                  {`${latest_item?.blog_listing_cta_text}: ${latest_item?.blog_listing_preview_text}`}
-                </p>
-              </div>
-            </div>
+              latest_item={latest_item}
+            />
           ))}
         </div>
       </div>
 
       <div
-        className="my-24 flex justify-between md: hidden lg:flex"
-        style={{ marginLeft: 100, marginRight: 100, alignItems: "center" }}
+        className="my-24 flex justify-between md: hidden lg:flex px-4 md:px-32"
+        style={{ alignItems: "center" }}
       >
         <div style={{ flex: 1 }}>
           <p className="font-redHat font-medium text-xl">
@@ -307,10 +294,7 @@ export default async function Home() {
           </p>
         </div>
 
-        <div
-          className="flex justify-center"
-          style={{ flex: 1, marginLeft: 200, flexWrap: "wrap" }}
-        >
+        <div className="flex justify-end" style={{ flex: 1, flexWrap: "wrap" }}>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
             <div
               key={`img_${item}`}

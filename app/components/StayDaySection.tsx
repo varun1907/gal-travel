@@ -4,24 +4,6 @@ import FunFact from "./FunFact";
 import ProTip from "./ProTip";
 import _ from "lodash";
 
-const guides = [
-  {
-    country: "Europe",
-    title: "10 Days of Swiss Bliss: A First-Timers Luxury Trip to Switzerland",
-    image: "/latest-1.svg", // Replace with the actual path to your image
-  },
-  {
-    country: "COUNTRY NAME",
-    title: "Another blog title goes over here",
-    image: "/latest-2.svg",
-  },
-  {
-    country: "COUNTRY NAME",
-    title: "Another blog title goes over here",
-    image: "/latest-3.svg",
-  },
-];
-
 const StayDaySection = ({ city_data }: any) => {
   return (
     <div className="mt-10">
@@ -35,12 +17,12 @@ const StayDaySection = ({ city_data }: any) => {
         </p>
       </div>
       <div className="mx-1 md:mx-48">
-        <p
+        <div
           className="text-base font-redHat mb-3"
           dangerouslySetInnerHTML={{
-            __html: city_data?.stay_at_intro_para || '',
+            __html: city_data?.stay_at_intro_para || "",
           }}
-        ></p>
+        ></div>
 
         <div className="flex space-x-6 overflow-x-scroll scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-2 lg:overflow-hidden pb-4 mt-4">
           {[1, 2, 3].map((guide, index) => {
@@ -71,6 +53,21 @@ const StayDaySection = ({ city_data }: any) => {
             );
           })}
         </div>
+
+        <div className="flex md:hidden flex-row gap-2 justify-center items-center">
+          {_.map([1, 2, 3], (dot_item, dot_iddex) => (
+            <div
+              key={`dot_item_${dot_iddex}`}
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: "#C95C5C",
+              }}
+            ></div>
+          ))}
+        </div>
+
         {!_.isEmpty(city_data?.stay_at_fun_fact) && (
           <FunFact title={city_data?.stay_at_fun_fact} />
         )}

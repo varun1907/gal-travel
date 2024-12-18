@@ -5,7 +5,7 @@ import _ from "lodash";
 
 const BlogDetailIntro = ({ blogDetails }: any) => {
   return (
-    <section className="md:py-12 px-4 md:px-16 flex flex-col md:flex-row gap-8 md:gap-16">
+    <section className="md:py-12 px-4 md:px-40 flex flex-col md:flex-row gap-8 md:gap-16">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-16 py-8 md:py-12">
         <div className="flex-1 h-64 p-5 md:h-auto">
           <p
@@ -28,7 +28,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
           <p
             className="font-redHat text-base"
             dangerouslySetInnerHTML={{
-              __html: blogDetails?.introduction_sub_para || '',
+              __html: blogDetails?.introduction_sub_para || "",
             }}
           ></p>
         </div>

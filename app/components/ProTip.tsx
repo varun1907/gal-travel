@@ -11,7 +11,7 @@ const ProTip = ({ city_name, title, image }: any) => {
       <figure>
         <img src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`} alt="Shoes" />
       </figure>
-      <div className="flex flex-col justify-center px-5 py-5 md:py-0">
+      <div className="flex flex-col justify-center px-5 py-5 md:py-5">
         <p
           className="font-redHat font-bold text-xs"
           style={{ color: "#C95C5C" }}

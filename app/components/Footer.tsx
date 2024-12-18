@@ -39,18 +39,20 @@ const Footer = () => {
         <div className="hero-content text-neutral-content text-center">
           <div className="max-w-lg">
             {show_success && (
-              <p className="mb-2 text-xl font-redHat font-medium">
-                Subscribe to my Monthly Newsletter
-              </p>
+              <>
+                <p className="mb-2 text-xl font-redHat font-medium">
+                  Subscribe to my Monthly Newsletter
+                </p>
+                <Image
+                  aria-hidden
+                  className="mb-3 mx-auto"
+                  src="/footer_line.svg"
+                  alt="Footer line"
+                  width={580}
+                  height={38}
+                />
+              </>
             )}
-            <Image
-              aria-hidden
-              className="mb-3 mx-auto"
-              src="/footer_line.svg"
-              alt="Footer line"
-              width={580}
-              height={38}
-            />
             {!show_success && (
               <>
                 <p className="mb-2 text-xl font-redHat font-medium">
@@ -61,7 +63,7 @@ const Footer = () => {
                   Offers, and Luxury Travel Experiences.
                 </p>
 
-                <div className="flex flex-row items-start space-x-4 p-6">
+                <div className="flex flex-col md:flex-row items-start space-y-10 md:space-y-0 md:space-x-4 p-6">
                   <input
                     value={name}
                     onChange={(e) => {
@@ -103,7 +105,7 @@ const Footer = () => {
             style={{ background: "#C95C5C", flex: "0.5" }}
           >
             <Link
-              href="/privacy-policy"
+              href="mailto:galtravelbychandni@gmail.com"
               className="font-redHat text-base font-regular text-center w-full"
             >
               Email
@@ -127,7 +129,8 @@ const Footer = () => {
             style={{ background: "#E7BFBF", flex: "0.5" }}
           >
             <Link
-              href="/privacy-policy"
+              href="https://www.instagram.com/galtravelstory/"
+              target="_blank"
               className="font-redHat text-base font-regular text-center w-full"
             >
               Instagram

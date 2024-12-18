@@ -5,7 +5,7 @@ import constant from "../../config/constant";
 
 const StayActivitySection = ({ activity }: any) => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16" id="stay">
+    <section className="pt-8 md:pt-12 px-4 md:px-16 gap-8 md:gap-16" id="stay">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
         className="flex items-center pl-6"
@@ -17,7 +17,7 @@ const StayActivitySection = ({ activity }: any) => {
         <p
           className="font-redHat font-medium text-base mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.stay_para || '',
+            __html: activity?.stay_para || "",
           }}
         ></p>
 
@@ -49,6 +49,20 @@ const StayActivitySection = ({ activity }: any) => {
               </div>
             );
           })}
+        </div>
+
+        <div className="flex md:hidden flex-row gap-2 justify-center items-center">
+          {_.map([1, 2, 3], (dot_item, dot_iddex) => (
+            <div
+              key={`dot_item_${dot_iddex}`}
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: "#C95C5C",
+              }}
+            ></div>
+          ))}
         </div>
         {!_.isEmpty(activity?.stay_pro_tip_image) &&
           !_.isEmpty(activity?.stay_pro_tip) && (

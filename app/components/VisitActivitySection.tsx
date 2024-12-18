@@ -5,7 +5,7 @@ import _ from "lodash";
 
 const VisitActivitySection = ({ activity }: any) => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16" id="visit">
+    <section className="pt-8 md:pt-12 px-4 md:px-16 gap-8 md:gap-16" id="visit">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
         className="flex items-center pl-6"
@@ -19,7 +19,7 @@ const VisitActivitySection = ({ activity }: any) => {
         <p
           className="text-base font-redHat font-regular mt-7"
           dangerouslySetInnerHTML={{
-            __html: activity?.visit_para || '',
+            __html: activity?.visit_para || "",
           }}
         ></p>
 
@@ -33,14 +33,6 @@ const VisitActivitySection = ({ activity }: any) => {
               alt="Visit Image 1"
               className="w-full h-[200px] md:h-[420px] object-cover"
             />
-            {/* <div className="p-1 flex justify-center">
-              <p
-                className="text-lg font-ragilac text-secondary-content"
-                style={{ color: "C95C5C" }}
-              >
-                Do 1
-              </p>
-            </div> */}
           </div>
 
           <div className="grid grid-rows-2 gap-4">
@@ -53,14 +45,6 @@ const VisitActivitySection = ({ activity }: any) => {
                 alt="Visit Image 2"
                 className="w-full h-[200px] md:h-[200px] object-cover"
               />
-              {/* <div className="p-1 flex justify-center">
-                <p
-                  className="text-lg font-ragilac text-secondary-content"
-                  style={{ color: "C95C5C" }}
-                >
-                  Do 2
-                </p>
-              </div> */}
             </div>
             <div
               className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
@@ -71,14 +55,6 @@ const VisitActivitySection = ({ activity }: any) => {
                 alt="Visit Image 3"
                 className="w-full h-[200px] md:h-[200px] object-cover"
               />
-              {/* <div className="p-1 flex justify-center">
-                <p
-                  className="text-lg font-ragilac text-secondary-content"
-                  style={{ color: "C95C5C" }}
-                >
-                  Do 3
-                </p>
-              </div> */}
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import _ from "lodash";
 
 const ReachActivitySection = ({ activity }: any) => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-16 gap-8 md:gap-16" id="reach">
+    <section className="pt-8 md:pt-12 px-4 md:px-16 gap-8 md:gap-16" id="reach">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
         className="flex items-center pl-6"
