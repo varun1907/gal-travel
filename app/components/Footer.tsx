@@ -2,12 +2,38 @@
 import { API, fireApiAction } from "@/config/api";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Footer = () => {
   const [name, set_name] = useState("");
   const [email, set_email] = useState("");
   const [show_success, set_show_success] = useState(false);
+  const [footer_content, set_footer_content] = useState({
+    footer_heading: "Subscribe to my Monthly Newsletter",
+    footer_subheading:
+      "Don’t Miss Out! Be the First to Know About New Destinations, Offers, and Luxury Travel Experiences.",
+  });
+
+  useEffect(() => {
+    const res = fetchFooterDetails();
+  }, []);
+
+  async function fetchFooterDetails() {
+    const params = {
+      "fields[]": "footer_heading,footer_subheading",
+    };
+
+    try {
+      const result = await fireApiAction(API.footer, "GET", params);
+      if (result?.data) {
+        console.log(result.data);
+        return result.data;
+      }
+      throw new Error("Not Found");
+    } catch (error) {
+      return null;
+    }
+  }
 
   const save_data = async () => {
     try {
@@ -41,7 +67,7 @@ const Footer = () => {
             {show_success && (
               <>
                 <p className="mb-2 text-xl font-redHat font-medium">
-                  Subscribe to my Monthly Newsletter
+                  Adventure Awaits! Thanks for Signing Up!
                 </p>
                 <Image
                   aria-hidden
@@ -56,11 +82,10 @@ const Footer = () => {
             {!show_success && (
               <>
                 <p className="mb-2 text-xl font-redHat font-medium">
-                  Adventure Awaits! Thanks for Signing Up!
+                  {footer_content?.footer_heading}
                 </p>
                 <p className="mb-7 font-redHat font-medium text-base">
-                  Don’t Miss Out! Be the First to Know About New Destinations,
-                  Offers, and Luxury Travel Experiences.
+                  {footer_content?.footer_subheading}
                 </p>
 
                 <div className="flex flex-col md:flex-row items-start space-y-10 md:space-y-0 md:space-x-4 p-6">

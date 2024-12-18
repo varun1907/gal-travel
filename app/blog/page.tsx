@@ -25,31 +25,28 @@ async function fetchBlogList() {
 
 async function fetchQuoteList(total_blogs: number) {
   const params = {
-    "sort[]": "-date_created",
-    "fields[]":
-      "id,slug,country,blog_listing_preview_image.*,blog_listing_cta_text,blog_listing_preview_text",
+    "filter[status][_eq]": "published",
   };
 
   try {
-    // const result = await fireApiAction(API.travel_blogs, "GET", params);
-    // if (result?.data?.length > 0) {
-    //   return result.data; // Return the blog details
-    // }
-    // throw new Error("Not Found");
-    let number_of_rows = Math.ceil(total_blogs / 4);
-    const total_quote = number_of_rows - 1;
-    let output = [];
-    const quotes = [1, 2, 3, 4];
+    const result = await fireApiAction(API.travel_quotes, "GET", params);
+    let output: any = [];
+    if (result?.data?.length > 0) {
+      let number_of_rows = Math.ceil(total_blogs / 4);
+      const total_quote = number_of_rows - 1;
 
-    if (total_quote <= quotes.length) {
-      // When n is less than or equal to array size, pick unique random values
-      const shuffled = [...quotes].sort(() => Math.random() - 0.5); // Shuffle the array
-      output = shuffled.slice(0, total_quote);
-    } else {
-      // When n is more than the array size, allow repetition
-      for (let i = 0; i < total_quote; i++) {
-        const randomIndex = Math.floor(Math.random() * quotes.length); // Pick random index
-        output.push(quotes[randomIndex]);
+      const quotes = result?.data;
+
+      if (total_quote <= quotes.length) {
+        // When n is less than or equal to array size, pick unique random values
+        const shuffled = [...quotes].sort(() => Math.random() - 0.5); // Shuffle the array
+        output = shuffled.slice(0, total_quote);
+      } else {
+        // When n is more than the array size, allow repetition
+        for (let i = 0; i < total_quote; i++) {
+          const randomIndex = Math.floor(Math.random() * quotes.length); // Pick random index
+          output.push(quotes[randomIndex]);
+        }
       }
     }
 
@@ -129,7 +126,7 @@ export default async function BlogDetail() {
                     height={35}
                   />
                   <p className="font-redHat text-2xl">
-                    Southern Italy is pure bellissimo
+                    {quoteList[Math.floor(blog_index / 4)]?.quote}
                   </p>
                 </div>
               )}

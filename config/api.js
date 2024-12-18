@@ -6,6 +6,8 @@ const API = {
   privacy_policy: "privacy_policy",
   about_us: "about_us",
   subscriber_emails: "subscriber_emails",
+  footer: "footer",
+  travel_quotes: "travel_quotes",
 };
 
 const API_ENDPOINT = "https://admin.galtravelbychandni.com/items/";
