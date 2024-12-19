@@ -5,6 +5,10 @@ import { API, fireApiAction } from "@/config/api";
 import _ from "lodash";
 import constant from "../config/constant";
 import LatestGuides from "./components/LatestGuides";
+import axios from "axios";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import HomeBannerCarousel from "./components/HomeBannerCarousel";
 
 async function fetchHomeDetails() {
   const params = {
@@ -21,6 +25,11 @@ async function fetchHomeDetails() {
   } catch (error) {
     return null;
   }
+}
+
+async function fetchLatestInsta() {
+  
+  return [];
 }
 
 async function fetchLatestGuides() {
@@ -46,9 +55,11 @@ async function fetchLatestGuides() {
 export default async function Home() {
   const homeDetails = await fetchHomeDetails();
   const latestGuides = await fetchLatestGuides();
-
+  const latestInsta = await fetchLatestInsta();
+  // console.log(homeDetails);
   return (
     <div>
+      {/* <HomeBannerCarousel homeDetails={homeDetails} /> */}
       <div className="carousel w-full" style={{ height: "600px" }}>
         {_.map(homeDetails?.hero_banner_assets, (banner_item, banner_index) => (
           <div
@@ -59,7 +70,7 @@ export default async function Home() {
               className="absolute px-4 text-center text-white"
               style={{
                 left: "50%",
-                top: "30%", // Adjusted top percentage for better placement
+                top: "50%", // Adjusted top percentage for better placement
                 transform: `translate(-50%, -50%)`,
               }}
             >
@@ -69,12 +80,16 @@ export default async function Home() {
               <p className="text-lg md:text-3xl mt-8 font-redHat font-regular">
                 {banner_item?.hero_banner_assets_id?.hero_banner_subtitle}
               </p>
-              <button
-                className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
-                style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
+              <Link
+                href={`/${banner_item?.hero_banner_assets_id?.hero_banner_cta_url}`}
               >
-                {banner_item?.hero_banner_assets_id?.hero_banner_cta_text}
-              </button>
+                <button
+                  className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
+                  style={{ borderRadius: 6, backgroundColor: "#E5B791" }}
+                >
+                  {banner_item?.hero_banner_assets_id?.hero_banner_cta_text}
+                </button>
+              </Link>
             </div>
             <img
               src={`${constant.REMOTE_IMAGE_ENDPOINT}${banner_item?.hero_banner_assets_id?.hero_banner_image?.filename_disk}`}
@@ -277,46 +292,21 @@ export default async function Home() {
             />
           ))}
         </div>
-      </div>
-
-      <div
-        className="my-24 flex justify-between md: hidden lg:flex px-4 md:px-32"
-        style={{ alignItems: "center" }}
-      >
-        <div style={{ flex: 1 }}>
-          <p className="font-redHat font-medium text-xl">
-            Follow me on @galtravelstory
-          </p>
-          <p className="font-redHat font-regular text-base mt-6">
-            to get a backstage pass to inspiration, wanderlust, and the kind of
-            moments that make you wish you were right there with me, falling in
-            love with a new place every day.
-          </p>
-        </div>
-
-        <div className="flex justify-end" style={{ flex: 1, flexWrap: "wrap" }}>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+        <div className="flex md:hidden flex-row gap-2 justify-center items-center mt-4">
+          {_.map([1, 2, 3], (dot_item, dot_iddex) => (
             <div
-              key={`img_${item}`}
+              key={`dot_item_${dot_iddex}`}
               style={{
-                width: 100,
-                height: 100,
-                marginBottom: index < 4 ? 20 : 0,
-                flexBasis: "21%",
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: "#C95C5C",
               }}
-            >
-              <Image
-                aria-hidden
-                className="mb-3"
-                src="/dummy_full.svg"
-                alt="Footer line"
-                width={100}
-                height={100}
-              />
-            </div>
+            ></div>
           ))}
         </div>
       </div>
+
     </div>
   );
 }

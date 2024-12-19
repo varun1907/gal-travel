@@ -182,6 +182,19 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
                 />
               ))}
             </div>
+            <div className="flex md:hidden flex-row gap-2 justify-center items-center mt-4">
+              {_.map([1, 2, 3], (dot_item, dot_iddex) => (
+                <div
+                  key={`dot_item_${dot_iddex}`}
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: 3,
+                    backgroundColor: "#C95C5C",
+                  }}
+                ></div>
+              ))}
+            </div>
           </div>
         </section>
       </>

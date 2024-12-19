@@ -17,7 +17,7 @@ const EatDaySection = ({ city_data }: any) => {
         </p>
       </div>
       <div className="mx-1 md:mx-48">
-        <div className="pt-8 md:pt-12 flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p
               className="font-redHat text-base"
@@ -27,7 +27,7 @@ const EatDaySection = ({ city_data }: any) => {
             ></p>
           </div>
 
-          <div className="flex flex-wrap gap-8 md:flex-col">
+          <div className="flex flex-wrap gap-4 md:flex-col">
             <div className="w-full flex items-center justify-center">
               <img
                 // className="w-full h-auto object-cover"

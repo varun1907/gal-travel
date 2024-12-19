@@ -5,10 +5,10 @@ import _ from "lodash";
 
 const VisitActivitySection = ({ activity }: any) => {
   return (
-    <section className="pt-8 md:pt-12 px-4 md:px-16 gap-8 md:gap-16" id="visit">
+    <section className="pt-8 md:pt-12 gap-8 md:gap-16" id="visit">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
-        className="flex items-center pl-6"
+        className="flex items-center pl-0 md:pl-6"
       >
         <p className="font-redHat font-bold text-base">
           The Best Time To Visit

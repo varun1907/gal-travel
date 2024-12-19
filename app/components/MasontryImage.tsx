@@ -2,25 +2,6 @@
 import React from "react";
 import constant from "../../config/constant";
 
-// TODO: reduce image heights ----------Done
-// TODO: What to expect iamge ----------Done
-// TODO: only 3 latest guides  ----------Done
-// TODO: 32 margin across all componets    ----------Done
-// TODO: all click events ----------Done
-// todo: shop dunamic sections   ----------Done
-// todo: sticky header  ----------Done
-// todo: about - landing page image    ----------Done
-// todo: mobile - nav fix    ----------Done
-// todo: mobile - add three dot in stay section image   ----------Done
-// todo: mobile - eat section image center aligned  ----------Done
-// TODO: 40 amrgin blog detail ----------Done
-// todo: read from other blogs section in blog detasil  ----------Done
-// todo: blog list card preview text ----------Done
-// todo: blog list quote component ----------Done
-// TODO: orderlist rendering
-// TODO: protip iamge extra space
-// todo: Activity templace visit section image padding
-
 const MasonryImage = ({ homeDetails }: any) => {
   const images = [
     {

@@ -6,10 +6,10 @@ import constant from "../../config/constant";
 const TodoActivitySection = ({ activity }: any) => {
   const todo_list = activity?.activity_to_do_list;
   return (
-    <section className="pt-8 md:pt-12 px-4 md:px-16 gap-8 md:gap-16" id="to-do">
+    <section className="pt-8 md:pt-12 gap-8 md:gap-16" id="to-do">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
-        className="flex items-center pl-6"
+        className="flex items-center pl-0 md:pl-6"
       >
         <p className="font-redHat font-bold text-base">What To Do</p>
       </div>
@@ -36,66 +36,36 @@ const TodoActivitySection = ({ activity }: any) => {
                 ?.filename_disk && (
                 <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-4">
                   <div
-                    className="md:col-span-1 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-                    style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
+                    className="md:col-span-1 overflow-hidden"
+                    // style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
                   >
                     <img
                       src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_1_big?.filename_disk}`}
                       alt="Image 1"
-                      className="w-full h-[200px] md:h-[410px] object-cover"
+                      className="w-full h-[200px] md:h-[342px] object-cover"
                     />
-                    <div className="p-1 flex justify-center">
-                      <p
-                        className="text-lg font-ragilac text-secondary-content"
-                        style={{ color: "C95C5C" }}
-                      >
-                        {todo_item?.activities_to_do_id?.to_do_image_1_caption}
-                      </p>
-                    </div>
                   </div>
 
-                  <div className="grid grid-rows-2 gap-4">
+                  <div className="grid grid-rows-2 gap-3">
                     <div
-                      className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-                      style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
+                      className="overflow-hidden"
+                      // style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
                     >
                       <img
                         src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_2?.filename_disk}`}
                         alt="Image 2"
                         className="w-full h-[200px] md:h-[180px] object-cover"
                       />
-                      <div className="p-1 flex justify-center">
-                        <p
-                          className="text-lg font-ragilac text-secondary-content"
-                          style={{ color: "C95C5C" }}
-                        >
-                          {
-                            todo_item?.activities_to_do_id
-                              ?.to_do_image_2_caption
-                          }
-                        </p>
-                      </div>
                     </div>
                     <div
-                      className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-                      style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
+                      className="overflow-hidden"
+                      // style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
                     >
                       <img
                         src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_3?.filename_disk}`}
                         alt="Image 3"
-                        className="w-full h-[200px] md:h-[180px] object-cover"
+                        className="w-full h-[200px] md:h-[150px] object-cover"
                       />
-                      <div className="p-1 flex justify-center">
-                        <p
-                          className="text-lg font-ragilac text-secondary-content"
-                          style={{ color: "C95C5C" }}
-                        >
-                          {
-                            todo_item?.activities_to_do_id
-                              ?.to_do_image_3_caption
-                          }
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>

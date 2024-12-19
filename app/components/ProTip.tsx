@@ -8,16 +8,18 @@ const ProTip = ({ city_name, title, image }: any) => {
       className="card card-compact md:card-side bg-base-100 shadow-xl my-5"
       style={{ borderRadius: 0 }}
     >
-      <figure>
-        <img src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`} alt="Shoes" />
-      </figure>
+      <img
+        src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+        className="w-[350px] object-cover"
+        alt="Pro Tip"
+      />
+
       <div className="flex flex-col justify-center px-5 py-5 md:py-5">
         <p
           className="font-redHat font-bold text-xs"
           style={{ color: "#C95C5C" }}
         >
-          {/* Pro Tip#1@Zurich */}
-          {`Pro Tip@${city_name}`}
+          {`Pro Tip@${city_name ? city_name : ""}`}
         </p>
         <div
           className="my-1"
@@ -26,7 +28,7 @@ const ProTip = ({ city_name, title, image }: any) => {
         <p
           className="font-redHat  text-base"
           dangerouslySetInnerHTML={{
-            __html: title || '',
+            __html: title || "",
           }}
         ></p>
       </div>

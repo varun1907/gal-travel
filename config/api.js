@@ -20,6 +20,12 @@ axioInstance.interceptors.request.use((request) => {
   request.headers[
     "Authorization"
   ] = `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`;
+
+  const cacheBuster = new Date().getTime();
+  request.url += request.url.includes("?")
+    ? `&cb=${cacheBuster}`
+    : `?cb=${cacheBuster}`;
+
   return request;
 });
 

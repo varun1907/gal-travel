@@ -10,7 +10,10 @@ export default function Header() {
   return (
     <header
       className="flex justify-between items-center px-4 h-[80px] md:px-24 md:h-[100px] sticky top-0 z-40"
-      style={{ backgroundColor: "#FBF7F4" }}
+      style={{
+        backgroundColor: "#FBF7F4",
+        boxShadow: `0px 2px 4px 0px #A78B8840`,
+      }}
     >
       {/* Logo */}
       <Link href="/">

@@ -17,7 +17,7 @@ const Conclusion = ({
         className="flex flex-col md:flex-row pl-10 py-8 pr-8 gap-10"
         style={{ backgroundColor: "#EAD5C4" }}
       >
-        <div className="flex-1" style={{alignSelf:'center'}}>
+        <div className="flex-1" style={{ alignSelf: "center" }}>
           <Image
             aria-hidden
             className="mr-6"
@@ -44,25 +44,22 @@ const Conclusion = ({
           )}
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1 flex justify-end ">
           <div
+            className="relative bg-white w-[390px] md:w-[390px] h-[350px] md:h-[415px]"
             style={{
               boxShadow: `0px 4px 4px 0px #24242440`,
             }}
           >
-            <div
-              style={{ backgroundColor: "#FFFFFF", paddingTop: 0 }}
-              className="p-1"
-            >
-              <Image
-                aria-hidden
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
-                alt="Conclusion image"
-                layout="responsive"
-                width={100}
-                height={100}
-              />
-            </div>
+            <Image
+              aria-hidden
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+              alt="Conclusion image"
+              style={{ padding: 5 }}
+              className="w-[390px] h-[390px] md:w-[390px] md:h-[390px]"
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
         </div>
       </div>

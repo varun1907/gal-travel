@@ -1,5 +1,6 @@
 "use client";
 import { API, fireApiAction } from "@/config/api";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -8,6 +9,7 @@ const Footer = () => {
   const [name, set_name] = useState("");
   const [email, set_email] = useState("");
   const [show_success, set_show_success] = useState(false);
+  const [insta_feed, set_insta_feed] = useState([]);
   const [footer_content, set_footer_content] = useState({
     footer_heading: "Subscribe to my Monthly Newsletter",
     footer_subheading:
@@ -15,7 +17,8 @@ const Footer = () => {
   });
 
   useEffect(() => {
-    const res = fetchFooterDetails();
+    fetchFooterDetails();
+    // fetchInstaFeeds();
   }, []);
 
   async function fetchFooterDetails() {
@@ -26,12 +29,24 @@ const Footer = () => {
     try {
       const result = await fireApiAction(API.footer, "GET", params);
       if (result?.data) {
-        console.log(result.data);
+        set_footer_content(result.data);
         return result.data;
       }
       throw new Error("Not Found");
     } catch (error) {
       return null;
+    }
+  }
+
+  async function fetchInstaFeeds() {
+    try {
+      const token = "";
+      const response = await axios.get(
+        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp&access_token=${token}`
+      );
+      console.log(response.data);
+    } catch (error) {
+      // console.log("./././././", error);
     }
   }
 
@@ -52,7 +67,45 @@ const Footer = () => {
   return (
     <footer>
       <div
-        className="hero"
+        className="my-24 flex justify-between md: hidden lg:flex px-4 md:px-32"
+        style={{ alignItems: "center" }}
+      >
+        <div style={{ flex: 1 }}>
+          <p className="font-redHat font-medium text-xl">
+            Follow me on @galtravelstory
+          </p>
+          <p className="font-redHat font-regular text-base mt-6">
+            to get a backstage pass to inspiration, wanderlust, and the kind of
+            moments that make you wish you were right there with me, falling in
+            love with a new place every day.
+          </p>
+        </div>
+
+        <div className="flex justify-end" style={{ flex: 1, flexWrap: "wrap" }}>
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+            <div
+              key={`img_${item}`}
+              style={{
+                width: 100,
+                height: 100,
+                marginBottom: index < 4 ? 20 : 0,
+                flexBasis: "21%",
+              }}
+            >
+              <Image
+                aria-hidden
+                className="mb-3"
+                src="/dummy_full.svg"
+                alt="Footer line"
+                width={100}
+                height={100}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div
+        className="hero px-4"
         style={{
           height: 600,
           width: "100%",
@@ -122,11 +175,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="block md:flex">
-        <div className="flex flex-col md:flex-row w-full flex-1">
+      <div className="block md:flex h-[150px] md:h-[50px]">
+        <div className="flex flex-col md:flex-row w-full flex-1 h-[100px] md:h-[50px]">
           {/* Email */}
           <div
-            className="flex justify-center items-center h-16 md:h-14"
+            className="flex justify-center items-center h-[50px]"
             style={{ background: "#C95C5C", flex: "0.5" }}
           >
             <Link
@@ -138,7 +191,7 @@ const Footer = () => {
           </div>
           {/* Pinterest */}
           {/* <div
-            className="flex justify-center items-center h-16 md:h-14"
+            className="flex justify-center items-center"
             style={{ background: "#E5B791", flex: "0.3" }}
           >
             <Link
@@ -150,7 +203,7 @@ const Footer = () => {
           </div> */}
           {/* Instagram */}
           <div
-            className="flex justify-center items-center h-16 md:h-14"
+            className="flex justify-center items-center h-[50px]"
             style={{ background: "#E7BFBF", flex: "0.5" }}
           >
             <Link
@@ -165,7 +218,7 @@ const Footer = () => {
 
         {/* Privacy Policy and Footer Text */}
         <div
-          className="flex justify-center items-center h-14 w-full md:flex-1"
+          className="flex justify-center items-center  w-full md:flex-1 h-[50px]"
           style={{ backgroundColor: "#EAD5C4" }}
         >
           <div className="flex justify-center items-center">
