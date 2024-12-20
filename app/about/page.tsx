@@ -23,7 +23,7 @@ export default async function About() {
   const aboutDetails = await fetchAbout();
   return (
     <div>
-      <div className="flex flex-col-reverse md:flex-row items-center md:items-start mx-6 md:mx-40 md:mt-10">
+      <div className="flex flex-col md:flex-row items-center md:items-start mx-6 md:mx-40 md:mt-10">
         <div
           className="md:w-1/2 text-center md:text-left mt-10 md:mt-0"
           style={{ alignSelf: "center" }}
@@ -44,7 +44,7 @@ export default async function About() {
         <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
           <div
             className="relative w-[372px] h-[517px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
-            style={{ zIndex: 100 }}
+            style={{ zIndex: 30 }}
           >
             <div className="flex">
               <div
@@ -75,7 +75,7 @@ export default async function About() {
         <div className="flex flex-col-reverse md:flex-row items-center p-4 px-8 md:px-24 pt-12 md:pt-0 gap-20">
           <div
             className="flex transition-transform duration-700 ease-in-out -rotate-6 mb-32 md:mb-0"
-            style={{ zIndex: 100 }}
+            style={{ zIndex: 30 }}
           >
             <div
               className="flex-none"

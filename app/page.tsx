@@ -59,8 +59,8 @@ export default async function Home() {
   // console.log(homeDetails);
   return (
     <div>
-      {/* <HomeBannerCarousel homeDetails={homeDetails} /> */}
-      <div className="carousel w-full" style={{ height: "600px" }}>
+      <HomeBannerCarousel homeDetails={homeDetails} />
+      {/* <div className="carousel w-full" style={{ height: "600px" }}>
         {_.map(homeDetails?.hero_banner_assets, (banner_item, banner_index) => (
           <div
             className="carousel-item w-full relative"
@@ -99,6 +99,20 @@ export default async function Home() {
           </div>
         ))}
       </div>
+
+      <div className="flex flex-row gap-2 justify-center items-center mt-4">
+          {_.map(homeDetails?.hero_banner_assets, (dot_item, dot_iddex) => (
+            <div
+              key={`dot_item_${dot_iddex}`}
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: "#C95C5C",
+              }}
+            ></div>
+          ))}
+        </div> */}
 
       <div className="bg-brown px-4 lg:px-20 py-8 mx-6 lg:mx-32 my-10 md:my-20">
         <div className="lg:flex lg:justify-between lg:items-start">
@@ -266,7 +280,7 @@ export default async function Home() {
           <div
             className="flex justify-center mt-8 md:mt-0 flex-1"
             style={{
-              zIndex: 100,
+              zIndex: 30,
             }}
           >
             <PortraitPhoto homeDetails={homeDetails} />

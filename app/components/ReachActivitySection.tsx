@@ -7,14 +7,14 @@ const ReachActivitySection = ({ activity }: any) => {
     <section className="pt-8 md:pt-12 gap-8 md:gap-16" id="reach">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
-        className="flex items-center pl-0 md:pl-6"
+        className="flex items-center pl-6"
       >
         <p className="font-redHat font-bold text-base">
           How to reach {activity?.country_name}
         </p>
       </div>
 
-      <div className="mx-1 md:mx-48">
+      <div className="mx-4 md:mx-48">
         <p
           className="font-redHat font-medium text-base mt-7"
           dangerouslySetInnerHTML={{

@@ -23,7 +23,6 @@ const PortraitPhoto = ({ homeDetails }: any) => {
   return (
     <div
       className="relative w-[310px] h-[346px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
-      style={{ zIndex: 100 }}
     >
       {/* Carousel Wrapper */}
       <div

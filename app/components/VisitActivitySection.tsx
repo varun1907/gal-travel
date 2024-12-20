@@ -8,14 +8,14 @@ const VisitActivitySection = ({ activity }: any) => {
     <section className="pt-8 md:pt-12 gap-8 md:gap-16" id="visit">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
-        className="flex items-center pl-0 md:pl-6"
+        className="flex items-center pl-6"
       >
         <p className="font-redHat font-bold text-base">
           The Best Time To Visit
         </p>
       </div>
 
-      <div className="mx-1 md:mx-48">
+      <div className="mx-4 md:mx-48">
         <p
           className="text-base font-redHat font-regular mt-7"
           dangerouslySetInnerHTML={{

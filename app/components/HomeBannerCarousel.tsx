@@ -31,7 +31,6 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
         className="flex transition-transform duration-700 ease-in-out"
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
-          width: `${totalSlides * 100}%`,
         }}
       >
         {slides.map((banner_item: any, banner_index: number) => (
@@ -73,6 +72,23 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
           </div>
         ))}
       </div>
+
+
+      <div className="flex flex-row gap-2 justify-center items-center mt-4">
+          {_.map(homeDetails?.hero_banner_assets, (dot_item, dot_iddex) => (
+            <div
+              key={`dot_item_${dot_iddex}`}
+              style={{
+                width: 6,
+                height: 6,
+                borderRadius: 3,
+                backgroundColor: currentIndex === dot_iddex ? "#C95C5C" :'white',
+              }}
+            ></div>
+          ))}
+        </div>
+
+
     </div>
   );
 };

@@ -100,7 +100,7 @@ export default async function BlogDetail() {
                 />
 
                 <p
-                  className="text-center pt-4 font-ragilac text-sm px-4"
+                  className="text-center pt-4 font-ragilac text-2xl px-2"
                   style={{ color: "#C95C5C" }}
                 >
                   {blog_item?.blog_listing_preview_text}

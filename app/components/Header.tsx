@@ -63,7 +63,7 @@ export default function Header() {
       {menuOpen && (
         <nav className="absolute top-[80px] left-0 w-full bg-white p-4 flex flex-col items-start space-y-4 md:hidden">
           <Link
-            href="/blogs"
+            href="/blog"
             className="font-redHat text-sm font-regular"
             onClick={() => setMenuOpen(false)}
           >

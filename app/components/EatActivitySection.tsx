@@ -8,12 +8,12 @@ const EatActivitySection = ({ activity }: any) => {
     <section className="pt-8 md:pt-12 gap-8 md:gap-16" id="eat">
       <div
         style={{ height: 41, backgroundColor: "#E7BFBF" }}
-        className="flex items-center pl-0 md:pl-6"
+        className="flex items-center pl-6"
       >
         <p className="font-redHat font-bold text-base">Where to Eat</p>
       </div>
 
-      <div className="mx-1 md:mx-48">
+      <div className="mx-4 md:mx-48">
         <div className="py-8 md:py-12 flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p
