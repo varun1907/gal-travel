@@ -8,6 +8,7 @@ const API = {
   subscriber_emails: "subscriber_emails",
   footer: "footer",
   travel_quotes: "travel_quotes",
+  normal_blogs: "normal_blogs",
 };
 
 const API_ENDPOINT = "https://admin.galtravelbychandni.com/items/";
@@ -20,6 +21,9 @@ axioInstance.interceptors.request.use((request) => {
   request.headers[
     "Authorization"
   ] = `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`;
+
+
+  request.headers["Cache-Control"] = `no-store, max-age=0`;
 
   const cacheBuster = new Date().getTime();
   request.url += request.url.includes("?")

@@ -3,7 +3,13 @@ import React from "react";
 import constant from "../../config/constant";
 import _ from "lodash";
 
-const BlogDetailIntro = ({ blogDetails }: any) => {
+const BlogDetailIntro = ({
+  para,
+  subpara,
+  map_image,
+  polaroid_image,
+  polariad_caption,
+}: any) => {
   return (
     <section className="md:py-12 px-4 md:px-40 flex flex-col md:flex-row gap-8 md:gap-16">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-16 py-8 md:py-12">
@@ -11,7 +17,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
           <p
             className="font-redHat text-lg font-medium"
             dangerouslySetInnerHTML={{
-              __html: blogDetails?.introduction_para || "",
+              __html: para || "",
             }}
           ></p>
 
@@ -28,7 +34,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
           <p
             className="font-redHat text-base"
             dangerouslySetInnerHTML={{
-              __html: blogDetails?.introduction_sub_para || "",
+              __html: subpara || "",
             }}
           ></p>
         </div>
@@ -39,7 +45,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
         >
           <div>
             <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.intro_map_image?.filename_disk}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${map_image}`}
               className="w-full h-full"
             />
           </div>
@@ -55,7 +61,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
                 }}
               >
                 <Image
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.intro_polaroid_image?.filename_disk}`}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}`}
                   alt={"Poloroiad image"}
                   width={220}
                   height={250}
@@ -72,7 +78,7 @@ const BlogDetailIntro = ({ blogDetails }: any) => {
                     className="font-ragilac mt-1 text-center md:mt-2"
                     style={{ fontSize: 18 }}
                   >
-                    {_.get(blogDetails, "intro_polaroid_caption", "")}
+                    {polariad_caption}
                   </p>
                 </div>
               </div>

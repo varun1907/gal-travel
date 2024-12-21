@@ -2,17 +2,23 @@
 import React from "react";
 import constant from "../../config/constant";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LatestGuides = ({ latest_item }: any) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/blog/${latest_item?.slug}`);
+    // router.push(`/blog/${latest_item?.slug}`);
   };
 
   return (
+    <Link
+      href={`/guide/${latest_item?.slug}`}
+      prefetch
+      // className="min-w-full lg:min-w-0 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+    >
     <div
-      onClick={handleClick}
+      // onClick={handleClick}
       className="min-w-full lg:min-w-0 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
     >
       <div className="h-72 md:h-48 overflow-hidden">
@@ -32,6 +38,7 @@ const LatestGuides = ({ latest_item }: any) => {
         </p>
       </div>
     </div>
+    </Link>
   );
 };
 

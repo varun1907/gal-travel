@@ -17,12 +17,12 @@ const StayDaySection = ({ city_data }: any) => {
         </p>
       </div>
       <div className="mx-1 md:mx-48">
-        <div
+        <p
           className="text-base font-redHat mb-3"
           dangerouslySetInnerHTML={{
             __html: city_data?.stay_at_intro_para || "",
           }}
-        ></div>
+        ></p>
 
         <div className="flex space-x-6 overflow-x-scroll scrollbar-hide lg:grid lg:grid-cols-3 lg:gap-2 lg:overflow-hidden pb-4 mt-4">
           {[1, 2, 3].map((guide, index) => {

@@ -2,6 +2,7 @@ import { API, fireApiAction } from "@/config/api";
 import Image from "next/image";
 import constant from "../../config/constant";
 import Conclusion from "../components/Conclusion";
+import Link from "next/link";
 
 async function fetchAbout() {
   const params = {
@@ -21,6 +22,7 @@ async function fetchAbout() {
 
 export default async function About() {
   const aboutDetails = await fetchAbout();
+  console.log(aboutDetails)
   return (
     <div>
       <div className="flex flex-col md:flex-row items-center md:items-start mx-6 md:mx-40 md:mt-10">
@@ -33,7 +35,7 @@ export default async function About() {
           </p>
 
           <p
-            className="font-redHat font-regular text-sm"
+            className="font-redHat font-regular text-sm mt-4"
             dangerouslySetInnerHTML={{
               __html: aboutDetails?.intro_para || "",
             }}
@@ -43,15 +45,15 @@ export default async function About() {
         {/* Right Image */}
         <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
           <div
-            className="relative w-[372px] h-[517px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
+            className="relative w-[312px] md:w-[372px] h-[457px] md:h-[517px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
             style={{ zIndex: 30 }}
           >
             <div className="flex">
               <div
-                className="bg-white p-3 shadow-md mx-auto"
-                style={{ width: "352px", height: "497px", marginTop: 8 }}
+                className="bg-white p-3 shadow-md mx-auto w-[292px] md:w-[352px] h-[427px] md:h-[497px]"
+                style={{  marginTop: 8 }}
               >
-                <div className="relative w-[332px] h-[369px]">
+                <div className="relative w-[272px] md:w-[312px] h-[309px] md:h-[369px]">
                   <Image
                     src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.intro_image?.filename_disk}`}
                     alt={"About landing"}
@@ -59,7 +61,7 @@ export default async function About() {
                     objectFit="cover"
                   />
                 </div>
-                <p className="font-ragilac text-3xl text-center mt-4	">
+                <p className="font-ragilac text-xl md:text-3xl text-center mt-4	">
                   {aboutDetails?.intro_caption}
                 </p>
               </div>
@@ -72,20 +74,40 @@ export default async function About() {
         className="relative my-16 md:my-32 mx-10 md:mx-40 overflow-hidden"
         style={{ border: `4px solid #A78B88`, backgroundColor: "#FBF7F4" }}
       >
-        <div className="flex flex-col-reverse md:flex-row items-center p-4 px-8 md:px-24 pt-12 md:pt-0 gap-20">
+        <div className="flex flex-col-reverse md:flex-row items-center p-4 px-8 md:px-24 pt-12 md:pt-0 gap-10">
           <div
             className="flex transition-transform duration-700 ease-in-out -rotate-6 mb-32 md:mb-0"
             style={{ zIndex: 30 }}
           >
             <div
-              className="flex-none"
+              className="flex-none mt-8"
               style={{
                 width: "310px",
                 height: "346px",
                 flex: "0 0 auto",
               }}
             >
-              <div
+
+
+<div
+                className="bg-white p-3 shadow-md mx-auto "
+                style={{ width: "260px", height: "296px", marginTop: 8 }}
+              >
+                <div className="relative w-[240px] h-[276px] ">
+                <Image
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.quote_image?.filename_disk}`}
+                  alt={"dummy"}
+                  layout="fill"
+                    objectFit="cover"
+                  
+                />
+                </div>
+              
+              </div>
+
+
+
+              {/* <div
                 className="bg-white p-2 shadow-md mx-auto"
                 style={{
                   width: "290px",
@@ -100,6 +122,7 @@ export default async function About() {
                   height={306}
                 />
               </div>
+              {/* </div> */}
             </div>
           </div>
           <div>
@@ -236,13 +259,14 @@ export default async function About() {
             <p className="text-4xl font-ragilac font-regular">
               {aboutDetails?.banner_title}
             </p>
-
+            <Link href={aboutDetails?.banner_cta_url} target="_blank">
             <button
               className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
               style={{ borderRadius: 6, backgroundColor: "#BD6D6D" }}
             >
               {aboutDetails?.banner_cta_button_text}
             </button>
+            </Link>
           </div>
           <img
             src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.banner_image?.filename_disk}`}

@@ -6,7 +6,7 @@ const MasonryImage = ({ homeDetails }: any) => {
   const images = [
     {
       src: homeDetails?.intro_image_1_image?.filename_disk,
-      height: 150,
+      height: 160,
       text: homeDetails?.intro_image_1_caption,
     },
     {
@@ -30,7 +30,7 @@ const MasonryImage = ({ homeDetails }: any) => {
     <div
       className="grid grid-cols-2 gap-4 lg:gap-4"
       style={{
-        gridAutoRows: "65px", // Compact height
+        gridAutoRows: "70px", // Compact height
       }}
     >
       {images.map((image, index) => (

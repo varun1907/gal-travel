@@ -29,6 +29,9 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className="hidden md:flex items-center space-x-10">
+      <Link href="/guide" className="font-redHat text-sm font-regular">
+          GUIDES
+        </Link>
         <Link href="/blog" className="font-redHat text-sm font-regular">
           BLOGS
         </Link>
@@ -62,6 +65,13 @@ export default function Header() {
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="absolute top-[80px] left-0 w-full bg-white p-4 flex flex-col items-start space-y-4 md:hidden">
+          <Link
+            href="/guide"
+            className="font-redHat text-sm font-regular"
+            onClick={() => setMenuOpen(false)}
+          >
+            GUIDES
+          </Link>
           <Link
             href="/blog"
             className="font-redHat text-sm font-regular"

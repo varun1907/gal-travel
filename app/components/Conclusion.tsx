@@ -12,7 +12,7 @@ const Conclusion = ({
   on_btn_click,
 }: any) => {
   return (
-    <div className="mx-5 md:mx-28 flex flex-col">
+    <div className="mx-5 md:mx-48 flex flex-col">
       <div
         className="flex flex-col md:flex-row pl-10 py-8 pr-8 gap-10"
         style={{ backgroundColor: "#EAD5C4" }}

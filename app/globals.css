@@ -64,4 +64,5 @@ body {
 
 ol {
   list-style:decimal !important;
+  padding-left: 15px;
 }

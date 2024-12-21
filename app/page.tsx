@@ -54,6 +54,7 @@ async function fetchLatestGuides() {
 
 export default async function Home() {
   const homeDetails = await fetchHomeDetails();
+  console.log(homeDetails)
   const latestGuides = await fetchLatestGuides();
   const latestInsta = await fetchLatestInsta();
   // console.log(homeDetails);
@@ -124,14 +125,14 @@ export default async function Home() {
               {homeDetails?.intro_title}
             </p>
             <p
-              className="font-redHat text-sm lg:text-base pt-4 leading-6 text-justify lg:text-left"
+              className="font-redHat text-sm lg:text-base pt-4 leading-6 lg:text-left"
               dangerouslySetInnerHTML={{
                 __html: homeDetails?.intro_para || "",
               }}
             ></p>
           </div>
 
-          <div className="lg:w-1/2 lg:mt-0">
+          <div className="lg:w-1/2 mt-4 lg:mt-0">
             <MasonryImage homeDetails={homeDetails} />
           </div>
         </div>

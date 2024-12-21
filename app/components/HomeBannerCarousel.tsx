@@ -31,12 +31,14 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
         className="flex transition-transform duration-700 ease-in-out"
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
+          height: "560px"
         }}
       >
         {slides.map((banner_item: any, banner_index: number) => (
           <div
             key={`home_banner_${banner_index}`}
             className="w-full flex-none relative"
+            // className="carousel-item w-full relative"
             style={{ flex: "0 0 100%" }}
           >
             <div
@@ -54,7 +56,7 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
                 {banner_item?.hero_banner_assets_id?.hero_banner_subtitle}
               </p>
               <Link
-                href={`/${banner_item?.hero_banner_assets_id?.hero_banner_cta_url}`}
+                href={`${banner_item?.hero_banner_assets_id?.hero_banner_cta_url}`}
               >
                 <button
                   className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
