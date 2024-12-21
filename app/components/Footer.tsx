@@ -44,10 +44,7 @@ const Footer = () => {
       const response = await axios.get(
         `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp&access_token=${token}`
       );
-      console.log(response.data);
-    } catch (error) {
-      // console.log("./././././", error);
-    }
+    } catch (error) {}
   }
 
   const save_data = async () => {

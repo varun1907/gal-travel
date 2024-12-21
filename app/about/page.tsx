@@ -22,7 +22,6 @@ async function fetchAbout() {
 
 export default async function About() {
   const aboutDetails = await fetchAbout();
-  console.log(aboutDetails)
   return (
     <div>
       <div className="flex flex-col md:flex-row items-center md:items-start mx-6 md:mx-40 md:mt-10">
@@ -51,7 +50,7 @@ export default async function About() {
             <div className="flex">
               <div
                 className="bg-white p-3 shadow-md mx-auto w-[292px] md:w-[352px] h-[427px] md:h-[497px]"
-                style={{  marginTop: 8 }}
+                style={{ marginTop: 8 }}
               >
                 <div className="relative w-[272px] md:w-[312px] h-[309px] md:h-[369px]">
                   <Image
@@ -87,25 +86,19 @@ export default async function About() {
                 flex: "0 0 auto",
               }}
             >
-
-
-<div
+              <div
                 className="bg-white p-3 shadow-md mx-auto "
                 style={{ width: "260px", height: "296px", marginTop: 8 }}
               >
                 <div className="relative w-[240px] h-[276px] ">
-                <Image
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.quote_image?.filename_disk}`}
-                  alt={"dummy"}
-                  layout="fill"
+                  <Image
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.quote_image?.filename_disk}`}
+                    alt={"dummy"}
+                    layout="fill"
                     objectFit="cover"
-                  
-                />
+                  />
                 </div>
-              
               </div>
-
-
 
               {/* <div
                 className="bg-white p-2 shadow-md mx-auto"
@@ -260,12 +253,12 @@ export default async function About() {
               {aboutDetails?.banner_title}
             </p>
             <Link href={aboutDetails?.banner_cta_url} target="_blank">
-            <button
-              className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
-              style={{ borderRadius: 6, backgroundColor: "#BD6D6D" }}
-            >
-              {aboutDetails?.banner_cta_button_text}
-            </button>
+              <button
+                className="mt-6 px-6 py-2 text-sm md:text-base text-white shadow-lg hover:bg-orange-500"
+                style={{ borderRadius: 6, backgroundColor: "#BD6D6D" }}
+              >
+                {aboutDetails?.banner_cta_button_text}
+              </button>
             </Link>
           </div>
           <img

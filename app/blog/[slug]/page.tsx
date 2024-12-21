@@ -38,7 +38,7 @@ async function fetchBlogDetails(slug: string) {
   }
 }
 
-async function fetchLatestGuides(slug: string) {
+async function fetchLatestGuides(slug: string): Promise<any[]> {
   const params = {
     "fields[]": "id, slug, preview_image.*, preview_text",
     "sort[]": "-date_created",
@@ -55,22 +55,17 @@ async function fetchLatestGuides(slug: string) {
     }
     throw new Error("Not Found");
   } catch (error) {
-    return null;
+    return [];
   }
 }
 
 export default async function BlogDetail({ params }: BlogDetailPageProps) {
   const { slug } = await params;
 
-  // const blogDetails = await fetchBlogDetails(slug);
-  // const latestGuides = await fetchLatestGuides(slug);
-
   const [blogDetails, latestGuides] = await Promise.all([
     fetchBlogDetails(slug),
     fetchLatestGuides(slug),
   ]);
-
-  console.log(blogDetails);
 
   if (!blogDetails) {
     return (

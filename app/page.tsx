@@ -28,7 +28,6 @@ async function fetchHomeDetails() {
 }
 
 async function fetchLatestInsta() {
-  
   return [];
 }
 
@@ -54,10 +53,8 @@ async function fetchLatestGuides() {
 
 export default async function Home() {
   const homeDetails = await fetchHomeDetails();
-  console.log(homeDetails)
   const latestGuides = await fetchLatestGuides();
   const latestInsta = await fetchLatestInsta();
-  // console.log(homeDetails);
   return (
     <div>
       <HomeBannerCarousel homeDetails={homeDetails} />
@@ -321,7 +318,6 @@ export default async function Home() {
           ))}
         </div>
       </div>
-
     </div>
   );
 }
