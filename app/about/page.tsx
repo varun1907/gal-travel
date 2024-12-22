@@ -52,7 +52,7 @@ export default async function About() {
                 className="bg-white p-3 shadow-md mx-auto w-[292px] md:w-[352px] h-[427px] md:h-[497px]"
                 style={{ marginTop: 8 }}
               >
-                <div className="relative w-[272px] md:w-[312px] h-[309px] md:h-[369px]">
+                <div className="relative w-[272px] md:w-[327px] h-[309px] md:h-[369px]">
                   <Image
                     src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.intro_image?.filename_disk}`}
                     alt={"About landing"}
