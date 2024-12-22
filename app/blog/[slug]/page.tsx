@@ -1,5 +1,4 @@
 import constant from "../../../config/constant";
-import BlogDetailIntro from "@/app/components/BlogDetailIntro";
 
 import { Metadata } from "next";
 import { API, fireApiAction } from "../../../config/api";
@@ -96,15 +95,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
             </div>
           </div>
 
-          <BlogDetailIntro
-            para={blogDetails?.introduction_para}
-            subpara={blogDetails?.introduction_sub_para}
-            map_image={blogDetails?.intro_map_image?.filename_disk}
-            polaroid_image={blogDetails?.polaroid_image?.filename_disk}
-            polariad_caption={blogDetails?.polaroid_caption}
-          />
-
-          <section className="md:py-12 md:pb-0 px-4 md:px-40 flex flex-col md:flex-row gap-8 md:gap-16">
+          <section className="md:py-12 md:pb-0 px-4 md:px-40 flex flex-col-reverse md:flex-row gap-8 md:gap-16">
             <div className=" md:px-16 py-0">
               <div className="p-5">
                 <p
@@ -118,6 +109,35 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
                   src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.preview_image?.filename_disk}`}
                   className="w-full h-[278px] md:h-[378px]"
                 />
+              </div>
+            </div>
+
+            <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
+              <div
+                className="relative w-[294px] h-[376px]  rotate-6 overflow-hidden"
+                style={{ zIndex: 30 }}
+              >
+                <div className="flex">
+                  <div
+                    className="bg-white p-3 shadow-md mx-auto w-[274px]  h-[346px] "
+                    style={{ marginTop: 8 }}
+                  >
+                    <div className="relative w-[250px] h-[295px]">
+                      <Image
+                        src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.polaroid_image?.filename_disk}`}
+                        alt={"About landing"}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                    <p
+                      className="font-ragilac mt-1 text-center md:mt-2"
+                      style={{ fontSize: 18 }}
+                    >
+                      {blogDetails?.polaroid_caption}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
