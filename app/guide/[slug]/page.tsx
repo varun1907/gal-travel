@@ -44,6 +44,7 @@ async function fetchLatestGuides(slug: string) {
     "fields[]":
       "id,slug,country,blog_listing_preview_image.*,blog_listing_cta_text,blog_listing_preview_text",
     "sort[]": "-date_created",
+    "filter[status][_eq]": "published"
   };
 
   try {
