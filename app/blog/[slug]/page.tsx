@@ -122,7 +122,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
                     className="bg-white p-3 shadow-md mx-auto w-[274px]  h-[346px] "
                     style={{ marginTop: 8 }}
                   >
-                    <div className="relative w-[250px] h-[295px]">
+                    <div className="relative w-[250px] h-[265px]">
                       <Image
                         src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.polaroid_image?.filename_disk}`}
                         alt={"About landing"}
