@@ -3,6 +3,7 @@ import Image from "next/image";
 import constant from "../../config/constant";
 import Conclusion from "../components/Conclusion";
 import Link from "next/link";
+import { Metadata } from "next";
 
 async function fetchAbout() {
   const params = {
@@ -18,6 +19,35 @@ async function fetchAbout() {
   } catch (error) {
     return null;
   }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const aboutDetails = await fetchAbout();
+  const seo = aboutDetails?.seo; // Assuming `seo` is part of `aboutDetails`
+  return {
+    title: seo?.title || "Home Title",
+    description: seo?.meta_description || "home Description",
+    alternates: {
+      canonical: seo?.canonical_url || "https://your-default-url.com",
+    },
+    robots: {
+      index: !seo?.no_index,
+      follow: !seo?.no_follow,
+    },
+    openGraph: {
+      title: seo?.title || "Home Title",
+      description: seo?.meta_description || "Home Description",
+      images: seo?.og_image
+        ? [
+            {
+              url: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${seo.og_image.filename_disk}`,
+              width: seo.og_image.width,
+              height: seo.og_image.height,
+            },
+          ]
+        : undefined,
+    },
+  };
 }
 
 export default async function About() {

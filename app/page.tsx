@@ -3,12 +3,9 @@ import PortraitPhoto from "./components/PortraitPhoto";
 import MasonryImage from "./components/MasontryImage";
 import { API, fireApiAction } from "@/config/api";
 import _ from "lodash";
-import constant from "../config/constant";
 import LatestGuides from "./components/LatestGuides";
-import axios from "axios";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import HomeBannerCarousel from "./components/HomeBannerCarousel";
+import { Metadata } from "next";
 
 async function fetchHomeDetails() {
   const params = {
@@ -27,9 +24,6 @@ async function fetchHomeDetails() {
   }
 }
 
-async function fetchLatestInsta() {
-  return [];
-}
 
 async function fetchLatestGuides() {
   const params = {
@@ -51,10 +45,39 @@ async function fetchLatestGuides() {
   }
 }
 
+export async function generateMetadata(): Promise<Metadata> {
+  const homeDetails = await fetchHomeDetails();
+  const seo = homeDetails?.seo; // Assuming `seo` is part of `homeDetails`
+  return {
+    title: seo?.title || "Home Title",
+    description: seo?.meta_description || "home Description",
+    alternates: {
+      canonical: seo?.canonical_url || "https://your-default-url.com",
+    },
+    robots: {
+      index: !seo?.no_index,
+      follow: !seo?.no_follow,
+    },
+    openGraph: {
+      title: seo?.title || "Home Title",
+      description: seo?.meta_description || "Home Description",
+      images: seo?.og_image
+        ? [
+            {
+              url: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${seo.og_image.filename_disk}`,
+              width: seo.og_image.width,
+              height: seo.og_image.height,
+            },
+          ]
+        : undefined,
+    },
+  };
+}
+
 export default async function Home() {
   const homeDetails = await fetchHomeDetails();
   const latestGuides = await fetchLatestGuides();
-  const latestInsta = await fetchLatestInsta();
+
   return (
     <div>
       <HomeBannerCarousel homeDetails={homeDetails} />

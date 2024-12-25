@@ -9,7 +9,7 @@ const Footer = () => {
   const [name, set_name] = useState("");
   const [email, set_email] = useState("");
   const [show_success, set_show_success] = useState(false);
-  const [insta_feed, set_insta_feed] = useState([]);
+  const [insta_feed, set_insta_feed] = useState<any[]>([]);
   const [footer_content, set_footer_content] = useState({
     footer_heading: "Subscribe to my Monthly Newsletter",
     footer_subheading:
@@ -18,7 +18,7 @@ const Footer = () => {
 
   useEffect(() => {
     fetchFooterDetails();
-    // fetchInstaFeeds();
+    fetchInstaFeeds();
   }, []);
 
   async function fetchFooterDetails() {
@@ -40,10 +40,10 @@ const Footer = () => {
 
   async function fetchInstaFeeds() {
     try {
-      const token = "";
       const response = await axios.get(
-        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp&access_token=${token}`
+        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp&access_token=${process.env.NEXT_PUBLIC_INSTA_TOKEN}&limit=8`
       );
+      set_insta_feed(response.data.data)
     } catch (error) {}
   }
 
@@ -79,24 +79,27 @@ const Footer = () => {
         </div>
 
         <div className="flex justify-end" style={{ flex: 1, flexWrap: "wrap" }}>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+          {insta_feed.map((item, index) => (
             <div
               key={`img_${item}`}
               style={{
-                width: 100,
-                height: 100,
+                width: 110,
+                height: 110,
                 marginBottom: index < 4 ? 20 : 0,
                 flexBasis: "21%",
               }}
             >
-              <Image
-                aria-hidden
-                className="mb-3"
-                src="/dummy_full.svg"
-                alt="Footer line"
-                width={100}
-                height={100}
+              <Link href={item.media_url} target="_blank">
+              <img src={item?.thumbnail_url? item?.thumbnail_url : item?.media_url}  style={{width:110, height:110}}
+              // <Image
+              //   aria-hidden
+              //   className="mb-3"
+              //   src={item?.thumbnail_url}
+              //   alt="Footer line"
+              //   width={100}
+              //   height={100}
               />
+              </Link>
             </div>
           ))}
         </div>

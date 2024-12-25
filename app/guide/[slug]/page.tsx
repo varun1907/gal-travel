@@ -11,14 +11,6 @@ interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: BlogDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  return {
-    title: slug.replace(/-/g, " "), // Converts slug to a readable title
-  };
-}
 
 async function fetchBlogDetails(slug: string) {
   const params = {
@@ -59,6 +51,36 @@ async function fetchLatestGuides(slug: string) {
   } catch (error) {
     return null;
   }
+}
+
+export async function generateMetadata({params}:BlogDetailPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const blogDetails = await fetchBlogDetails(slug);
+  const seo = blogDetails?.seo; // Assuming `seo` is part of `blogDetails`
+  return {
+    title: seo?.title || "Home Title",
+    description: seo?.meta_description || "home Description",
+    alternates: {
+      canonical: seo?.canonical_url || "https://your-default-url.com",
+    },
+    robots: {
+      index: !seo?.no_index,
+      follow: !seo?.no_follow,
+    },
+    openGraph: {
+      title: seo?.title || "Home Title",
+      description: seo?.meta_description || "Home Description",
+      images: seo?.og_image
+        ? [
+            {
+              url: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${seo.og_image.filename_disk}`,
+              width: seo.og_image.width,
+              height: seo.og_image.height,
+            },
+          ]
+        : undefined,
+    },
+  };
 }
 
 export default async function BlogDetail({ params }: BlogDetailPageProps) {
