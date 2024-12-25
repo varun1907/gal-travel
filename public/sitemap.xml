@@ -1,0 +1,82 @@
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      
+          <url>
+            <loc>http://localhost:3000/</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/about</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/privacy-policy</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/blog</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/south-of-italy</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/paris-beyond-the-postcards</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/your-12-day-guide-to-the-south-of-france</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/10-days-of-swiss-bliss</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/the-best-of-salzburg-travelguide</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/blog/sample-blog</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+    </urlset>
+  
