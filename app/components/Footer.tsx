@@ -64,7 +64,7 @@ const Footer = () => {
   return (
     <footer>
       <div
-        className="my-24 flex justify-between md: hidden lg:flex px-4 md:px-32"
+        className="my-24 flex flex-col md:flex-row justify-between lg:flex px-4 md:px-32 "
         style={{ alignItems: "center" }}
       >
         <div style={{ flex: 1 }}>
@@ -78,10 +78,10 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex justify-end" style={{ flex: 1, flexWrap: "wrap" }}>
+        <div className="flex justify-center md:justify-end mt-8 md:mt-0 gap-4 md:gap-0" style={{ flex: 1, flexWrap: "wrap" }}>
           {insta_feed.map((item, index) => (
             <div
-              key={`img_${item}`}
+              key={`img_${index}`}
               style={{
                 width: 110,
                 height: 110,
@@ -90,14 +90,8 @@ const Footer = () => {
               }}
             >
               <Link href={item.media_url} target="_blank">
-              <img src={item?.thumbnail_url? item?.thumbnail_url : item?.media_url}  style={{width:110, height:110}}
-              // <Image
-              //   aria-hidden
-              //   className="mb-3"
-              //   src={item?.thumbnail_url}
-              //   alt="Footer line"
-              //   width={100}
-              //   height={100}
+              <img src={item?.thumbnail_url? item?.thumbnail_url : item?.media_url}  
+              style={{width:110, height:110}}
               />
               </Link>
             </div>

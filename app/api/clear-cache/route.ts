@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 import { revalidatePath } from "next/cache";
 
-const API_ENDPOINT = "https://admin.galtravelbychandni.com/items/";
 
 export async function GET(req: Request) {
   const pathsToRevalidate = ["/", "/guide", "/blog", "/about", "/privacy-policy"];
@@ -17,7 +16,7 @@ export async function GET(req: Request) {
 
     // Fetch dynamic paths from the API
     try {
-      const full_path = `${API_ENDPOINT}travel_blogs?fields=slug&pagination[limit]=1000`
+      const full_path = `${process.env.NEXT_PUBLIC_API_ENDPOINT}travel_blogs?fields=slug&pagination[limit]=1000`
       const response = await axios.get(
         full_path,
         {

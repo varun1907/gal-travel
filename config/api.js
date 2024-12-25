@@ -11,11 +11,9 @@ const API = {
   normal_blogs: "normal_blogs",
 };
 
-const API_ENDPOINT = "https://admin.galtravelbychandni.com/items/";
-
 const axioInstance = axios.create({
   //   baseURL: process.env.API_URL || process.env.NEXT_PUBLIC_API_URL,
-  baseURL: API_ENDPOINT,
+  baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
 });
 axioInstance.interceptors.request.use((request) => {
   request.headers[
