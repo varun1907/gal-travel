@@ -41,7 +41,7 @@ const Footer = () => {
   async function fetchInstaFeeds() {
     try {
       const response = await axios.get(
-        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp&access_token=${process.env.NEXT_PUBLIC_INSTA_TOKEN}&limit=8`
+        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_INSTA_TOKEN}&limit=8`
       );
       set_insta_feed(response.data.data)
     } catch (error) {}
