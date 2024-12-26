@@ -89,7 +89,7 @@ const Footer = () => {
                 flexBasis: "21%",
               }}
             >
-              <Link href={item.media_url} target="_blank">
+              <Link href={item.permalink || item.media_url} target="_blank">
               <img src={item?.thumbnail_url? item?.thumbnail_url : item?.media_url}  
               style={{width:110, height:110}}
               />
