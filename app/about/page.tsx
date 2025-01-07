@@ -25,22 +25,22 @@ export async function generateMetadata(): Promise<Metadata> {
   const aboutDetails = await fetchAbout();
   const seo = aboutDetails?.seo; // Assuming `seo` is part of `aboutDetails`
   return {
-    title: seo?.title || "Home Title",
-    description: seo?.meta_description || "home Description",
+    title: seo?.title || "GalTravel By Chandni",
+    description: seo?.meta_description || "Your ultimate travel guide",
     alternates: {
-      canonical: seo?.canonical_url || "https://your-default-url.com",
+      canonical: seo?.canonical_url || "https://galtravelbychandni.com/",
     },
     robots: {
       index: !seo?.no_index,
       follow: !seo?.no_follow,
     },
     openGraph: {
-      title: seo?.title || "Home Title",
-      description: seo?.meta_description || "Home Description",
+      title: seo?.title || "GalTravel By Chandni",
+      description: seo?.meta_description || "Your ultimate travel guide",
       images: seo?.og_image
         ? [
             {
-              url: `${process.env.NEXT_PUBLIC_IMAGE_BASE_URL}${seo.og_image.filename_disk}`,
+              url: `${constant.REMOTE_IMAGE_ENDPOINT}${seo.og_image.filename_disk}`,
               width: seo.og_image.width,
               height: seo.og_image.height,
             },
