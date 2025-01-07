@@ -59,7 +59,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const blogDetails = await fetchBlogDetails(slug);
   const seo = blogDetails?.seo; // Assuming `seo` is part of `blogDetails`
-  console.log(seo);
+
   return {
     title: seo?.title || "GalTravel By Chandni",
     description: seo?.meta_description || "Your ultimate travel guide",
