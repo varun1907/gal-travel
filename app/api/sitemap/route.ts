@@ -1,5 +1,7 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
+const fs = require("fs");
+const path = require("path");
 
 export async function GET() {
   // Static paths
@@ -51,6 +53,10 @@ export async function GET() {
         .join("\n")}
     </urlset>
   `.trim();
+
+  const sitemapPath = path.join(process.cwd(), "public", "sitemap.xml");
+  fs.writeFileSync(sitemapPath, sitemapContent, "utf8");
+  console.log("Sitemap generated successfully!");
 
   return new NextResponse(sitemapContent, {
     headers: {

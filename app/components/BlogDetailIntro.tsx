@@ -41,13 +41,8 @@ const BlogDetailIntro = ({
 
         {/* Right Content */}
         <div
-          className="flex flex-col gap-4 w-full md:w-1/3 sticky" // Make the right div sticky
-          style={{
-            top: "150px",
-            border: `5px solid #A78B88`,
-            height: "600px", // Fixed height
-            overflow: "hidden",
-          }}
+          className="flex flex-col gap-4 w-full md:w-1/3 md:sticky md:top-[150px] md:h-[600px] md:overflow-hidden" // Make the right div sticky
+          style={{ border: `5px solid #A78B88` }}
         >
           <div>
             <img

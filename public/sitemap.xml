@@ -1,5 +1,4 @@
-
-    <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       
           <url>
@@ -73,10 +72,37 @@
         
 
           <url>
+            <loc>http://localhost:3000/guide/must-to-do-guide</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/a-luxe-guide-to-megeve</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
+            <loc>http://localhost:3000/guide/6-day-luxe-guide-to-south-tyrol</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
+
+          <url>
             <loc>http://localhost:3000/blog/sample-blog</loc>
             <changefreq>daily</changefreq>
             <priority>0.7</priority>
           </url>
         
+
+          <url>
+            <loc>http://localhost:3000/blog/ultimate-travel-guide-2025</loc>
+            <changefreq>daily</changefreq>
+            <priority>0.7</priority>
+          </url>
+        
     </urlset>
-  
