@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import constant from "../../config/constant";
-import _ from "lodash";
 
 const BlogDetailIntro = ({
   para,
@@ -11,9 +10,10 @@ const BlogDetailIntro = ({
   polariad_caption,
 }: any) => {
   return (
-    <section className="md:py-12 px-4 md:px-40 flex flex-col md:flex-row gap-8 md:gap-16">
+    <section className="md:py-12 md:pb-0 px-4 md:px-40 flex flex-col md:flex-row gap-8 md:gap-16">
       <div className="flex flex-col md:flex-row gap-8 md:gap-16 px-4 md:px-16 py-8 md:py-12">
-        <div className="flex-1 h-64 p-5 md:h-auto">
+        {/* Left Content */}
+        <div className="flex-1 h-auto p-5">
           <p
             className="font-redHat text-lg font-medium"
             dangerouslySetInnerHTML={{
@@ -39,14 +39,21 @@ const BlogDetailIntro = ({
           ></p>
         </div>
 
+        {/* Right Content */}
         <div
-          className="flex flex-col gap-4 w-full md:w-1/3"
-          style={{ border: `5px solid #A78B88` }}
+          className="flex flex-col gap-4 w-full md:w-1/3 sticky" // Make the right div sticky
+          style={{
+            top: "150px",
+            border: `5px solid #A78B88`,
+            height: "600px", // Fixed height
+            overflow: "hidden",
+          }}
         >
           <div>
             <img
               src={`${constant.REMOTE_IMAGE_ENDPOINT}${map_image}`}
               className="w-full h-full"
+              alt="Map"
             />
           </div>
 
@@ -65,13 +72,13 @@ const BlogDetailIntro = ({
                   alt={"Poloroiad image"}
                   width={220}
                   height={250}
-                  className="md:w-[270px] md:h-[306px]" // Adjust image size for mobile and larger screens
+                  className="md:w-[270px] md:h-[306px]"
                 />
                 <div
                   className="w-full"
                   style={{
                     backgroundColor: "#FFFFFF",
-                    marginTop: "-5px", // Ensure it visually "sticks" to the image container
+                    marginTop: "-5px",
                   }}
                 >
                   <p
@@ -87,7 +94,7 @@ const BlogDetailIntro = ({
 
           <Image
             aria-hidden
-            style={{ marginTop: -50 }}
+            style={{ marginTop: -55 }}
             src="/mountains.svg"
             alt="Mountains"
             layout="responsive"

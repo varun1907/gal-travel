@@ -10,7 +10,7 @@ import ShopActivitySection from "./ShopActivitySection";
 
 const BlogDetailActivitySection = ({ activity }: any) => {
   return (
-    <section className="py-8 md:py-12 px-4 md:px-40 gap-8 md:gap-16">
+    <section className="py-8 md:py-0 px-4 md:px-40 gap-8 md:gap-16">
       <VisitActivitySection activity={activity} />
       <ReachActivitySection activity={activity} />
       <StayActivitySection activity={activity} />

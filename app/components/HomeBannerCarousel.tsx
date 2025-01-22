@@ -1,25 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import _ from "lodash";
 import constant from "../../config/constant";
 
 const HomeBannerCarousel = ({ homeDetails }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const interval_ref = useRef<any>(null);
   const slides = homeDetails?.hero_banner_assets || [];
   const totalSlides = slides.length;
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    handle_slider_interval();
+    return () => clearInterval(interval_ref.current); // Cleanup interval on unmount
+  }, [totalSlides]);
+
+  const handle_slider_interval = () => {
+    interval_ref.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
-
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [totalSlides]);
+    }, 5000);
+  };
 
   return (
     <div
@@ -31,7 +34,7 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
         className="flex transition-transform duration-700 ease-in-out"
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
-          height: "560px"
+          height: "560px",
         }}
       >
         {slides.map((banner_item: any, banner_index: number) => (
@@ -75,22 +78,25 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
         ))}
       </div>
 
-
       <div className="flex flex-row gap-2 justify-center items-center mt-4">
-          {_.map(homeDetails?.hero_banner_assets, (dot_item, dot_iddex) => (
-            <div
-              key={`dot_item_${dot_iddex}`}
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: 3,
-                backgroundColor: currentIndex === dot_iddex ? "#C95C5C" :'white',
-              }}
-            ></div>
-          ))}
-        </div>
-
-
+        {_.map(homeDetails?.hero_banner_assets, (dot_item, dot_iddex) => (
+          <div
+            key={`dot_item_${dot_iddex}`}
+            className="cursor-pointer"
+            onClick={() => {
+              clearInterval(interval_ref.current);
+              handle_slider_interval();
+              setCurrentIndex(dot_iddex);
+            }}
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: 3,
+              backgroundColor: currentIndex === dot_iddex ? "#C95C5C" : "white",
+            }}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 };

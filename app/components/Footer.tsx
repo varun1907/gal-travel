@@ -43,7 +43,7 @@ const Footer = () => {
       const response = await axios.get(
         `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,timestamp,permalink&access_token=${process.env.NEXT_PUBLIC_INSTA_TOKEN}&limit=8`
       );
-      set_insta_feed(response.data.data)
+      set_insta_feed(response.data.data);
     } catch (error) {}
   }
 
@@ -64,7 +64,7 @@ const Footer = () => {
   return (
     <footer>
       <div
-        className="my-24 flex flex-col md:flex-row justify-between lg:flex px-4 md:px-32 "
+        className="my-8 flex flex-col md:flex-row justify-between lg:flex px-4 md:px-32 "
         style={{ alignItems: "center" }}
       >
         <div style={{ flex: 1 }}>
@@ -78,7 +78,10 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex justify-center md:justify-end mt-8 md:mt-0 gap-4 md:gap-0" style={{ flex: 1, flexWrap: "wrap" }}>
+        <div
+          className="flex justify-center md:justify-end mt-8 md:mt-0 gap-4 md:gap-0"
+          style={{ flex: 1, flexWrap: "wrap" }}
+        >
           {insta_feed.map((item, index) => (
             <div
               key={`img_${index}`}
@@ -90,9 +93,12 @@ const Footer = () => {
               }}
             >
               <Link href={item.permalink || item.media_url} target="_blank">
-              <img src={item?.thumbnail_url? item?.thumbnail_url : item?.media_url}  
-              style={{width:110, height:110}}
-              />
+                <img
+                  src={
+                    item?.thumbnail_url ? item?.thumbnail_url : item?.media_url
+                  }
+                  style={{ width: 110, height: 110 }}
+                />
               </Link>
             </div>
           ))}

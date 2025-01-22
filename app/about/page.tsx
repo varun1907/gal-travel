@@ -27,6 +27,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: seo?.title || "GalTravel By Chandni",
     description: seo?.meta_description || "Your ultimate travel guide",
+    other: {
+      author: "Chandni", // Add the author meta tag here
+    },
     alternates: {
       canonical: seo?.canonical_url || "https://galtravelbychandni.com/",
     },
