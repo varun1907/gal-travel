@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LoadingBarManager from "./components/LoadingBarManager";
 
 const ragilac = localFont({
   src: [
@@ -12,7 +13,7 @@ const ragilac = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-ragilac", // CSS variable for ragilac
+  variable: "--font-ragilac",
 });
 
 const redHat = localFont({
@@ -38,7 +39,7 @@ const redHat = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-redHat", // CSS variable for redHat
+  variable: "--font-redHat",
 });
 
 export const metadata: Metadata = {
@@ -54,6 +55,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ragilac.variable} ${redHat.variable} antialiased`}>
+        {/* Client-Side Loading Bar Manager */}
+        <LoadingBarManager />
         <Header />
         {children}
         <Footer />
