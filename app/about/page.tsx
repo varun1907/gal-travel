@@ -193,11 +193,12 @@ export default async function About() {
         <div className="relative flex flex-1 md:flex-wrap items-center justify-center px-6 md:px-12 my-10 md:my-0">
           <div className="flex flex-row gap-2" style={{ zIndex: 2 }}>
             <div className=" flex flex-col items-center">
-              <div className="overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[161px]">
-                <img
+              <div className="relative overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[161px]">
+                <Image
                   src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_1?.filename_disk}`}
                   alt={aboutDetails?.experience_image_1_caption}
                   className="w-full h-[161px] object-cover"
+                  layout="fill"
                 />
               </div>
               {/* Text Below Each Image */}
@@ -218,11 +219,12 @@ export default async function About() {
             </div>
 
             <div className="shadow-md flex flex-col items-center">
-              <div className="overflow-hidden w-[150px] md:w-[200px] h-[225px] md:h-[300px]">
-                <img
+              <div className="relative overflow-hidden w-[150px] md:w-[200px] h-[225px] md:h-[300px]">
+                <Image
                   src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_2?.filename_disk}`}
                   alt={aboutDetails?.experience_image_2_caption}
                   className="w-full h-full object-cover"
+                  layout="fill"
                 />
               </div>
               {/* Text Below Each Image */}
@@ -247,11 +249,12 @@ export default async function About() {
             className="shadow-md flex flex-col items-center absolute left-10 md:left-44 top-48 md:top-32 "
             style={{ zIndex: 1 }}
           >
-            <div className="overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[270px] ">
-              <img
+            <div className="relative overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[270px] ">
+              <Image
                 src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_3?.filename_disk}`}
                 alt={aboutDetails?.experience_image_3_caption}
                 className="w-full h-full object-cover"
+                layout="fill"
               />
             </div>
             <div

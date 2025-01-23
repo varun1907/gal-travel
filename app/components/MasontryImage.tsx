@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import constant from "../../config/constant";
+import Image from "next/image";
 
 const MasonryImage = ({ homeDetails }: any) => {
   const images = [
@@ -41,11 +42,12 @@ const MasonryImage = ({ homeDetails }: any) => {
             gridRowEnd: `span ${Math.ceil(image.height / 80)}`, // Adjusted for smaller row height
           }}
         >
-          <div className="overflow-hidden w-full h-full">
-            <img
+          <div className="relative overflow-hidden w-full h-full">
+            <Image
               src={`${constant.REMOTE_IMAGE_ENDPOINT}${image.src}`}
               alt={`Image ${index + 1}`}
               className="w-full h-full object-cover"
+              layout="fill"
             />
           </div>
           {/* Text Below Each Image */}
