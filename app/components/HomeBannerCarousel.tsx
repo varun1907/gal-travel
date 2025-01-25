@@ -70,7 +70,7 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
               </Link>
             </div>
             <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${banner_item?.hero_banner_assets_id?.hero_banner_image?.filename_disk}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${banner_item?.hero_banner_assets_id?.hero_banner_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
               className="w-full object-cover h-full"
               alt={`Slide ${banner_index + 1}`}
             />

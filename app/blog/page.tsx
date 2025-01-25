@@ -57,7 +57,7 @@ export default async function BlogDetail() {
             <React.Fragment key={blog_item.id}>
               <div className="border shadow-lg overflow-hidden">
                 <img
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.preview_image?.filename_disk}`}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.preview_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
                   alt={blog_item?.slug}
                   className="w-full h-60 object-cover"
                 />

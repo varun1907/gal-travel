@@ -40,7 +40,7 @@ const TodoActivitySection = ({ activity }: any) => {
                     // style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
                   >
                     <img
-                      src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_1_big?.filename_disk}`}
+                      src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_1_big?.filename_disk}?updatedAt=${new Date().toISOString()}`}
                       alt="Image 1"
                       className="w-full h-[200px] md:h-[342px] object-cover"
                     />
@@ -52,7 +52,7 @@ const TodoActivitySection = ({ activity }: any) => {
                       // style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
                     >
                       <img
-                        src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_2?.filename_disk}`}
+                        src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_2?.filename_disk}?updatedAt=${new Date().toISOString()}`}
                         alt="Image 2"
                         className="w-full h-[200px] md:h-[180px] object-cover"
                       />
@@ -62,7 +62,7 @@ const TodoActivitySection = ({ activity }: any) => {
                       // style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
                     >
                       <img
-                        src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_3?.filename_disk}`}
+                        src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_3?.filename_disk}?updatedAt=${new Date().toISOString()}`}
                         alt="Image 3"
                         className="w-full h-[200px] md:h-[150px] object-cover"
                       />

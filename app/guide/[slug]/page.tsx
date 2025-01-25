@@ -79,7 +79,7 @@ export async function generateMetadata({
       images: seo?.og_image
         ? [
             {
-              url: `${constant.REMOTE_IMAGE_ENDPOINT}${seo.og_image.filename_disk}`,
+              url: `${constant.REMOTE_IMAGE_ENDPOINT}${seo.og_image.filename_disk}?updatedAt=${new Date().toISOString()}`,
               width: seo.og_image.width,
               height: seo.og_image.height,
             },

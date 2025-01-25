@@ -53,7 +53,7 @@ const Conclusion = ({
           >
             <Image
               aria-hidden
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}?updatedAt=${new Date().toISOString()}`}
               alt="Conclusion image"
               style={{ padding: 5 }}
               className="w-[390px] h-[390px] md:w-[390px] md:h-[390px]"

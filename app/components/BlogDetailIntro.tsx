@@ -46,7 +46,7 @@ const BlogDetailIntro = ({
         >
           <div>
             <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${map_image}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${map_image}?updatedAt=${new Date().toISOString()}`}
               className="w-full h-full"
               alt="Map"
             />
@@ -63,7 +63,7 @@ const BlogDetailIntro = ({
                 }}
               >
                 <Image
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}`}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}?updatedAt=${new Date().toISOString()}`}
                   alt={"Poloroiad image"}
                   width={220}
                   height={250}

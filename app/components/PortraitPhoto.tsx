@@ -71,7 +71,7 @@ const PortraitPhoto = ({ homeDetails }: any) => {
           >
             <div className="relative w-[270px] h-[306px]">
               <Image
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${homeDetails?.what_to_expect_image?.filename_disk}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${homeDetails?.what_to_expect_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
                 alt={"what to expect"}
                 layout="fill"
                 objectFit="cover"

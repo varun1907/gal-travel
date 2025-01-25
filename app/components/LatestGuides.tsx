@@ -13,7 +13,7 @@ const LatestGuides = ({ latest_item }: any) => {
       <div>
         <div className="h-72 md:h-48 overflow-hidden">
           <img
-            src={`${constant.REMOTE_IMAGE_ENDPOINT}${latest_item?.blog_listing_preview_image?.filename_disk}`}
+            src={`${constant.REMOTE_IMAGE_ENDPOINT}${latest_item?.blog_listing_preview_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
             alt={latest_item?.country}
             className="w-full h-full object-cover"
           />

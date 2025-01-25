@@ -9,7 +9,7 @@ const ProTip = ({ city_name, title, image }: any) => {
       style={{ borderRadius: 0 }}
     >
       <img
-        src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+        src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}?updatedAt=${new Date().toISOString()}`}
         className="w-[350px] object-cover"
         alt="Pro Tip"
       />

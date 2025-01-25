@@ -33,7 +33,7 @@ const ShopActivitySection = ({ activity }: any) => {
               >
                 <div className="h-72 md:h-48 overflow-hidden">
                   <img
-                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.[img_key_name]?.filename_disk}`}
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.[img_key_name]?.filename_disk}?updatedAt=${new Date().toISOString()}`}
                     alt={activity?.[caption_key_name]}
                     className="w-full h-full object-cover"
                   />
