@@ -53,38 +53,31 @@ const BlogDetailIntro = ({
           </div>
 
           <div className="flex justify-center items-center">
-            <div className="relative w-[260px] h-[290px] rotate-6 md:w-[310px] md:h-[276px]">
+          <div
+            className="relative w-[260px] h-[290px] rotate-6 md:w-[280px] md:h-[276px] overflow-hidden"
+            style={{ zIndex: 30 }}
+          >
+            <div className="flex">
               <div
-                className="bg-white p-2 shadow-md mx-auto flex flex-col items-center"
-                style={{
-                  width: "240px",
-                  height: "100%",
-                  marginTop: 8,
-                }}
+                className="bg-white p-3 shadow-md mx-auto w-[240px] md:w-[260px] h-[270px] md:h-[256px]"
+                style={{ marginTop: 8 }}
               >
-                <Image
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}?updatedAt=${new Date().toISOString()}`}
-                  alt={"Poloroiad image"}
-                  width={220}
-                  height={250}
-                  className="md:w-[270px] md:h-[306px]"
-                />
-                <div
-                  className="w-full"
-                  style={{
-                    backgroundColor: "#FFFFFF",
-                    marginTop: "-5px",
-                  }}
-                >
-                  <p
-                    className="font-ragilac mt-1 text-center md:mt-2"
-                    style={{ fontSize: 18 }}
-                  >
-                    {polariad_caption}
-                  </p>
+                <div className="relative w-[220px] md:w-[240px] h-[250px] md:h-[236px]">
+                  <Image
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}?updatedAt=${new Date().toISOString()}`}
+                    alt={"About landing"}
+                    layout="fill"
+                    objectFit="cover"
+                  />
                 </div>
+                <p className="font-ragilac text-xl md:text-3xl text-center mt-4	">
+                  {polariad_caption}
+                </p>
               </div>
             </div>
+          </div>
+            
+            
           </div>
 
           <Image
