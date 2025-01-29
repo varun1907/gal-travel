@@ -55,7 +55,7 @@ const BlogDetailIntro = ({
           <div className="flex justify-center items-center">
           <div
             className="relative w-[260px] h-[290px] rotate-6 md:w-[280px] md:h-[276px] overflow-hidden"
-            style={{ zIndex: 30 }}
+            style={{ zIndex: 20 }}
           >
             <div className="flex">
               <div

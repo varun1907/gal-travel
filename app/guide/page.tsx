@@ -95,7 +95,7 @@ export default async function BlogDetail() {
                 className="border shadow-lg overflow-hidden"
               >
                 <img
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.blog_listing_preview_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.blog_listing_preview_image?.filename_disk}`}
                   alt={blog_item?.country}
                   className="w-full h-60 object-cover"
                 />
