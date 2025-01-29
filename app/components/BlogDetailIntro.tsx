@@ -62,7 +62,7 @@ const BlogDetailIntro = ({
                 className="bg-white p-3 shadow-md mx-auto w-[240px] md:w-[260px] h-[270px] md:h-[256px]"
                 style={{ marginTop: 8 }}
               >
-                <div className="relative w-[220px] md:w-[240px] h-[250px] md:h-[236px]">
+                <div className="relative w-[220px] md:w-[240px] h-[225px] md:h-[206px]">
                   <Image
                     src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}?updatedAt=${new Date().toISOString()}`}
                     alt={"About landing"}
@@ -70,7 +70,8 @@ const BlogDetailIntro = ({
                     objectFit="cover"
                   />
                 </div>
-                <p className="font-ragilac text-xl md:text-3xl text-center mt-4	">
+                <p className="font-ragilac mt-1 text-center md:mt-2"
+                    style={{ fontSize: 18 }}>
                   {polariad_caption}
                 </p>
               </div>
