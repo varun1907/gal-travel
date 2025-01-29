@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import _ from "lodash";
 import constant from "../../config/constant";
+import Image from "next/image";
 
 const HomeBannerCarousel = ({ homeDetails }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,9 +42,16 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
           <div
             key={`home_banner_${banner_index}`}
             className="w-full flex-none relative"
-            // className="carousel-item w-full relative"
             style={{ flex: "0 0 100%" }}
           >
+            <div className="relative w-full object-cover h-full">
+              <Image
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${banner_item?.hero_banner_assets_id?.hero_banner_image?.filename_disk}`}
+                alt={`Slide ${banner_index + 1}`}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div
               className="absolute px-4 text-center text-white"
               style={{
@@ -69,11 +77,6 @@ const HomeBannerCarousel = ({ homeDetails }: any) => {
                 </button>
               </Link>
             </div>
-            <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${banner_item?.hero_banner_assets_id?.hero_banner_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
-              className="w-full object-cover h-full"
-              alt={`Slide ${banner_index + 1}`}
-            />
           </div>
         ))}
       </div>

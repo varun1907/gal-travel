@@ -277,6 +277,14 @@ export default async function About() {
 
       <div className="carousel w-full mt-20" style={{ height: "400px" }}>
         <div id="item1" className="carousel-item w-full relative">
+          <div className="relative w-full object-cover h-full">
+            <Image
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.banner_image?.filename_disk}`}
+              alt={"Slide 1"}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
           <div
             className="absolute px-4 text-center"
             style={{
@@ -297,11 +305,6 @@ export default async function About() {
               </button>
             </Link>
           </div>
-          <img
-            src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.banner_image?.filename_disk}`}
-            className="w-full object-cover h-full"
-            alt="Slide 1"
-          />
         </div>
       </div>
       <div className="mt-16">

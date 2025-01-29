@@ -44,7 +44,7 @@ const MasonryImage = ({ homeDetails }: any) => {
         >
           <div className="relative overflow-hidden w-full h-full">
             <Image
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${image.src}?updatedAt=${new Date().toISOString()}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${image.src}`}
               alt={`Image ${index + 1}`}
               className="w-full h-full object-cover"
               layout="fill"

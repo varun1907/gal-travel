@@ -56,11 +56,14 @@ export default async function BlogDetail() {
           {_.map(blogList, (blog_item, blog_index) => (
             <React.Fragment key={blog_item.id}>
               <div className="border shadow-lg overflow-hidden">
-                <img
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.preview_image?.filename_disk}`}
-                  alt={blog_item?.slug}
-                  className="w-full h-60 object-cover"
-                />
+                <div className="relative w-full h-60 object-cover">
+                  <Image
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.preview_image?.filename_disk}`}
+                    alt={blog_item?.slug}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
 
                 <Link href={`/blog/${blog_item?.slug}`}>
                   <p className="text-center p-2 font-redHat font-semibold text-sm underline">

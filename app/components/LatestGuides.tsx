@@ -2,6 +2,7 @@
 import React from "react";
 import constant from "../../config/constant";
 import Link from "next/link";
+import Image from "next/image";
 
 const LatestGuides = ({ latest_item }: any) => {
   return (
@@ -11,11 +12,12 @@ const LatestGuides = ({ latest_item }: any) => {
       className="min-w-full lg:min-w-0 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
     >
       <div>
-        <div className="h-72 md:h-48 overflow-hidden">
-          <img
+        <div className="h-72 md:h-48 overflow-hidden relative">
+          <Image
             src={`${constant.REMOTE_IMAGE_ENDPOINT}${latest_item?.blog_listing_preview_image?.filename_disk}`}
             alt={latest_item?.country}
-            className="w-full h-full object-cover"
+            objectFit="cover"
+            layout="fill"
           />
         </div>
         <div className="p-4">

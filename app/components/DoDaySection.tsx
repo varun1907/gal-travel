@@ -3,6 +3,7 @@ import FunFact from "./FunFact";
 import ProTip from "./ProTip";
 import constant from "../../config/constant";
 import _ from "lodash";
+import Image from "next/image";
 
 const DoyDaySection = ({ city_data }: any) => {
   return (
@@ -29,11 +30,14 @@ const DoyDaySection = ({ city_data }: any) => {
             className="md:col-span-1 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
           >
-            <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_1?.filename_disk}`}
-              alt="Image 1"
-              className="w-full h-[200px] md:h-[410px] object-cover"
-            />
+            <div className="relative w-full h-[200px] md:h-[410px] object-cover">
+              <Image
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_1?.filename_disk}`}
+                alt="Image 1"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className="p-1 flex justify-center">
               <p
                 className="text-lg font-ragilac text-secondary-content"
@@ -49,11 +53,14 @@ const DoyDaySection = ({ city_data }: any) => {
               className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
               style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
             >
-              <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_2?.filename_disk}`}
-                alt="Image 2"
-                className="w-full h-[200px] md:h-[180px] object-cover"
-              />
+              <div className="relative w-full h-[200px] md:h-[180px]">
+                <Image
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_2?.filename_disk}`}
+                  alt="Image 2"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
               <div className="p-1 flex justify-center">
                 <p
                   className="text-lg font-ragilac text-secondary-content"
@@ -67,11 +74,14 @@ const DoyDaySection = ({ city_data }: any) => {
               className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
               style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
             >
-              <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_3?.filename_disk}`}
-                alt="Image 3"
-                className="w-full h-[200px] md:h-[180px] object-cover"
-              />
+              <div className="relative w-full h-[200px] md:h-[180px]">
+                <Image
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_3?.filename_disk}`}
+                  alt="Image 3"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
               <div className="p-1 flex justify-center">
                 <p
                   className="text-lg font-ragilac text-secondary-content"

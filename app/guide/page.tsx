@@ -10,7 +10,7 @@ async function fetchBlogList() {
     "sort[]": "-date_created",
     "fields[]":
       "id,slug,country,blog_listing_preview_image.*,blog_listing_cta_text,blog_listing_preview_text",
-    "filter[status][_eq]": "published"
+    "filter[status][_eq]": "published",
   };
 
   try {
@@ -94,12 +94,14 @@ export default async function BlogDetail() {
                 // key={blog_item.id}
                 className="border shadow-lg overflow-hidden"
               >
-                <img
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.blog_listing_preview_image?.filename_disk}`}
-                  alt={blog_item?.country}
-                  className="w-full h-60 object-cover"
-                />
-
+                <div className="relative w-full h-60 object-cover">
+                  <Image
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${blog_item?.blog_listing_preview_image?.filename_disk}`}
+                    alt={blog_item?.country}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
                 <p
                   className="text-center pt-4 font-ragilac text-2xl px-2"
                   style={{ color: "#C95C5C" }}

@@ -2,6 +2,7 @@ import React from "react";
 import ProTip from "./ProTip";
 import constant from "../../config/constant";
 import _ from "lodash";
+import Image from "next/image";
 
 const VisitActivitySection = ({ activity }: any) => {
   return (
@@ -25,35 +26,38 @@ const VisitActivitySection = ({ activity }: any) => {
 
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-4">
           <div
-            className="md:col-span-1 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full h-[200px] md:h-[420px] object-cover"
             style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
           >
-            <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.visit_image_1_big?.filename_disk}?updatedAt=${new Date().toISOString()}`}
-              alt="Visit Image 1"
-              className="w-full h-[200px] md:h-[420px] object-cover"
+            <Image
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.visit_image_1_big?.filename_disk}`}
+              alt={"Visit Image 1"}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
 
           <div className="grid grid-rows-2 gap-4">
             <div
-              className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full h-[200px] md:h-[200px] object-cover"
               style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
             >
-              <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.visit_image_2?.filename_disk}?updatedAt=${new Date().toISOString()}`}
-                alt="Visit Image 2"
-                className="w-full h-[200px] md:h-[200px] object-cover"
+              <Image
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.visit_image_2?.filename_disk}`}
+                alt={"Visit Image 2"}
+                layout="fill"
+                objectFit="cover"
               />
             </div>
             <div
-              className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 relative w-full h-[200px] md:h-[200px] object-cover"
               style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
             >
-              <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.visit_image_3?.filename_disk}?updatedAt=${new Date().toISOString()}`}
-                alt="Visit Image 3"
-                className="w-full h-[200px] md:h-[200px] object-cover"
+              <Image
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.visit_image_3?.filename_disk}`}
+                alt={"Visit Image 3"}
+                layout="fill"
+                objectFit="cover"
               />
             </div>
           </div>

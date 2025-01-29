@@ -2,6 +2,7 @@ import React from "react";
 import ProTip from "./ProTip";
 import _ from "lodash";
 import constant from "../../config/constant";
+import Image from "next/image";
 
 const ShopActivitySection = ({ activity }: any) => {
   return (
@@ -31,11 +32,12 @@ const ShopActivitySection = ({ activity }: any) => {
                 className="min-w-full lg:min-w-0 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
                 style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
               >
-                <div className="h-72 md:h-48 overflow-hidden">
-                  <img
-                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.[img_key_name]?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                <div className="relative h-72 md:h-48 overflow-hidden">
+                  <Image
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.[img_key_name]?.filename_disk}`}
                     alt={activity?.[caption_key_name]}
-                    className="w-full h-full object-cover"
+                    layout="fill"
+                    objectFit="cover"
                   />
                 </div>
                 <div className="p-1 flex justify-center">

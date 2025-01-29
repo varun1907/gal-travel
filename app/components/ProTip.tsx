@@ -1,6 +1,7 @@
 import React from "react";
 import constant from "../../config/constant";
 import _ from "lodash";
+import Image from "next/image";
 
 const ProTip = ({ city_name, title, image }: any) => {
   return (
@@ -8,11 +9,14 @@ const ProTip = ({ city_name, title, image }: any) => {
       className="card card-compact md:card-side bg-base-100 shadow-xl my-5"
       style={{ borderRadius: 0 }}
     >
-      <img
-        src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}?updatedAt=${new Date().toISOString()}`}
-        className="w-[350px] object-cover"
-        alt="Pro Tip"
-      />
+      <div className="relative w-[350px] h-[200px] object-cover ">
+        <Image
+          src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+          alt="Pro Tip"
+          layout={"fill"}
+          objectFit="cover"
+        />
+      </div>
 
       <div className="flex flex-col justify-center px-5 py-5 md:py-5">
         <p
