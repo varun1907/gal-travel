@@ -20,7 +20,7 @@ const DoyDaySection = ({ city_data }: any) => {
         <p
           className="text-base font-redHat mb-3"
           dangerouslySetInnerHTML={{
-            __html: city_data?.do_at_intro_para_copy || '',
+            __html: city_data?.do_at_intro_para_copy || "",
           }}
         ></p>
 
@@ -30,7 +30,7 @@ const DoyDaySection = ({ city_data }: any) => {
             style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
           >
             <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_1?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_1?.filename_disk}`}
               alt="Image 1"
               className="w-full h-[200px] md:h-[410px] object-cover"
             />
@@ -50,7 +50,7 @@ const DoyDaySection = ({ city_data }: any) => {
               style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
             >
               <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_2?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_2?.filename_disk}`}
                 alt="Image 2"
                 className="w-full h-[200px] md:h-[180px] object-cover"
               />
@@ -68,7 +68,7 @@ const DoyDaySection = ({ city_data }: any) => {
               style={{ boxShadow: `0px 4px 10px 0px #24242440` }}
             >
               <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_3?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${city_data?.do_at_image_3?.filename_disk}`}
                 alt="Image 3"
                 className="w-full h-[200px] md:h-[180px] object-cover"
               />

@@ -87,7 +87,7 @@ export default async function About() {
               >
                 <div className="relative w-[272px] md:w-[327px] h-[309px] md:h-[369px]">
                   <Image
-                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.intro_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.intro_image?.filename_disk}`}
                     alt={"About landing"}
                     layout="fill"
                     objectFit="cover"
@@ -125,7 +125,7 @@ export default async function About() {
               >
                 <div className="relative w-[240px] h-[276px] ">
                   <Image
-                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.quote_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.quote_image?.filename_disk}`}
                     alt={"dummy"}
                     layout="fill"
                     objectFit="cover"
@@ -195,7 +195,7 @@ export default async function About() {
             <div className=" flex flex-col items-center">
               <div className="relative overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[161px]">
                 <Image
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_1?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_1?.filename_disk}`}
                   alt={aboutDetails?.experience_image_1_caption}
                   className="w-full h-[161px] object-cover"
                   layout="fill"
@@ -221,7 +221,7 @@ export default async function About() {
             <div className="shadow-md flex flex-col items-center">
               <div className="relative overflow-hidden w-[150px] md:w-[200px] h-[225px] md:h-[300px]">
                 <Image
-                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_2?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                  src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_2?.filename_disk}`}
                   alt={aboutDetails?.experience_image_2_caption}
                   className="w-full h-full object-cover"
                   layout="fill"
@@ -251,7 +251,7 @@ export default async function About() {
           >
             <div className="relative overflow-hidden w-[150px] md:w-[200px] h-[143px] md:h-[270px] ">
               <Image
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_3?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.experience_image_3?.filename_disk}`}
                 alt={aboutDetails?.experience_image_3_caption}
                 className="w-full h-full object-cover"
                 layout="fill"
@@ -298,7 +298,7 @@ export default async function About() {
             </Link>
           </div>
           <img
-            src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.banner_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+            src={`${constant.REMOTE_IMAGE_ENDPOINT}${aboutDetails?.banner_image?.filename_disk}`}
             className="w-full object-cover h-full"
             alt="Slide 1"
           />

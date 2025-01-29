@@ -28,7 +28,7 @@ const EatActivitySection = ({ activity }: any) => {
             <div className="w-full flex items-center justify-center">
               <img
                 className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_1?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_1?.filename_disk}`}
                 alt="Image 1"
                 // style={{ width: 164, height: 154 }}
               />
@@ -38,7 +38,7 @@ const EatActivitySection = ({ activity }: any) => {
               <img
                 // className="w-full h-auto object-cover"
                 className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_2?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_2?.filename_disk}`}
                 alt="Image 2"
                 // style={{ width: 164, height: 154 }}
               />
@@ -48,7 +48,7 @@ const EatActivitySection = ({ activity }: any) => {
               <img
                 // className="w-full h-auto object-cover"
                 className="w-[220px] md:w-[220px] h-[200px] md:h-[154px] object-cover"
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_3?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${activity?.eat_image_3?.filename_disk}`}
                 alt="Image 3"
                 // style={{ width: 164, height: 154 }}
               />

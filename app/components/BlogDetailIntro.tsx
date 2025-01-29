@@ -46,39 +46,39 @@ const BlogDetailIntro = ({
         >
           <div>
             <img
-              src={`${constant.REMOTE_IMAGE_ENDPOINT}${map_image}?updatedAt=${new Date().toISOString()}`}
+              src={`${constant.REMOTE_IMAGE_ENDPOINT}${map_image}`}
               className="w-full h-full"
               alt="Map"
             />
           </div>
 
           <div className="flex justify-center items-center">
-          <div
-            className="relative w-[260px] h-[290px] rotate-6 md:w-[280px] md:h-[276px] overflow-hidden"
-            style={{ zIndex: 20 }}
-          >
-            <div className="flex">
-              <div
-                className="bg-white p-3 shadow-md mx-auto w-[240px] md:w-[260px] h-[270px] md:h-[256px]"
-                style={{ marginTop: 8 }}
-              >
-                <div className="relative w-[220px] md:w-[240px] h-[225px] md:h-[206px]">
-                  <Image
-                    src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}?updatedAt=${new Date().toISOString()}`}
-                    alt={"About landing"}
-                    layout="fill"
-                    objectFit="cover"
-                  />
+            <div
+              className="relative w-[260px] h-[290px] rotate-6 md:w-[280px] md:h-[276px] overflow-hidden"
+              style={{ zIndex: 20 }}
+            >
+              <div className="flex">
+                <div
+                  className="bg-white p-3 shadow-md mx-auto w-[240px] md:w-[260px] h-[270px] md:h-[256px]"
+                  style={{ marginTop: 8 }}
+                >
+                  <div className="relative w-[220px] md:w-[240px] h-[225px] md:h-[206px]">
+                    <Image
+                      src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}`}
+                      alt={"About landing"}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                  <p
+                    className="font-ragilac mt-1 text-center md:mt-2"
+                    style={{ fontSize: 18 }}
+                  >
+                    {polariad_caption}
+                  </p>
                 </div>
-                <p className="font-ragilac mt-1 text-center md:mt-2"
-                    style={{ fontSize: 18 }}>
-                  {polariad_caption}
-                </p>
               </div>
             </div>
-          </div>
-            
-            
           </div>
 
           <Image

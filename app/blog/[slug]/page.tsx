@@ -128,7 +128,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
               ></p>
 
               <img
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.preview_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.preview_image?.filename_disk}`}
                 className="w-full h-[278px] md:h-[378px]"
               />
             </div>
@@ -146,7 +146,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
                 >
                   <div className="relative w-[250px] h-[265px]">
                     <Image
-                      src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.polaroid_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                      src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.polaroid_image?.filename_disk}`}
                       alt={"About landing"}
                       layout="fill"
                       objectFit="cover"

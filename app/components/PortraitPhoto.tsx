@@ -21,9 +21,7 @@ const PortraitPhoto = ({ homeDetails }: any) => {
   // }, [images.length]);
 
   return (
-    <div
-      className="relative w-[310px] h-[346px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden"
-    >
+    <div className="relative w-[310px] h-[346px] border-dashed border-[#A78B88] border-[0.75px] rotate-6 overflow-hidden">
       {/* Carousel Wrapper */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -71,7 +69,7 @@ const PortraitPhoto = ({ homeDetails }: any) => {
           >
             <div className="relative w-[270px] h-[306px]">
               <Image
-                src={`${constant.REMOTE_IMAGE_ENDPOINT}${homeDetails?.what_to_expect_image?.filename_disk}?updatedAt=${new Date().toISOString()}`}
+                src={`${constant.REMOTE_IMAGE_ENDPOINT}${homeDetails?.what_to_expect_image?.filename_disk}`}
                 alt={"what to expect"}
                 layout="fill"
                 objectFit="cover"
