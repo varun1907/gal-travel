@@ -12,22 +12,13 @@ const API = {
 };
 
 const axioInstance = axios.create({
-  //   baseURL: process.env.API_URL || process.env.NEXT_PUBLIC_API_URL,
   baseURL: process.env.NEXT_PUBLIC_API_ENDPOINT,
 });
+
 axioInstance.interceptors.request.use((request) => {
   request.headers[
     "Authorization"
   ] = `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`;
-
-
-  request.headers["Cache-Control"] = `no-store, max-age=0`;
-
-  const cacheBuster = new Date().getTime();
-  request.url += request.url.includes("?")
-    ? `&cb=${cacheBuster}`
-    : `?cb=${cacheBuster}`;
-
   return request;
 });
 
@@ -37,6 +28,11 @@ const fireApiAction = async (url, method = "GET", data = {}) => {
     let allData = {
       url,
       method,
+      headers: {
+        "Cache-Control": "no-store, max-age=0",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
     };
     if (method === "get") {
       allData["params"] = data;
