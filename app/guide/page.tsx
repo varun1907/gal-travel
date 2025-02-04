@@ -115,24 +115,25 @@ export default async function BlogDetail() {
                 </Link>
               </div>
 
-              {(blog_index + 1) % 4 === 0 && (
-                <div
-                  className="col-span-full flex items-center justify-center"
-                  style={{ border: "1px dashed #A78B88", height: 175 }}
-                >
-                  <Image
-                    aria-hidden
-                    className="mr-3"
-                    src="/duck.svg"
-                    alt="Duck"
-                    width={30}
-                    height={35}
-                  />
-                  <p className="font-redHat text-2xl">
-                    {quoteList[Math.floor(blog_index / 4)]?.quote}
-                  </p>
-                </div>
-              )}
+              {(blog_index + 1) % 4 === 0 &&
+                quoteList?.[Math.floor(blog_index / 4)]?.quote && (
+                  <div
+                    className="col-span-full flex items-center justify-center"
+                    style={{ border: "1px dashed #A78B88", height: 175 }}
+                  >
+                    <Image
+                      aria-hidden
+                      className="mr-3"
+                      src="/duck.svg"
+                      alt="Duck"
+                      width={30}
+                      height={35}
+                    />
+                    <p className="font-redHat text-2xl">
+                      {quoteList[Math.floor(blog_index / 4)]?.quote}
+                    </p>
+                  </div>
+                )}
             </React.Fragment>
           ))}
         </div>

@@ -127,14 +127,14 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
                 }}
               ></p>
 
-              <div className="relative w-full h-[278px] md:h-[378px]">
+              {/* <div className="relative w-full h-[278px] md:h-[378px]">
                 <Image
                   src={`${constant.REMOTE_IMAGE_ENDPOINT}${blogDetails?.preview_image?.filename_disk}`}
                   alt={"About landing"}
                   layout="fill"
                   objectFit="cover"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
 
