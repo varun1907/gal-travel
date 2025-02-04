@@ -21,7 +21,7 @@ const EatDaySection = ({ city_data }: any) => {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p
-              className="font-redHat text-base"
+              className="font-redHat text-base rich_text_links"
               dangerouslySetInnerHTML={{
                 __html: city_data?.eat_at_intro_para || "",
               }}

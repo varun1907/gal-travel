@@ -23,9 +23,9 @@ const FunFact = ({ title }: any) => {
           FUN FACT
         </p>
         <p
-          className="font-redHat font-medium text-base mt-1"
+          className="font-redHat font-medium text-base mt-1 rich_text_links"
           dangerouslySetInnerHTML={{
-            __html: title || '',
+            __html: title || "",
           }}
         ></p>
       </div>

@@ -15,7 +15,7 @@ const BlogDetailIntro = ({
         {/* Left Content */}
         <div className="flex-1 h-auto p-5">
           <p
-            className="font-redHat text-lg font-medium"
+            className="font-redHat text-lg font-medium rich_text_links"
             dangerouslySetInnerHTML={{
               __html: para || "",
             }}
@@ -32,7 +32,7 @@ const BlogDetailIntro = ({
           />
 
           <p
-            className="font-redHat text-base"
+            className="font-redHat text-base rich_text_links rich_text_links"
             dangerouslySetInnerHTML={{
               __html: subpara || "",
             }}
@@ -54,15 +54,15 @@ const BlogDetailIntro = ({
 
           <div className="flex justify-center items-center">
             <div
-              className="relative w-[260px] h-[290px] rotate-6 md:w-[280px] md:h-[276px] overflow-hidden"
+              className="relative w-[260px] h-[290px] rotate-6 md:w-[280px] md:h-[296px] overflow-hidden"
               style={{ zIndex: 20 }}
             >
               <div className="flex">
                 <div
-                  className="bg-white p-3 shadow-md mx-auto w-[240px] md:w-[260px] h-[270px] md:h-[256px]"
+                  className="bg-white p-3 shadow-md mx-auto w-[240px] md:w-[260px] h-[270px] md:h-[306px]"
                   style={{ marginTop: 8 }}
                 >
-                  <div className="relative w-[220px] md:w-[240px] h-[225px] md:h-[206px]">
+                  <div className="relative w-[220px] md:w-[240px] h-[195px] md:h-[230px]">
                     <Image
                       src={`${constant.REMOTE_IMAGE_ENDPOINT}${polaroid_image}`}
                       alt={"About landing"}

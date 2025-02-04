@@ -121,7 +121,7 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
           <div className=" md:px-16 py-0">
             <div className="p-5">
               <p
-                className="font-redHat font-medium text-base mt-0 md:mt-7 mb-5"
+                className="font-redHat font-medium text-base mt-0 md:mt-7 mb-5 rich_text_links rich_text_links"
                 dangerouslySetInnerHTML={{
                   __html: blogDetails?.blog_content || "",
                 }}
@@ -187,7 +187,11 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
               {_.map(latestGuides, (latest_item, latest_index) => (
                 <LatestGuides
                   key={`latest_item_${latest_index}`}
-                  latest_item={latest_item}
+                  is_guide={false}
+                  slug={latest_item?.slug}
+                  title={latest_item?.preview_text}
+                  subtitle={""}
+                  image={latest_item?.preview_image?.filename_disk}
                 />
               ))}
             </div>

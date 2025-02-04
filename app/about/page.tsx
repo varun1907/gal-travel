@@ -67,7 +67,7 @@ export default async function About() {
           </p>
 
           <p
-            className="font-redHat font-regular text-sm mt-4"
+            className="font-redHat font-regular text-sm mt-4 rich_text_links"
             dangerouslySetInnerHTML={{
               __html: aboutDetails?.intro_para || "",
             }}
@@ -183,7 +183,7 @@ export default async function About() {
       <div className="flex flex-col md:flex-row mx-6 md:mx-40 items-center my-16">
         <div className="flex flex-1">
           <p
-            className="font-redHat font-regular text-base"
+            className="font-redHat font-regular text-base rich_text_links"
             dangerouslySetInnerHTML={{
               __html: aboutDetails?.experience_content || "",
             }}

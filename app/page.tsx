@@ -148,7 +148,7 @@ export default async function Home() {
               {homeDetails?.intro_title}
             </p>
             <p
-              className="font-redHat text-sm lg:text-base pt-4 leading-6 lg:text-left"
+              className="font-redHat text-sm lg:text-base pt-4 leading-6 lg:text-left rich_text_links"
               dangerouslySetInnerHTML={{
                 __html: homeDetails?.intro_para || "",
               }}
@@ -293,7 +293,7 @@ export default async function Home() {
               {homeDetails?.what_to_expect_title}
             </p>
             <p
-              className="font-redHat font-regular text-base mt-4"
+              className="font-redHat font-regular text-base mt-4 rich_text_links"
               dangerouslySetInnerHTML={{
                 __html: homeDetails?.what_to_expect_content || "",
               }}
@@ -326,7 +326,11 @@ export default async function Home() {
           {_.map(latestGuides, (latest_item, latest_index) => (
             <LatestGuides
               key={`latest_item_${latest_index}`}
-              latest_item={latest_item}
+              is_guide={true}
+              slug={latest_item?.slug}
+              title={latest_item?.country}
+              subtitle={`${latest_item?.blog_listing_cta_text}: ${latest_item?.blog_listing_preview_text}`}
+              image={latest_item?.blog_listing_preview_image?.filename_disk}
             />
           ))}
         </div>

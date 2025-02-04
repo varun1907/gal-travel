@@ -66,3 +66,8 @@ ol {
   list-style:decimal !important;
   padding-left: 15px;
 }
+
+.rich_text_links a {
+  text-decoration: underline;
+  color: #C95C5C;
+}

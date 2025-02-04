@@ -18,7 +18,7 @@ const VisitActivitySection = ({ activity }: any) => {
 
       <div className="mx-4 md:mx-48">
         <p
-          className="text-base font-redHat font-regular mt-7"
+          className="text-base font-redHat font-regular mt-7 rich_text_links"
           dangerouslySetInnerHTML={{
             __html: activity?.visit_para || "",
           }}

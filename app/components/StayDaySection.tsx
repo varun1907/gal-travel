@@ -19,7 +19,7 @@ const StayDaySection = ({ city_data }: any) => {
       </div>
       <div className="mx-1 md:mx-48">
         <p
-          className="text-base font-redHat mb-3"
+          className="text-base font-redHat mb-3 rich_text_links"
           dangerouslySetInnerHTML={{
             __html: city_data?.stay_at_intro_para || "",
           }}

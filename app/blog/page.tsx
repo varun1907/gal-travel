@@ -78,3 +78,43 @@ export default async function BlogDetail() {
     </div>
   );
 }
+
+// export async function getServerSideProps() {
+//   // Fetch data from an external API or database
+//   const params = {
+//     "fields[]": "id, slug, preview_image.*, preview_text",
+//     "sort[]": "-date_created",
+//     "filter[status][_eq]": "published",
+//   };
+
+//   try {
+//     const result = await fireApiAction(API.normal_blogs, "GET", params);
+//     if (result?.data?.length > 0) {
+//       return { props: { data: result.data } }; // Return the blog details
+//     }
+//     throw new Error("Not Found");
+//   } catch (error) {
+//     return null;
+//   }
+//   // Pass data to the page via props
+//   // return { props: { data } };
+// }
+
+// export const getServerSideProps = (async () => {
+//   const params = {
+//     "fields[]": "id, slug, preview_image.*, preview_text",
+//     "sort[]": "-date_created",
+//     "filter[status][_eq]": "published",
+//   };
+
+//   try {
+//     const result = await fireApiAction(API.normal_blogs, "GET", params);
+//     if (result?.data?.length > 0) {
+//       return { props: { data: result.data } }; // Return the blog details
+//     }
+//     throw new Error("Not Found");
+//   } catch (error) {
+//     return null;
+//   }
+//   // return { props: { repo } };
+// }) satisfies GetServerSideProps<{ repo: any }>;

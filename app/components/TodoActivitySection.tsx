@@ -27,7 +27,7 @@ const TodoActivitySection = ({ activity }: any) => {
             </div>
             <div className="mx-4 md:mx-48">
               <p
-                className="font-redHat font-medium text-base mt-5"
+                className="font-redHat font-medium text-base mt-5 rich_text_links"
                 dangerouslySetInnerHTML={{
                   __html: todo_item?.activities_to_do_id?.to_do_content || "",
                 }}

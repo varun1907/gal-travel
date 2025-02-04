@@ -218,7 +218,11 @@ export default async function BlogDetail({ params }: BlogDetailPageProps) {
               {_.map(latestGuides, (latest_item, latest_index) => (
                 <LatestGuides
                   key={`latest_item_${latest_index}`}
-                  latest_item={latest_item}
+                  is_guide={true}
+                  slug={latest_item?.slug}
+                  title={latest_item?.country}
+                  subtitle={`${latest_item?.blog_listing_cta_text}: ${latest_item?.blog_listing_preview_text}`}
+                  image={latest_item?.blog_listing_preview_image?.filename_disk}
                 />
               ))}
             </div>

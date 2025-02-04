@@ -18,7 +18,7 @@ const EatActivitySection = ({ activity }: any) => {
         <div className="py-8 md:py-12 flex flex-col md:flex-row gap-8">
           <div className="flex-1">
             <p
-              className="font-redHat text-base"
+              className="font-redHat text-base rich_text_links"
               dangerouslySetInnerHTML={{
                 __html: activity?.eat_para || "",
               }}

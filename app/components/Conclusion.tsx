@@ -28,7 +28,7 @@ const Conclusion = ({
           />
           <p className="font-redHat font-medium text-base mt-6">{heading}</p>
           <p
-            className="font-redHat text-base mt-3"
+            className="font-redHat text-base mt-3 rich_text_links"
             dangerouslySetInnerHTML={{
               __html: content || "",
             }}

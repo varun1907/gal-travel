@@ -4,30 +4,28 @@ import constant from "../../config/constant";
 import Link from "next/link";
 import Image from "next/image";
 
-const LatestGuides = ({ latest_item }: any) => {
+const LatestGuides = ({ is_guide, slug, title, subtitle, image }: any) => {
   return (
     <Link
-      href={`/guide/${latest_item?.slug}`}
+      href={`/${is_guide ? "guide" : "blog"}/${slug}`}
       prefetch
       className="min-w-full lg:min-w-0 border overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
     >
       <div>
         <div className="h-72 md:h-48 overflow-hidden relative">
           <Image
-            src={`${constant.REMOTE_IMAGE_ENDPOINT}${latest_item?.blog_listing_preview_image?.filename_disk}`}
-            alt={latest_item?.country}
+            src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+            alt={slug}
             objectFit="cover"
             layout="fill"
           />
         </div>
         <div className="p-4">
-          <p className="card-title text-xs text-secondary-content">
-            {latest_item?.country}
-          </p>
-          <div className="border-2 border-brown border-solid my-2"></div>
-          <p className="font-redHat font-regular text-base">
-            {`${latest_item?.blog_listing_cta_text}: ${latest_item?.blog_listing_preview_text}`}
-          </p>
+          <p className="card-title text-xs text-secondary-content">{title}</p>
+          {is_guide && (
+            <div className="border-2 border-brown border-solid my-2"></div>
+          )}
+          <p className="font-redHat font-regular text-base">{subtitle}</p>
         </div>
       </div>
     </Link>

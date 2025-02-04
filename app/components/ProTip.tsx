@@ -30,7 +30,7 @@ const ProTip = ({ city_name, title, image }: any) => {
           style={{ height: 2, backgroundColor: "#EAD5C4" }}
         ></div>
         <p
-          className="font-redHat  text-base"
+          className="font-redHat  text-base rich_text_links"
           dangerouslySetInnerHTML={{
             __html: title || "",
           }}
