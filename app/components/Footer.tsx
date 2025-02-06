@@ -67,7 +67,7 @@ const Footer = () => {
         className="my-8 flex flex-col md:flex-row justify-between lg:flex px-4 md:px-32 "
         style={{ alignItems: "center" }}
       >
-        <div style={{ flex: 1 }}>
+        <div className="flex-1 md:flex-[0.55]">
           <p className="font-redHat font-medium text-xl">
             Follow me on @galtravelstory
           </p>
@@ -79,25 +79,24 @@ const Footer = () => {
         </div>
 
         <div
-          className="flex justify-center md:justify-end mt-8 md:mt-0 gap-4 md:gap-0"
-          style={{ flex: 1, flexWrap: "wrap" }}
+          className="flex justify-center md:justify-end mt-8 md:mt-0 gap-4 md:gap-2 flex-1 md:flex-[0.45]"
+          style={{ flexWrap: "wrap" }}
         >
           {insta_feed.map((item, index) => (
             <div
               key={`img_${index}`}
+              className="w-[110px] h-[110px] md:w-[150px] md:h-[150px]"
               style={{
-                width: 110,
-                height: 110,
                 marginBottom: index < 4 ? 20 : 0,
                 flexBasis: "21%",
               }}
             >
               <Link href={item.permalink || item.media_url} target="_blank">
                 <img
+                  className="w-[110px] h-[110px] md:w-[150px] md:h-[150px]"
                   src={
                     item?.thumbnail_url ? item?.thumbnail_url : item?.media_url
                   }
-                  style={{ width: 110, height: 110 }}
                 />
               </Link>
             </div>
