@@ -53,7 +53,15 @@ const Footer = () => {
         subscriber_name: name,
         subscriber_email: email,
       };
-      const result = await fireApiAction(API.subscriber_emails, "POST", data);
+
+      const full_path = `${process.env.NEXT_PUBLIC_API_ENDPOINT}${API.subscriber_emails}`;
+
+      const result = await axios.post(full_path, data, {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`, // Add Bearer token here
+        },
+      });
+
       set_show_success(true);
       throw new Error("Not Found");
     } catch (error) {

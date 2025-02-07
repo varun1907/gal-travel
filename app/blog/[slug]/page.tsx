@@ -1,3 +1,4 @@
+export const revalidate = false;
 import constant from "../../../config/constant";
 
 import { Metadata } from "next";

@@ -1,3 +1,4 @@
+export const revalidate = false;
 import { API, fireApiAction } from "@/config/api";
 
 async function fetchPrivacyPolicy() {

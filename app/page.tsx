@@ -1,3 +1,4 @@
+export const revalidate = false;
 import Image from "next/image";
 import PortraitPhoto from "./components/PortraitPhoto";
 import MasonryImage from "./components/MasontryImage";

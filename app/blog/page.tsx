@@ -1,3 +1,4 @@
+export const revalidate = false;
 import Link from "next/link";
 import { API, fireApiAction } from "../../config/api";
 import constant from "../../config/constant";

@@ -1,3 +1,4 @@
+export const revalidate = false;
 import BlogDetailActivitySection from "@/app/components/BlogDetailActivitySection";
 import BlogDetailDaySection from "@/app/components/BlogDetailDaySection";
 import BlogDetailIntro from "@/app/components/BlogDetailIntro";
