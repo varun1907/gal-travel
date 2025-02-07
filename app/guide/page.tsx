@@ -24,6 +24,24 @@ async function fetchBlogList() {
   }
 }
 
+async function fetchHeroBanner() {
+  const params = {
+    "fields[]": "*.*.*",
+  };
+  try {
+    const result = await fireApiAction(
+      API.blogs_guides_listing_banners,
+      "GET",
+      params
+    );
+
+    return result.data; // Return the blog details
+    throw new Error("Not Found");
+  } catch (error) {
+    return null;
+  }
+}
+
 async function fetchQuoteList(total_blogs: number) {
   const params = {
     "filter[status][_eq]": "published",
@@ -60,10 +78,19 @@ async function fetchQuoteList(total_blogs: number) {
 export default async function BlogDetail() {
   const blogList = await fetchBlogList();
   const quoteList = await fetchQuoteList(blogList?.length);
+  const heroBanner = await fetchHeroBanner();
 
   return (
     <div>
       <div className="carousel-item w-full relative">
+        <div className="relative w-full object-cover h-[600px]">
+          <Image
+            src={`${constant.REMOTE_IMAGE_ENDPOINT}${heroBanner?.guides_listing_hero_banner?.filename_disk}`}
+            alt={`Blog banneer`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <div
           className="absolute px-4 text-center text-white"
           style={{
@@ -79,11 +106,11 @@ export default async function BlogDetail() {
             Live my journeys with me and through me
           </p>
         </div>
-        <img
+        {/* <img
           src={`/blog_list_banner.svg`}
           className="w-full object-cover h-[600px]"
           alt="Slide 1"
-        />
+        /> */}
       </div>
 
       <div className="mt-20 mx-6 md:mx-36">

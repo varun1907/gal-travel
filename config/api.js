@@ -9,6 +9,7 @@ const API = {
   footer: "footer",
   travel_quotes: "travel_quotes",
   normal_blogs: "normal_blogs",
+  blogs_guides_listing_banners: "blogs_guides_listing_banners",
 };
 
 const axioInstance = axios.create({
@@ -24,28 +25,22 @@ axioInstance.interceptors.request.use((request) => {
 
 const fireApiAction = async (url, method = "GET", data = {}) => {
   try {
-    method = method.toLowerCase();
-    let allData = {
-      url,
+    method = method.toUpperCase();
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_ENDPOINT;
+    const completeURL =
+      method === "GET"
+        ? `${baseUrl}${url}?${new URLSearchParams(data).toString()}`
+        : `${baseUrl}${url}`;
+    const res = await fetch(completeURL, {
       method,
       headers: {
-        "Cache-Control": "no-store, max-age=0",
-        Pragma: "no-cache",
-        Expires: "0",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`,
       },
-    };
-    if (method === "get") {
-      allData["params"] = data;
-    } else if (method === "post") {
-      allData["data"] = data;
-    } else if (method === "patch" || method === "put" || method === "delete") {
-      let updateId = data.id;
-      if (method !== "delete") delete data.id;
-      url = [url, updateId];
-      allData["data"] = data;
-    }
-    const result = await axioInstance(allData);
-    return result.data;
+      ...(method !== "GET" && { body: JSON.stringify(data) }),
+    });
+    const parsedRes = await res.json();
+    return parsedRes;
   } catch (error) {
     throw error.response.data;
   }
