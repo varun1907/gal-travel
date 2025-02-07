@@ -145,7 +145,7 @@ export default async function BlogDetail() {
               {(blog_index + 1) % 4 === 0 &&
                 quoteList?.[Math.floor(blog_index / 4)]?.quote && (
                   <div
-                    className="col-span-full flex items-center justify-center"
+                    className="col-span-full flex items-center justify-center px-5"
                     style={{ border: "1px dashed #A78B88", height: 175 }}
                   >
                     <Image
