@@ -1,3 +1,4 @@
+export const revalidate = false;
 import { API, fireApiAction } from "@/config/api";
 import Image from "next/image";
 import constant from "../../config/constant";

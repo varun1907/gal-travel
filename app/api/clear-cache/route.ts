@@ -3,9 +3,17 @@ import axios from "axios";
 import { revalidatePath } from "next/cache";
 
 export async function GET(req: Request) {
-  const pathsToRevalidate = ["/", "/guide", "/blog", "/about", "/privacy-policy"];
-  const cleared = [];
-  const errors = [];
+  "use server"; // ✅ Ensures server action compatibility
+
+  const pathsToRevalidate = [
+    "/",
+    "/guide",
+    "/blog",
+    "/about",
+    "/privacy-policy",
+  ];
+  const cleared: string[] = [];
+  const errors: { path?: string; error: string }[] = [];
 
   try {
     // Revalidate static paths
@@ -13,13 +21,13 @@ export async function GET(req: Request) {
       try {
         revalidatePath(path);
         cleared.push(path);
-      } catch (err:any) {
+      } catch (err: any) {
         console.error(`Failed to revalidate path: ${path}`, err);
-        errors.push({ path, error: err.message });
+        errors.push({ path, error: String(err) });
       }
     }
 
-    // Fetch and revalidate dynamic paths
+    // ✅ Fetch dynamic paths and revalidate them
     try {
       const full_path = `${process.env.NEXT_PUBLIC_API_ENDPOINT}travel_blogs?fields=slug&pagination[limit]=1000`;
       const response = await axios.get(full_path, {
@@ -34,9 +42,29 @@ export async function GET(req: Request) {
           try {
             revalidatePath(dynamicPath);
             cleared.push(dynamicPath);
-          } catch (err:any) {
+          } catch (err: any) {
             console.error(`Failed to revalidate path: ${dynamicPath}`, err);
-            errors.push({ path: dynamicPath, error: err.message });
+            errors.push({ path: dynamicPath, error: String(err) });
+          }
+        }
+      }
+
+      const full_path_blog = `${process.env.NEXT_PUBLIC_API_ENDPOINT}normal_blogs?fields=slug&pagination[limit]=1000`;
+      const response_blog = await axios.get(full_path_blog, {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_AUTH_TOKEN}`,
+        },
+      });
+
+      if (response_blog?.data?.data) {
+        for (const item of response_blog.data.data) {
+          const dynamicPath = `/blog/${item.slug}`;
+          try {
+            revalidatePath(dynamicPath);
+            cleared.push(dynamicPath);
+          } catch (err: any) {
+            console.error(`Failed to revalidate path: ${dynamicPath}`, err);
+            errors.push({ path: dynamicPath, error: String(err) });
           }
         }
       }
@@ -45,10 +73,13 @@ export async function GET(req: Request) {
       errors.push({ error: "Failed to fetch dynamic paths" });
     }
 
-    // Return result
+    // ✅ Return the revalidation result
     return NextResponse.json({ cleared, errors });
   } catch (error) {
     console.error("Revalidation error:", error);
-    return NextResponse.json({ error: "Error during revalidation process" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Error during revalidation process" },
+      { status: 500 }
+    );
   }
 }
