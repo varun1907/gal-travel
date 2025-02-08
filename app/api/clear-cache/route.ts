@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 import { revalidatePath } from "next/cache";
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
   "use server"; // ✅ Ensures server action compatibility
 
   const pathsToRevalidate = [
