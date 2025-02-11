@@ -5,6 +5,7 @@ import constant from "../../config/constant";
 import _ from "lodash";
 import React from "react";
 import Image from "next/image";
+import Quote from "../components/Quote";
 
 async function fetchBlogList() {
   const params = {
@@ -43,34 +44,15 @@ async function fetchHeroBanner() {
   }
 }
 
-async function fetchQuoteList(total_blogs: number) {
+async function fetchQuoteList() {
   const params = {
     "filter[status][_eq]": "published",
   };
 
   try {
     const result = await fireApiAction(API.travel_quotes, "GET", params);
-    let output: any = [];
-    if (result?.data?.length > 0) {
-      let number_of_rows = Math.ceil(total_blogs / 4);
-      const total_quote = number_of_rows - 1;
 
-      const quotes = result?.data;
-
-      if (total_quote <= quotes.length) {
-        // When n is less than or equal to array size, pick unique random values
-        const shuffled = [...quotes].sort(() => Math.random() - 0.5); // Shuffle the array
-        output = shuffled.slice(0, total_quote);
-      } else {
-        // When n is more than the array size, allow repetition
-        for (let i = 0; i < total_quote; i++) {
-          const randomIndex = Math.floor(Math.random() * quotes.length); // Pick random index
-          output.push(quotes[randomIndex]);
-        }
-      }
-    }
-
-    return output;
+    return result?.data;
   } catch (error) {
     return null;
   }
@@ -78,7 +60,7 @@ async function fetchQuoteList(total_blogs: number) {
 
 export default async function BlogDetail() {
   const blogList = await fetchBlogList();
-  const quoteList = await fetchQuoteList(blogList?.length);
+  const quoteList = await fetchQuoteList();
   const heroBanner = await fetchHeroBanner();
 
   return (
@@ -145,22 +127,11 @@ export default async function BlogDetail() {
 
               {(blog_index + 1) % 4 === 0 &&
                 quoteList?.[Math.floor(blog_index / 4)]?.quote && (
-                  <div
-                    className="col-span-full flex items-center justify-center px-5 md:h-[175px] py-4 md:py-0"
-                    style={{ border: "1px dashed #A78B88" }}
-                  >
-                    <Image
-                      aria-hidden
-                      className="mr-3"
-                      src="/duck.svg"
-                      alt="Duck"
-                      width={30}
-                      height={35}
-                    />
-                    <p className="font-redHat text-2xl">
-                      {quoteList[Math.floor(blog_index / 4)]?.quote}
-                    </p>
-                  </div>
+                  <Quote
+                    quoteList={quoteList}
+                    idx={blog_index}
+                    total_blogs={blogList.length}
+                  />
                 )}
             </React.Fragment>
           ))}
