@@ -33,9 +33,9 @@ const TodoActivitySection = ({ activity }: any) => {
                 }}
               ></p>
 
-              {todo_item?.activities_to_do_id?.to_do_image_1_big
-                ?.filename_disk && (
-                <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-4">
+              <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-4">
+                {todo_item?.activities_to_do_id?.to_do_image_1_big
+                  ?.filename_disk && (
                   <div className="md:col-span-1 overflow-hidden relative w-full h-[200px] md:h-[342px] object-cover">
                     <Image
                       src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_1_big?.filename_disk}`}
@@ -44,8 +44,19 @@ const TodoActivitySection = ({ activity }: any) => {
                       objectFit="cover"
                     />
                   </div>
+                )}
 
-                  <div className="grid grid-rows-2 gap-3">
+                <div
+                  className={`grid ${
+                    todo_item?.activities_to_do_id?.to_do_image_2
+                      ?.filename_disk &&
+                    todo_item?.activities_to_do_id?.to_do_image_3?.filename_disk
+                      ? "grid-rows-2"
+                      : "grid-rows-1"
+                  } gap-3`}
+                >
+                  {todo_item?.activities_to_do_id?.to_do_image_2
+                    ?.filename_disk && (
                     <div className="overflow-hidden relative w-full h-[200px] md:h-[180px] object-cover">
                       <Image
                         src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_2?.filename_disk}`}
@@ -54,6 +65,9 @@ const TodoActivitySection = ({ activity }: any) => {
                         objectFit="cover"
                       />
                     </div>
+                  )}
+                  {todo_item?.activities_to_do_id?.to_do_image_3
+                    ?.filename_disk && (
                     <div className="overflow-hidden relative w-full h-[200px] md:h-[150px] object-cover">
                       <Image
                         src={`${constant.REMOTE_IMAGE_ENDPOINT}${todo_item?.activities_to_do_id?.to_do_image_3?.filename_disk}`}
@@ -62,9 +76,9 @@ const TodoActivitySection = ({ activity }: any) => {
                         objectFit="cover"
                       />
                     </div>
-                  </div>
+                  )}
                 </div>
-              )}
+              </div>
 
               {!_.isEmpty(todo_item?.activities_to_do_id?.to_do_pro_tip) &&
                 !_.isEmpty(

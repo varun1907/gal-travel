@@ -9,14 +9,24 @@ const ProTip = ({ city_name, title, image }: any) => {
       className="card card-compact md:card-side bg-base-100 shadow-xl my-5"
       style={{ borderRadius: 0 }}
     >
-      <div className="relative w-[350px] h-[200px] object-cover ">
+      <div className="md:w-[350px] h-[200px] overflow-hidden flex-shrink-0">
         <Image
           src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
           alt="Pro Tip"
-          layout={"fill"}
-          objectFit="cover"
+          className="w-full h-full object-cover"
+          width={350} // Ensures proper width
+          height={200} // Ensures proper height
         />
       </div>
+
+      {/* <div className="relative w-full md:w-[350px] h-[200px]">
+        <Image
+          src={`${constant.REMOTE_IMAGE_ENDPOINT}${image}`}
+          alt="Pro Tip"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div> */}
 
       <div className="flex flex-col justify-center px-5 py-5 md:py-5">
         <p
